@@ -1,0 +1,394 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.360 align:middle line:90%
+
+00:00:01.360 --> 00:00:05.370 align:middle line:84%
+欢迎来到ELEARING课程：Ensemble入门	
+
+00:00:05.370 --> 00:00:08.070 align:middle line:90%
+基本业务组件
+
+00:00:08.070 --> 00:00:11.540 align:middle line:84%
+这部分课程将介绍Ensemlbe的基础组成部分
+
+00:00:11.540 --> 00:00:14.970 align:middle line:84%
+和基础工具
+
+00:00:14.970 --> 00:00:20.250 align:middle line:84%
+你将学会怎么构造和管理它们。
+
+00:00:20.250 --> 00:00:23.240 align:middle line:84%
+Ensemble是为了连接应用程序而设计的
+
+00:00:23.240 --> 00:00:26.995 align:middle line:84%
+通过使用多种技术和协议实现。
+
+00:00:26.995 --> 00:00:31.660 align:middle line:84%
+一个Ensemble解决方案被称作一个‘"产品"(Production)
+
+00:00:31.660 --> 00:00:35.570 align:middle line:84%
+一个Ensemble产品定义了其中使用的所有业务组件 
+
+00:00:35.570 --> 00:00:38.410 align:middle line:84%
+这些组件处理输入型(inbound)或者输出型(outbound)的外部连接
+
+00:00:38.410 --> 00:00:41.740 align:middle line:84%
+并且控制两者之间的消息的传送。
+
+00:00:41.740 --> 00:00:45.530 align:middle line:84%
+先是产品只被创建，然后组件和配置项
+
+00:00:45.530 --> 00:00:49.190 align:middle line:84%
+被加入用来完善产品
+
+00:00:49.190 --> 00:00:54.110 align:middle line:84%
+输入型连接的连接点被叫做业务服务(Business Services)
+
+00:00:54.110 --> 00:00:56.760 align:middle line:84%
+输出型连接的连接点
+
+00:00:56.760 --> 00:00:59.610 align:middle line:90%
+被叫做业务操作(Business Operations)
+
+00:00:59.610 --> 00:01:02.410 align:middle line:84%
+他们处理用于连接的技术
+
+00:01:02.410 --> 00:01:10.650 align:middle line:84%
+比如TCP/IP, flat files,SOAP, FTP, HTTP等等
+
+00:01:10.650 --> 00:01:15.100 align:middle line:84%
+有些消息格式，比如用于HL7产品的
+
+00:01:15.100 --> 00:01:17.800 align:middle line:84%
+are pre-built components that just
+都已经是是系统预建的业务组件了
+
+00:01:17.800 --> 00:01:21.090 align:middle line:84%
+have to be configured with the appropriate parameters,
+需要做的只是配置合适的参数，
+
+00:01:21.090 --> 00:01:25.350 align:middle line:84%
+比如TCP/IP的端口
+
+00:01:25.350 --> 00:01:28.130 align:middle line:90%
+或者FLAT文件的文件名和文件目录。
+
+00:01:28.130 --> 00:01:31.200 align:middle line:84%
+对于一个特定的应用，用户也可以
+
+00:01:31.200 --> 00:01:33.510 align:middle line:84%
+开发他们自己的业务服务
+
+00:01:33.510 --> 00:01:35.910 align:middle line:90%
+或者业务操作。
+
+00:01:35.910 --> 00:01:38.040 align:middle line:84%
+业务服务和业务操作
+
+00:01:38.040 --> 00:01:46.420 align:middle line:84%
+通常使用适配器来处理和应用程序通信的专门的技术和协议
+
+
+00:01:46.420 --> 00:01:49.320 align:middle line:84%
+业务服务和业务操作
+
+00:01:49.320 --> 00:01:52.070 align:middle line:84%
+以及他们使用的各种适配器
+00:01:52.070 --> 00:01:54.230 align:middle line:84%
+处理所有和连接有关的事情，
+
+00:01:54.230 --> 00:01:58.990 align:middle line:84%
+比如发起连接，重试，超时，帧封装
+
+00:01:58.990 --> 00:02:02.310 align:middle line:84%
+as well as the actual wire protocol.
+以及实际的高层传输协议
+
+00:02:02.310 --> 00:02:05.560 align:middle line:84%
+这和任何商业逻辑完全无关
+
+00:02:05.560 --> 00:02:08.169 align:middle line:84%
+to orchestrate calls to separate applications
+商业逻辑的作用是协调到各个应用的调用。
+
+00:02:08.169 --> 00:02:11.640 align:middle line:84%
+or to route a transformer request.
+或者路由经过数据转换的请求消息。
+
+00:02:11.640 --> 00:02:15.590 align:middle line:84%
+一个业务流程(Business Process)用于实现这种
+
+00:02:15.590 --> 00:02:21.220 align:middle line:84%
+商业逻辑， 它决定收到的请求应该被发到哪里
+
+00:02:21.220 --> 00:02:25.340 align:middle line:84%
+或者协调多个到外部应用程序调用。
+
+00:02:25.340 --> 00:02:27.150 align:middle line:90%
+并生成一个响应。
+
+00:02:27.150 --> 00:02:30.970 align:middle line:84%
+实际执行过程中， 一个业务流程可以发送请求
+
+00:02:30.970 --> 00:02:35.840 align:middle line:84%
+到多个业务操作,或者其他多个业务流程。
+
+00:02:35.840 --> 00:02:38.600 align:middle line:84%
+这些请求可以是异步的
+
+00:02:38.600 --> 00:02:41.790 align:middle line:84%
+意味着一个业务流程可能要用几个小时甚至
+
+00:02:41.790 --> 00:02:44.220 align:middle line:90%
+几天来等待一个响应消息。
+
+00:02:44.220 --> 00:02:48.150 align:middle line:84%
+在等待过程中， 业务流程被写到磁盘上，
+
+00:02:48.150 --> 00:02:53.520 align:middle line:84%
+and is only re-opened when the response arrives.
+等到收到响应消息才会被重新调出。
+
+00:02:53.520 --> 00:02:57.490 align:middle line:84%
+一个大的产品可能有几百个这种业务组件。
+
+00:02:58.740 --> 00:03:01.370 align:middle line:84%
+When a Production is started, jobs
+当一个产品被启动，任务(jobs）
+
+00:03:01.370 --> 00:03:05.820 align:middle line:84%
+are started to run all of the components.
+开始执行所有的组件。
+
+00:03:05.820 --> 00:03:09.260 align:middle line:84%
+这里你可以看到一个产品呈现
+
+00:03:09.260 --> 00:03:12.730 align:middle line:84%
+在Ensemble管理界面的配置页
+
+00:03:12.730 --> 00:03:16.140 align:middle line:84%
+Configuration items, such as Business Services, Processes,
+各种业务组件，比如业务服务，业务流程，
+
+00:03:16.140 --> 00:03:20.670 align:middle line:84%
+and Operations, communicate by sending messages,
+和业务操作，通过发送消息彼此通信。
+
+00:03:20.670 --> 00:03:24.070 align:middle line:84%
+所以业务服务可能发送一个个请求消息给业务流程
+
+00:03:24.070 --> 00:03:28.560 align:middle line:84%
+然后得到响应。
+
+00:03:28.560 --> 00:03:31.640 align:middle line:84%
+你可以看到在这里业务服务
+
+00:03:31.640 --> 00:03:35.420 align:middle line:84%
+CompositeOrderService发送个消息给业务流程CompositeOrderProcess
+
+00:03:35.420 --> 00:03:40.330 align:middle line:84%
+这个业务流程接着发送
+
+00:03:40.330 --> 00:03:44.060 align:middle line:84%
+一个消息给业务流程RestockProcess
+
+00:03:44.060 --> 00:03:48.960 align:middle line:84%
+以及业务操作Inventory, OrderProcessing, 
+
+00:03:48.960 --> 00:03:50.570 align:middle line:90%
+和PriceList。
+
+00:03:50.570 --> 00:03:58.150 align:middle line:84%
+如你所想，消息是Ensemble解决方案里最重要的部分
+
+00:03:58.150 --> 00:04:01.950 align:middle line:84%
+业务流程可以被由客户自己写代码生成，
+
+00:04:01.950 --> 00:04:04.750 align:middle line:84%
+but most either use a routing engine together
+但多数情况要么用路由组件(routing engine)
+
+00:04:04.750 --> 00:04:09.130 align:middle line:84%
+配以路由规则，或者用业务流程语言BPL实现。
+
+
+00:04:11.290 --> 00:04:15.920 align:middle line:84%
+这里你看到呈现在Ensemble图形化的BPL编辑器中的一个业务流程
+
+
+00:04:17.060 --> 00:04:19.709 align:middle line:84%
+BPL被设计用来协调
+
+00:04:19.709 --> 00:04:23.265 align:middle line:84%
+到业务操作或者其他业务流程的调用。
+
+
+00:04:26.540 --> 00:04:29.510 align:middle line:84%
+业务规则允许业务分析人员
+
+00:04:29.510 --> 00:04:32.280 align:middle line:84%
+改变一个业务流程的运行的
+
+00:04:32.280 --> 00:04:34.330 align:middle line:90%
+行为方式
+
+00:04:34.330 --> 00:04:36.760 align:middle line:84%
+业务流程的设计者
+
+00:04:36.760 --> 00:04:39.770 align:middle line:84%
+把调用加入规则
+
+
+00:04:39.770 --> 00:04:42.910 align:middle line:84%
+并用规则返回的值
+
+00:04:42.910 --> 00:04:46.590 align:middle line:84%
+来决定业务规则怎么继续执行
+
+00:04:46.590 --> 00:04:49.380 align:middle line:84%
+由此在一个运行中的系统，分析师可以
+
+00:04:49.380 --> 00:04:51.210 align:middle line:84%
+修改规则而不用停止
+
+00:04:51.210 --> 00:04:53.710 align:middle line:90%
+系统或者修改代码
+
+00:04:53.710 --> 00:04:56.500 align:middle line:84%
+路由规则是规则的一种形式，用于
+
+00:04:56.500 --> 00:04:59.980 align:middle line:84%
+特定的业务流程，其被称为‘消息路由器’。
+
+00:04:59.980 --> 00:05:05.810 align:middle line:84%
+Here is an HL7 Routing Rule implemented
+请看一个创建好的HL7路由规则，实现它并没有使用代码编程。
+
+
+00:05:05.810 --> 00:05:09.560 align:middle line:84%
+当连接多个系统时，很多时候要改变
+
+00:05:09.560 --> 00:05:14.070 align:middle line:84%
+或者映射一个消息或者记录，到相似但略有不同的
+
+00:05:14.070 --> 00:05:15.350 align:middle line:90%
+格式
+
+00:05:15.350 --> 00:05:19.830 align:middle line:84%
+在Ensemble中，这是数据转换(Data Transformation)的工作
+
+
+00:05:19.830 --> 00:05:23.970 align:middle line:84%
+数据转换使用'数据变换语言'工作，
+
+00:05:23.970 --> 00:05:26.270 align:middle line:90%
+Language, or DTL.
+缩写为DTL
+
+00:05:26.270 --> 00:05:29.500 align:middle line:84%
+Ensemble Studio提供了图形化的拖拽
+
+00:05:29.500 --> 00:05:35.290 align:middle line:84%
+来使得开发数据变换变得容易
+
+00:05:35.290 --> 00:05:38.440 align:middle line:84%
+使用Ensemble工具通过单击
+
+00:05:38.440 --> 00:05:43.420 align:middle line:84%
+windows工作站系统托盘的"蓝色E"
+
+00:05:43.420 --> 00:05:47.000 align:middle line:84%
+让你连接到一个运行于
+
+00:05:47.000 --> 00:05:51.450 align:middle line:84%
+你的本地PC或者远程服务器的Ensemble实例
+
+00:05:51.450 --> 00:05:57.350 align:middle line:84%
+另一种连接方法是，你可以在浏览器里建立URL书签
+
+00:05:57.350 --> 00:05:59.530 align:middle line:84%
+Ensemble管理界面
+
+00:05:59.530 --> 00:06:01.790 align:middle line:84%
+用来管理和配置系统
+
+00:06:01.790 --> 00:06:05.280 align:middle line:84%
+和开发上面提到的一些业务组件
+
+00:06:05.280 --> 00:06:09.380 align:middle line:84%
+这包括配置和操作任务
+
+00:06:09.380 --> 00:06:13.100 align:middle line:84%
+他们对于CACHE和Ensemble是共同的
+
+00:06:13.100 --> 00:06:18.540 align:middle line:84%
+比如安全管理，也Ensemble相关的管理
+
+
+00:06:20.020 --> 00:06:22.580 align:middle line:84%
+Ensemble管理界面用于
+
+
+00:06:22.580 --> 00:06:25.670 align:middle line:84%
+配置一个产品，查看历史
+
+00:06:25.670 --> 00:06:28.590 align:middle line:84%
+或者ensemble系统中传递的消息
+
+00:06:28.590 --> 00:06:32.120 align:middle line:84%
+以及可能发生的任何错误。
+
+00:06:32.120 --> 00:06:35.480 align:middle line:84%
+你也可以查看系统的当前状态
+
+00:06:35.480 --> 00:06:37.990 align:middle line:84%
+包括各组件的状态
+
+00:06:37.990 --> 00:06:40.230 align:middle line:84%
+队列的长度和内容
+
+00:06:40.230 --> 00:06:44.310 align:middle line:84%
+和运行中的系统的其他各个方面
+
+00:06:44.310 --> 00:06:46.760 align:middle line:84%
+Ensemble管理页面还
+
+00:06:46.760 --> 00:06:52.630 align:middle line:84%
+包括图形化编辑器，其用于开发DTL,BPL,业务
+
+00:06:52.630 --> 00:06:54.310 align:middle line:90%
+规则，和record maps
+
+00:06:57.340 --> 00:07:01.050 align:middle line:84%
+Ensemble Studio用来开发维护
+
+00:07:01.050 --> 00:07:03.360 align:middle line:90%
+Ensemble中的新部件
+
+00:07:03.360 --> 00:07:06.170 align:middle line:84%
+因为Ensemble是面向对象的技术
+
+00:07:06.170 --> 00:07:09.720 align:middle line:84%
+几乎所有开发出的结果都是类
+
+00:07:09.720 --> 00:07:14.750 align:middle line:84%
+大多数情况你需要创建一个标准类的子类
+
+00:07:14.750 --> 00:07:19.140 align:middle line:84%
+他们(标准class)提供你需要的大部分的功能
+
+00:07:19.140 --> 00:07:24.200 align:middle line:84%
+对于写成BPL或者DTL的Ensemble类
+
+00:07:24.200 --> 00:07:26.730 align:middle line:84%
+Ensemble Studio自动
+
+00:07:26.730 --> 00:07:31.700 align:middle line:84%
+使用相应的图形化编辑器。
+
+00:07:31.700 --> 00:07:35.120 align:middle line:84%
+感谢收看"Ensemble入门"
+
+00:07:35.120 --> 00:07:37.376 align:middle line:90%
+基本部件篇
+00:07:37.376 --> 00:07:37.875 align:middle line:90%

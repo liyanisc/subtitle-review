@@ -1,0 +1,1055 @@
+﻿WEBVTT
+
+00:00:00.000 --> 00:00:11.570 align:middle line:90%
+
+
+00:00:11.570 --> 00:00:16.210 align:middle line:84%
+Welcome to the eLearning
+session, Ensemble: HL7 Custom
+欢迎来到 eLearning 课程，
+
+00:00:16.210 --> 00:00:18.600 align:middle line:90%
+Schemas.
+Ensemble HL7 用户自定义 Schemas。
+
+
+00:00:18.600 --> 00:00:23.290 align:middle line:84%
+For Ensemble or HealthShare to
+properly parse an HL7 message,
+在 Ensemble 或者 HealthShare 中，
+为了解析一个 HL7 消息，
+
+00:00:23.290 --> 00:00:25.600 align:middle line:84%
+it must be assigned
+a schema category,
+必须要有一个合适色 schema 类，
+
+00:00:25.600 --> 00:00:31.700 align:middle line:84%
+for example 2.5, and a document
+type, for example ORU_R01.
+比如 2.5, 和一文档类型，比如 ORU_R01。
+
+00:00:31.700 --> 00:00:35.110 align:middle line:84%
+With this information, Ensemble
+can validate a message against
+有了这些信息，Ensemble 可以根据
+
+00:00:35.110 --> 00:00:38.450 align:middle line:84%
+the schema, and can parse
+a property path such
+schema 校验消息，解析属性路径，
+
+00:00:38.450 --> 00:00:41.550 align:middle line:90%
+as MSH:CountryCode.
+比如 MSH:CountryCode。
+
+00:00:41.550 --> 00:00:43.950 align:middle line:84%
+Data Transformation
+Language, Routing Rules,
+数据转换语言，路由规则，
+
+00:00:43.950 --> 00:00:47.920 align:middle line:84%
+and custom Caché Object
+Script parsing rely heavily
+以及用户的 Caché 的对象脚本解析都
+
+00:00:47.920 --> 00:00:51.640 align:middle line:84%
+on the schema category and
+document type assignments.
+依赖于指定的 schema 类，和文档类型。
+
+00:00:51.640 --> 00:00:55.580 align:middle line:84%
+Ensemble comes with
+all HL7 version 2.1
+Ensemble 自带所有的 HL7 版本，
+
+00:00:55.580 --> 00:00:58.750 align:middle line:84%
+through 2.7 schema
+definitions installed.
+从 2.1 到 2.7 schema 的定义。
+
+00:00:58.750 --> 00:01:04.310 align:middle line:84%
+Schema version 2.7.1 will
+be included in the 2014.1
+Schema 版本 2.7.1 包含在 
+
+00:01:04.310 --> 00:01:06.470 align:middle line:90%
+release of Ensemble.
+Ensemble 2014.1 中。
+
+00:01:06.470 --> 00:01:10.900 align:middle line:84%
+Using a standard HL7 schema,
+custom schemas can be created.
+利用一个标准的 HL7 schemas, 用户可以创建一个自定义的 schemas。
+
+00:01:10.900 --> 00:01:14.100 align:middle line:84%
+A custom schema can
+modify existing structures
+用户自定义 schema 可以修改现有的结构
+
+00:01:14.100 --> 00:01:16.670 align:middle line:90%
+or add additional structures.
+或则增加额外的结构。
+
+00:01:16.670 --> 00:01:22.100 align:middle line:84%
+Only the alterations need be
+defined in a custom schema.
+所有的变动，只需要定义一个用户 schema。
+
+00:01:22.100 --> 00:01:24.250 align:middle line:84%
+Let's take a look at
+a simple Production
+让我们在 Ensemble 门户中
+
+00:01:24.250 --> 00:01:25.740 align:middle line:90%
+in the Ensemble Portal.
+看一下一个简单的 Production.
+
+00:01:25.740 --> 00:01:29.942 align:middle line:84%
+So we will go to Ensemble,
+Configure, Production,
+我们到 Ensemble 配置，Production,
+
+00:01:29.942 --> 00:01:32.150 align:middle line:84%
+and we are looking at the
+eLearning.SchemaProduction.
+我们看到有个 eLearning.SchemaProduction。
+
+00:01:32.150 --> 00:01:34.660 align:middle line:90%
+
+
+00:01:34.660 --> 00:01:38.890 align:middle line:84%
+If we take a look at the
+Business Service FromLab,
+如果我们看一下 Business Service FromLab,
+
+00:01:38.890 --> 00:01:45.370 align:middle line:84%
+we can see that the Message
+Schema Category is 2.5.
+我们可以看到其消息 Schema Category 是 2.5。
+
+00:01:45.370 --> 00:01:50.080 align:middle line:84%
+This means that all messages
+received by this Business
+这意味着，所有经由这 Business Service
+
+00:01:50.080 --> 00:01:55.220 align:middle line:84%
+Service will be assigned a
+Message Schema Category of 2.5.
+接受的消息的 Schema Category 指定为 2.5。
+
+00:01:55.220 --> 00:02:00.630 align:middle line:84%
+The document type will be
+based on the content of MSH:9.
+文档类型由 MSH:9 的内容决定。
+
+00:02:00.630 --> 00:02:03.640 align:middle line:84%
+Messages created by Data
+Transformation Language
+由数据转换语言创建的消息
+
+00:02:03.640 --> 00:02:07.090 align:middle line:84%
+will take their Message Schema
+Category and document type
+会从 DTL 的定义中获取消息的
+
+00:02:07.090 --> 00:02:09.500 align:middle line:90%
+from the definition of the DTL.
+Schema Category 和文档类型。
+
+00:02:09.500 --> 00:02:13.190 align:middle line:84%
+If you create an HL7 message
+and Caché Object Script,
+如果你由 Caché 对象脚本创建了一个 HL7 消息，
+
+00:02:13.190 --> 00:02:16.900 align:middle line:84%
+you should set these
+properties appropriately.
+你应该设置相应的这些属性。
+
+00:02:16.900 --> 00:02:19.300 align:middle line:84%
+Let's process a message
+through this Production.
+让我们在这个 Production 中处理一个消息。
+
+00:02:19.300 --> 00:02:26.430 align:middle line:84%
+We first need to
+start the Production,
+首先我们需要启动这个 Production，
+
+00:02:26.430 --> 00:02:28.770 align:middle line:84%
+and then we need
+to put the message
+然后我们需要放一些消息
+
+00:02:28.770 --> 00:02:30.900 align:middle line:90%
+into the appropriate directory.
+到合适的目录下。
+
+00:02:30.900 --> 00:02:32.990 align:middle line:84%
+We've already saved
+one to our clipboard,
+我们已经通过剪贴板保存了一个，
+
+00:02:32.990 --> 00:02:36.210 align:middle line:84%
+so I just need to paste
+it into the directory
+所以我只需要将其放入一个目录，
+
+
+00:02:36.210 --> 00:02:38.370 align:middle line:84%
+to be processed
+by the Production.
+其将由这个 Production 来处理。
+
+00:02:38.370 --> 00:02:42.630 align:middle line:84%
+Returning to our Production,
+we can examine the messages
+返回到我们的 Production, 我们检查一下
+
+00:02:42.630 --> 00:02:45.420 align:middle line:90%
+processed by this Production.
+会被 Production 处理的消息。
+
+00:02:45.420 --> 00:02:48.200 align:middle line:84%
+So we go to the
+Messages tab, and we'll
+我们去 Messages 标签页，我们
+
+00:02:48.200 --> 00:02:51.190 align:middle line:90%
+go to the Message Viewer.
+会来到 "Message Viewer"。
+
+00:02:51.190 --> 00:02:53.420 align:middle line:84%
+We're only looking
+at the message that
+我们只看发送自
+
+00:02:53.420 --> 00:02:56.490 align:middle line:84%
+was sent from the
+From_Lab Business Service
+From_Lab Business Service 
+
+00:02:56.490 --> 00:02:58.930 align:middle line:90%
+to the From_Lab_Router.
+到 From_Lab_Router 的消息。
+
+
+00:02:58.930 --> 00:03:01.880 align:middle line:84%
+By choosing this message,
+and selecting Contents
+选中这个消息，
+
+00:03:01.880 --> 00:03:04.030 align:middle line:84%
+in our Message
+Viewer, we can see
+并在 Message View 中选择Contents (内容)
+
+00:03:04.030 --> 00:03:06.260 align:middle line:84%
+all of the contents
+of our message,
+我们可以看到这消息的所有内容。
+
+00:03:06.260 --> 00:03:08.880 align:middle line:90%
+and see the full HL7 message.
+并且可以看到整个 HL7 消息。
+
+00:03:08.880 --> 00:03:13.020 align:middle line:84%
+By viewing full contents,
+it's easier to read
+通过查看整个内容，方便阅读，
+
+00:03:13.020 --> 00:03:16.940 align:middle line:84%
+and we can see that there
+is an error in this message,
+我们也可以看到这个消息间有个错误，
+
+00:03:16.940 --> 00:03:21.790 align:middle line:84%
+because there's a z-segment
+that is unrecognized.
+因为有个 z-segment 不能被辨认。
+
+00:03:21.790 --> 00:03:25.130 align:middle line:84%
+We can also see that the
+z-segment in the message
+但是我们也可以看到消息中这 z-segment
+
+00:03:25.130 --> 00:03:30.080 align:middle line:84%
+contents itself is in black,
+while the others are blue.
+的内容是黑色的，而其它则为蓝色。
+
+00:03:30.080 --> 00:03:33.430 align:middle line:84%
+At the top of our message,
+we can see that we have
+在消息的头部，我们可以看到
+
+00:03:33.430 --> 00:03:38.340 align:middle line:84%
+our document type 2.5:ORU_R01,
+colon ORU underscore R01,
+我们的文档类型是 2:5:ORU_R01,
+冒号，ORU,下划线 R01,
+
+00:03:38.340 --> 00:03:41.850 align:middle line:84%
+and a document type
+category of 2.5.
+以及文档类型为 2.5. 
+
+00:03:41.850 --> 00:03:46.050 align:middle line:84%
+So let's create a custom
+schema and add the ZPI segment
+所以让我们来创建一个用户 schema，并加入一个 ZPI 片段，
+
+00:03:46.050 --> 00:03:48.100 align:middle line:90%
+so we can process this message.
+因而我们可以处理这消息。
+
+00:03:48.100 --> 00:03:52.280 align:middle line:90%
+
+
+00:03:52.280 --> 00:03:55.850 align:middle line:84%
+Before we actually create
+a custom schema to resolve
+在我们真正创建一个用户 schema 来
+
+00:03:55.850 --> 00:04:01.240 align:middle line:84%
+the error, let's examine the 2.5
+schema in the Ensemble portal.
+解决这个错误前，我们先在 Ensemble 门户中查看一下 schema 2.5.
+
+00:04:01.240 --> 00:04:03.980 align:middle line:84%
+So we will go back to
+the Ensemble Portal
+因此，我们来到 Ensemble 门户
+
+00:04:03.980 --> 00:04:10.150 align:middle line:84%
+to interoperate, HL7 and
+choose Schema Structures.
+菜单 interoperate, HL7,并选择 "Schema Structures".
+
+00:04:10.150 --> 00:04:14.060 align:middle line:84%
+From Ensemble release
+2013.1 and on,
+在 Ensemble 中，从版本 2013.1 开始，
+
+00:04:14.060 --> 00:04:16.959 align:middle line:84%
+you can create and
+maintain HL7 schemas
+你可以在管理门户中创建
+
+00:04:16.959 --> 00:04:18.430 align:middle line:90%
+in the management portal.
+和维护 HL7 schemas。
+
+00:04:18.430 --> 00:04:22.270 align:middle line:84%
+Prior to 2013.1,
+custom schemas had
+在版本 2013.1之前，用户 schemas,
+
+00:04:22.270 --> 00:04:25.480 align:middle line:84%
+to be created and
+maintained in Studio.
+只能在 Studio 中创建和维护。
+
+00:04:25.480 --> 00:04:30.450 align:middle line:84%
+When we select the 2.5 schema,
+you can see the Message Types.
+当我们选择了 schema 2.5, 你可以看到消息类型。
+
+00:04:30.450 --> 00:04:34.110 align:middle line:84%
+You can drill into each
+to see more information.
+你可以深入下去，看到更多信息。
+
+00:04:34.110 --> 00:04:37.360 align:middle line:84%
+The message structure is
+separate from the message type,
+消息结构独立于消息类型，
+
+00:04:37.360 --> 00:04:41.280 align:middle line:84%
+and message types may
+share the same structure.
+但消息类型可能共有相同的结构。
+
+00:04:41.280 --> 00:04:48.830 align:middle line:84%
+So let's examine the
+ORU_R01 Message Type,
+让我们察看一下 ORU_R01 消息类型，
+
+00:04:48.830 --> 00:04:53.200 align:middle line:84%
+and the Message Structure
+is also ORU_R01.
+和有同样名字的 ORU_R01 消息结构。
+
+00:04:53.200 --> 00:04:55.877 align:middle line:84%
+If we drill down to
+the Message Structure,
+我们可深入到消息的结构中，
+
+00:04:55.877 --> 00:04:57.460 align:middle line:84%
+when you look at the
+Message Structure
+当你看消息结构时，
+
+00:04:57.460 --> 00:05:00.940 align:middle line:84%
+you can see whether segments
+are optional or repeating.
+你可以看什么片段是可选的或者是重复的。
+
+00:05:00.940 --> 00:05:04.390 align:middle line:84%
+You can also see that there
+are groups of segments
+你也可看到这里有片段组
+
+00:05:04.390 --> 00:05:07.720 align:middle line:90%
+that are repeated together.
+可以组织在一起重复发生。
+
+00:05:07.720 --> 00:05:10.010 align:middle line:84%
+If we look at the
+Segment Structure,
+让我们看一下片段的结构，
+
+00:05:10.010 --> 00:05:13.840 align:middle line:84%
+we can see all of the
+Fields for that Segment.
+你可以看到片段上的所有字段。
+
+00:05:13.840 --> 00:05:17.350 align:middle line:90%
+
+
+00:05:17.350 --> 00:05:21.030 align:middle line:84%
+We can also examine Data
+Structures and Code Tables
+我们也可以查看数据结构和代码标，
+
+00:05:21.030 --> 00:05:24.450 align:middle line:84%
+as they are defined
+for the 2.5 schema.
+它们也定义在 schema 2.5 中。
+
+00:05:24.450 --> 00:05:27.100 align:middle line:84%
+More information
+about Data Structures
+更多关于数据结构的信息
+
+00:05:27.100 --> 00:05:31.560 align:middle line:84%
+is available in Ensemble
+2014.1, and can be
+可以在 Ensemble 2014.1 中可得，
+
+00:05:31.560 --> 00:05:34.790 align:middle line:90%
+used for additional validation.
+可用来做外加的校验。
+
+00:05:34.790 --> 00:05:37.360 align:middle line:84%
+At the top of our
+page, there are
+在我们这页的头部，有个
+
+00:05:37.360 --> 00:05:40.590 align:middle line:84%
+buttons that will allow
+you to add a New schema,
+按钮，可允许你添加新的 schema,
+
+00:05:40.590 --> 00:05:43.750 align:middle line:90%
+or to Export or Import a schema.
+或则导出/导入一个 schema.
+
+00:05:43.750 --> 00:05:47.340 align:middle line:84%
+While the standard
+schemas cannot be edited,
+虽然标准 schemas 是不能被编辑的，
+
+00:05:47.340 --> 00:05:52.130 align:middle line:84%
+we can create a new one
+based on an existing schema.
+我们可以根据现有的 schema 创建一个新的。
+
+00:05:52.130 --> 00:05:56.540 align:middle line:84%
+By clicking New, we can
+create a custom schema.
+点击"New",我们可以创建一用户 schema。
+
+00:05:56.540 --> 00:06:00.800 align:middle line:84%
+A custom schema can contain
+Message Types, Structures,
+在用户 schema 中可包含消息类型，结构，
+
+00:06:00.800 --> 00:06:02.740 align:middle line:90%
+Segments, and so forth.
+片段等等。
+
+00:06:02.740 --> 00:06:05.130 align:middle line:84%
+If a Message Type's
+segment or other item
+如果一个消息类型的片段或其它项目
+
+00:06:05.130 --> 00:06:09.130 align:middle line:84%
+is not explicitly defined
+in the custom schema,
+在用户 schema 中没有明确地定义，
+
+00:06:09.130 --> 00:06:14.210 align:middle line:84%
+it is found in the base class,
+in a manner analogous to object
+可以在基类中找到，这和对象的继承
+
+00:06:14.210 --> 00:06:15.480 align:middle line:90%
+inheritance.
+相类似。
+
+00:06:15.480 --> 00:06:19.010 align:middle line:84%
+So let's create a
+new custom schema,
+让我们来创建一个新的用户 schema，
+
+00:06:19.010 --> 00:06:23.200 align:middle line:84%
+and we will use 2.5
+as our base schema,
+我们会用 2.5 作为 schema 的基类，
+
+00:06:23.200 --> 00:06:29.940 align:middle line:84%
+and our new schema will
+be called eLearning_2.5.
+所以我们的新 schema 称之为 eLearning_2.5。
+
+00:06:29.940 --> 00:06:32.030 align:middle line:84%
+And as you can see,
+it has been added
+你可以看到它同它的基类一样
+
+00:06:32.030 --> 00:06:34.740 align:middle line:84%
+to the list of
+schemas with its base,
+被加入到 schemas 的列表中，
+
+00:06:34.740 --> 00:06:38.490 align:middle line:84%
+and it is not a standard
+schema, meaning that we can now
+并且不是一个标准 schema,意味着我们可以
+
+00:06:38.490 --> 00:06:40.300 align:middle line:90%
+edit this schema.
+编辑这个 schema。
+
+00:06:40.300 --> 00:06:43.500 align:middle line:84%
+So in our tabs, we
+have the ability
+所以在我们的标签页中，我们可以
+
+00:06:43.500 --> 00:06:48.030 align:middle line:84%
+of creating new Message Types,
+Document Type Structures and so
+创建新的消息类型，文档类型结构等等，
+
+00:06:48.030 --> 00:06:52.430 align:middle line:84%
+forth, or copying an existing
+message type from the base.
+或者可以从现有的基类中复制消息类型。
+
+00:06:52.430 --> 00:06:56.230 align:middle line:84%
+All we need to add are the
+items that are different.
+我们所需要的是加入不同的项目。
+
+00:06:56.230 --> 00:06:59.070 align:middle line:84%
+I will start with the
+Segment Structures,
+我会从片段结构开始，
+
+00:06:59.070 --> 00:07:01.450 align:middle line:90%
+and add a new z-segment.
+加入一个新的 z-segment。
+
+00:07:01.450 --> 00:07:04.030 align:middle line:84%
+I can add the new
+segment from scratch,
+我可以从头开始加入一个片段，
+
+00:07:04.030 --> 00:07:07.380 align:middle line:84%
+and add the fields one
+by one, or I can base it
+然后一个个地加入字段，或者我可以根据
+
+00:07:07.380 --> 00:07:09.630 align:middle line:90%
+on an existing segment.
+一个现有的片段加入。
+
+00:07:09.630 --> 00:07:21.620 align:middle line:84%
+We will copy from base
+the P-I-D segment,
+我们从基类中复制一个 PID 片段，
+
+00:07:21.620 --> 00:07:26.910 align:middle line:84%
+and call our new segment
+Z-P-I. At this point,
+并且称这个新的片段为 ZPI。到目前为止，
+
+00:07:26.910 --> 00:07:32.270 align:middle line:84%
+I can change any of the fields
+from our standard P-I-D segment
+我可以在标准的 PID 片段中修改任何字段
+
+00:07:32.270 --> 00:07:37.080 align:middle line:84%
+to accommodate the requirements
+of my custom Z-P-I segment.
+一适应我的用户 ZPI 片段的要求。
+
+00:07:37.080 --> 00:07:40.950 align:middle line:84%
+I can also add or delete
+fields as required.
+根据需求，我可以增加或删除字段。
+
+00:07:40.950 --> 00:07:47.450 align:middle line:84%
+So let's save our
+new Z-P-I segment
+让我们保存我们的新 ZPI 片段，
+
+00:07:47.450 --> 00:07:51.550 align:middle line:84%
+so that we can add the segment
+to a custom message type
+所以我们可以增添这个片段到
+
+00:07:51.550 --> 00:07:52.680 align:middle line:90%
+based on ORU_R01.
+基于 ORU_R01 的用户消息类型。
+
+00:07:52.680 --> 00:07:55.360 align:middle line:90%
+
+
+00:07:55.360 --> 00:08:00.660 align:middle line:84%
+Because I want to customize
+the structure of the ORU_R01
+因为我要客户化 ORU_R01 消息结构，
+
+00:08:00.660 --> 00:08:04.060 align:middle line:84%
+message, I need to add both the
+Message Type and the Message
+我需要添加消息类型和消息
+
+00:08:04.060 --> 00:08:05.020 align:middle line:90%
+Structure.
+结构。
+
+00:08:05.020 --> 00:08:10.540 align:middle line:84%
+I can do this in one step by
+going to the Message Type tab,
+我可以在 "Message Type" 标签页中，
+
+00:08:10.540 --> 00:08:18.660 align:middle line:84%
+Copy From Base, and the Message
+Type to copy is ORU_R01.
+"copy From Base" 选择 ORU_R01 复制消息类型。
+
+00:08:18.660 --> 00:08:22.070 align:middle line:84%
+If we have the box checked
+for "Create this message
+如果我们选中 "Create this message Structure" 选框，
+
+00:08:22.070 --> 00:08:25.110 align:middle line:84%
+structure", if the Message
+Structure doesn't exist
+那么如果消息结构不存在的话，
+
+00:08:25.110 --> 00:08:27.470 align:middle line:84%
+it will be created along
+with the Message Type
+消息结构会随着消息类型一起被创建。
+
+00:08:27.470 --> 00:08:28.635 align:middle line:90%
+when we click OK.
+点击 OK.
+
+00:08:28.635 --> 00:08:33.370 align:middle line:90%
+
+
+00:08:33.370 --> 00:08:36.010 align:middle line:84%
+By going to the
+Document Type Structure,
+到文档类型结构(Document Type Structure)
+
+
+00:08:36.010 --> 00:08:39.669 align:middle line:84%
+we can see that we have indeed
+created the structure along
+我们可以看到我们真的创建了结构
+
+00:08:39.669 --> 00:08:40.760 align:middle line:90%
+with the type.
+和类型。
+
+00:08:40.760 --> 00:08:45.080 align:middle line:84%
+By clicking on our
+Document Type Structure,
+点中我们的文档类型结构，
+
+00:08:45.080 --> 00:08:47.070 align:middle line:84%
+we see that our
+custom structure is
+我们可以看到我们的用户结构
+
+00:08:47.070 --> 00:08:50.080 align:middle line:84%
+identical to the base
+structure because we have not
+和基结构是一模一样的，因为我们还
+
+00:08:50.080 --> 00:08:52.730 align:middle line:90%
+made any changes yet.
+没有做任何改变。
+
+00:08:52.730 --> 00:08:59.110 align:middle line:84%
+We will add the Z-P-I segment
+to the end of this structure.
+我们会在这结构的尾部增加一个 ZPI 片段。
+
+00:08:59.110 --> 00:09:01.150 align:middle line:84%
+Since this is a
+custom structure,
+因为这是一个用户结构
+
+00:09:01.150 --> 00:09:03.850 align:middle line:84%
+we have the Edit
+button at the top.
+我们在头部有个 "Edit" 按钮。
+
+00:09:03.850 --> 00:09:07.870 align:middle line:84%
+So let's click
+Edit so that we can
+所以让我们来点击 "Edit", 我们可以
+
+00:09:07.870 --> 00:09:10.080 align:middle line:90%
+make the appropriate changes.
+作相应的修改。
+
+00:09:10.080 --> 00:09:13.370 align:middle line:84%
+As you can see that
+the raw definition uses
+正如你所见的那样，原始的定义
+
+00:09:13.370 --> 00:09:16.920 align:middle line:84%
+the same convention
+that is used in studio.
+使用同 studio 中相同的惯例。
+
+00:09:16.920 --> 00:09:18.950 align:middle line:84%
+The square brackets
+mean optional,
+方括号意味着可选，
+
+00:09:18.950 --> 00:09:22.010 align:middle line:84%
+and these squiggle
+brackets mean repeating.
+大括号意味着可重复。
+
+00:09:22.010 --> 00:09:25.360 align:middle line:84%
+You can also use angle
+brackets for choices.
+你也可以用尖括号表示选择。
+
+00:09:25.360 --> 00:09:32.170 align:middle line:84%
+So I will add the Z-P-I segments
+to the end of this message,
+我在消息尾部加入这个 ZPI 片段，
+
+00:09:32.170 --> 00:09:35.920 align:middle line:84%
+and all elements must
+be separated by a tilde.
+所有的元素必须用波浪符分割。
+
+00:09:35.920 --> 00:09:42.400 align:middle line:84%
+So by typing tilde Z-P-I at
+the end of my raw definition,
+所以原始定义的尾部，输入波浪符，ZPI，
+
+00:09:42.400 --> 00:09:46.440 align:middle line:84%
+I can add the Z-P-I segment
+to my message structure,
+我可以加 ZPI 片段到我的消息结构，
+
+00:09:46.440 --> 00:09:50.310 align:middle line:84%
+and I'll click Save,
+and the new structure
+我点击 "Save", 然后这个新的结构
+
+00:09:50.310 --> 00:09:56.330 align:middle line:90%
+will be reflected to the right.
+就被反映在右边的列表中了。
+
+00:09:56.330 --> 00:09:59.570 align:middle line:84%
+And as you can see,
+the Z-P-I segment
+正如你所见，这个 ZPI 片段
+
+00:09:59.570 --> 00:10:03.380 align:middle line:84%
+has been added to the
+end of my structure.
+被加到了我的结构的尾部。
+
+00:10:03.380 --> 00:10:06.860 align:middle line:84%
+I want the Z-P-I segment to
+be optional because it may not
+我要 ZPI 片段是可选的，因为它不一定
+
+00:10:06.860 --> 00:10:08.730 align:middle line:90%
+always be in the message.
+存在在所有的消息中。
+
+00:10:08.730 --> 00:10:12.540 align:middle line:84%
+So I need to change
+my raw definition
+所以我需要修改我的原始定义，
+
+00:10:12.540 --> 00:10:18.210 align:middle line:84%
+to make this an optional
+segment by adding square bracket
+加入方括号，使得这片段是可选的，
+
+00:10:18.210 --> 00:10:22.520 align:middle line:84%
+and tilde before Z-P-I,
+and tilde, square bracket
+在 ZPI 前后，添加波浪符和方括号，
+
+00:10:22.520 --> 00:10:29.040 align:middle line:84%
+after Z-P-I. I will
+save my definition,
+保存我的定义，
+
+00:10:29.040 --> 00:10:33.790 align:middle line:84%
+examine my structure to
+make sure it reflects
+检查一下我的结构，保证所有我做的修改
+
+00:10:33.790 --> 00:10:37.110 align:middle line:90%
+what I have done, and click OK.
+体现出来了，然后点击 OK。
+
+00:10:37.110 --> 00:10:41.690 align:middle line:90%
+
+
+00:10:41.690 --> 00:10:47.260 align:middle line:84%
+My custom structure now
+contains the Z-P-I segment.
+现在，我的用户结构含有 ZPI 片段。
+
+00:10:47.260 --> 00:10:50.150 align:middle line:84%
+Message Structures
+and Segment Structures
+消息结构和片段结构是
+
+00:10:50.150 --> 00:10:53.030 align:middle line:84%
+are the most common
+items to change,
+常被修改的项目，
+
+00:10:53.030 --> 00:10:59.280 align:middle line:84%
+but you can also edit Data
+Types and Code Tables.
+但你也可以修改数据类型和代码表。
+
+00:10:59.280 --> 00:11:02.710 align:middle line:84%
+So now I will return to
+my Ensemble Production.
+现在我回到我的 Ensemble Production 页面。
+
+00:11:02.710 --> 00:11:07.360 align:middle line:90%
+
+
+00:11:07.360 --> 00:11:15.410 align:middle line:84%
+I will stop the Production, and
+modify the From_Lab Business
+我停止我的 Production，然后修改 Business Service
+
+00:11:15.410 --> 00:11:23.400 align:middle line:84%
+Service to use my custom schema
+instead of the standard one.
+From_Lab，采用我的用户 schema，以替换标准的。
+
+00:11:23.400 --> 00:11:26.140 align:middle line:90%
+
+
+00:11:26.140 --> 00:11:38.390 align:middle line:84%
+I'll apply my changes, start the
+Production again, and process
+应用这修改，重起 Production, 并且
+
+00:11:38.390 --> 00:11:39.680 align:middle line:90%
+my message once again.
+再次处理我的消息。
+
+00:11:39.680 --> 00:11:43.820 align:middle line:90%
+
+
+00:11:43.820 --> 00:11:45.240 align:middle line:84%
+Let's examine the
+messages again.
+让我们再次检查消息，
+
+00:11:45.240 --> 00:11:48.050 align:middle line:90%
+
+
+00:11:48.050 --> 00:11:51.050 align:middle line:84%
+We'll choose the new one
+that has been processed,
+我们选择一个已经被处理过的，
+
+00:11:51.050 --> 00:11:56.120 align:middle line:84%
+View Full Contents, and we can
+now see that there is no error
+选 "View Full Contents", 我们可以看到这里没有任何错误
+
+00:11:56.120 --> 00:11:59.450 align:middle line:84%
+and the Z-P-I segment
+is now in blue
+并且 ZPI 片段现在是蓝色，
+
+00:11:59.450 --> 00:12:01.190 align:middle line:90%
+like the rest of our segments.
+如果其余的片段一样。
+
+00:12:01.190 --> 00:12:04.240 align:middle line:84%
+All other segments are
+processed correctly
+所有的片段被正确地处理了，
+
+00:12:04.240 --> 00:12:07.880 align:middle line:84%
+because we haven't made any
+changes to them in our custom
+因为我们还没有在我们的用户 schema
+
+00:12:07.880 --> 00:12:09.630 align:middle line:90%
+schema.
+中作其它的修改。
+
+00:12:09.630 --> 00:12:13.790 align:middle line:84%
+We do not want to reject
+messages for most HL7 routing
+我们不希望，只是因为消息与 schema 不匹配
+
+00:12:13.790 --> 00:12:17.530 align:middle line:84%
+productions simply because they
+don't exactly match the schema.
+而拒绝大部分从 HL7 路由 productions 来的消息。 
+
+00:12:17.530 --> 00:12:20.620 align:middle line:84%
+Business Rules or
+Data Transformations
+Business 规则或是数据转换
+
+00:12:20.620 --> 00:12:22.710 align:middle line:84%
+will only check
+particular fields
+只检查特定的字段，
+
+00:12:22.710 --> 00:12:25.980 align:middle line:84%
+that are known to be required
+by the target system.
+这需要目标系统来实现。
+
+00:12:25.980 --> 00:12:29.380 align:middle line:84%
+In some circumstances, you may
+want to validate the message
+在某些情况下，你可能希望这些
+
+00:12:29.380 --> 00:12:31.120 align:middle line:90%
+structure in different ways.
+消息结构能有不同的方式来校验。
+
+00:12:31.120 --> 00:12:36.880 align:middle line:84%
+Prior to 2014.1, it was
+only possible to validate
+2014.1 以前，只能校验
+
+00:12:36.880 --> 00:12:40.910 align:middle line:84%
+that Ensemble recognized
+a valid HL7 message,
+Ensemble 所能辨识的有效的 HL7 消息，
+
+00:12:40.910 --> 00:12:44.020 align:middle line:84%
+and that the segments
+matched the schema.
+而且该片段和 schema 能匹配。
+
+00:12:44.020 --> 00:12:46.060 align:middle line:84%
+This validation
+could be controlled
+这中校验能在
+
+00:12:46.060 --> 00:12:51.470 align:middle line:84%
+using the d, m, and z values
+to the message router.
+消息路由处通过 d,m,z 所控制。
+
+00:12:51.470 --> 00:12:53.530 align:middle line:84%
+If the message
+failed validation,
+如果消息校验失败，
+
+00:12:53.530 --> 00:12:57.180 align:middle line:84%
+it was sent to the
+bad message handler.
+会被发送到坏消息处理器。
+
+00:12:57.180 --> 00:13:02.630 align:middle line:84%
+In 2014.1, it is possible to do
+further validation, including
+在2014.1, 可以做进一步的校验，包括
+
+00:13:02.630 --> 00:13:05.160 align:middle line:84%
+checking that required
+fields are present,
+检查必填字段是否存在，
+
+00:13:05.160 --> 00:13:08.430 align:middle line:84%
+checking fields
+match the data type,
+所检查的字段是否和数据类型匹配，
+
+00:13:08.430 --> 00:13:12.590 align:middle line:84%
+and validating field values
+are consistent with code table
+所校验的字段值是否和代码表
+
+00:13:12.590 --> 00:13:13.880 align:middle line:90%
+definitions.
+的定义相符。
+
+00:13:13.880 --> 00:13:16.860 align:middle line:84%
+This is specialist
+functionality designed
+这些专门的功能是为了人们
+
+00:13:16.860 --> 00:13:19.280 align:middle line:84%
+for people building
+clearinghouses
+构建资讯交流所，或是
+
+00:13:19.280 --> 00:13:21.450 align:middle line:90%
+or similar applications.
+相类似的应用所设计。
+
+00:13:21.450 --> 00:13:25.090 align:middle line:84%
+Many more flags are available
+to control validation,
+还有很多标志可以用来控制校验，
+
+00:13:25.090 --> 00:13:28.130 align:middle line:84%
+and the message can be
+validated programmatically
+并且消息利用校验方法和
+
+00:13:28.130 --> 00:13:34.530 align:middle line:84%
+with the validate method
+of an HL7 message object.
+HL7 消息对象进行程序化地校验。
+
+00:13:34.530 --> 00:13:37.460 align:middle line:84%
+Thank you for watching
+the eLearning session
+谢谢您收看 eLearning 课程
+
+00:13:37.460 --> 00:13:41.600 align:middle line:90%
+Ensemble: HL7 Custom Schemas.
+Ensemble HL7 用户自定义 Schemas.
+
+00:13:41.600 --> 00:13:42.367 align:middle line:90%

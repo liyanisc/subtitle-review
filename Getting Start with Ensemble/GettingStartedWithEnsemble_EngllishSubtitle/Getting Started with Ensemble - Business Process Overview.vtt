@@ -1,0 +1,452 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.070 align:middle line:90%
+
+
+00:00:01.070 --> 00:00:03.080 align:middle line:84%
+Welcome to the
+eLearning session,
+
+00:00:03.080 --> 00:00:08.160 align:middle line:84%
+Getting Started with Ensemble,
+A Business Process Overview.
+
+00:00:08.160 --> 00:00:10.180 align:middle line:84%
+This session will
+describe the basics
+
+00:00:10.180 --> 00:00:13.900 align:middle line:84%
+of using Business Process
+Language, BPL, to orchestrate
+
+00:00:13.900 --> 00:00:16.990 align:middle line:84%
+calls to external
+applications, take actions
+
+00:00:16.990 --> 00:00:20.360 align:middle line:84%
+based on the responses, and
+to build long-running Business
+
+00:00:20.360 --> 00:00:21.600 align:middle line:90%
+Processes.
+
+00:00:21.600 --> 00:00:24.190 align:middle line:84%
+It automates what
+a person might do
+
+00:00:24.190 --> 00:00:29.300 align:middle line:84%
+to carry out a task
+involving multiple systems.
+
+00:00:29.300 --> 00:00:31.690 align:middle line:84%
+It is not just another
+programming environment.
+
+00:00:31.690 --> 00:00:33.800 align:middle line:84%
+The responses may
+come back immediately,
+
+00:00:33.800 --> 00:00:37.110 align:middle line:84%
+or may have to wait for
+some external event.
+
+00:00:37.110 --> 00:00:39.340 align:middle line:84%
+For example, the
+Business Process
+
+00:00:39.340 --> 00:00:42.130 align:middle line:84%
+may need approval by
+a person, or an order
+
+00:00:42.130 --> 00:00:45.010 align:middle line:84%
+may have to wait until
+the items are in stock.
+
+00:00:45.010 --> 00:00:47.170 align:middle line:84%
+This may take
+hours or even days.
+
+00:00:47.170 --> 00:00:50.300 align:middle line:84%
+And the Business Process has
+to resume where it left off.
+
+00:00:50.300 --> 00:00:52.850 align:middle line:84%
+A Business Process will
+maintain its state,
+
+00:00:52.850 --> 00:00:54.845 align:middle line:90%
+even if the system is restarted.
+
+00:00:54.845 --> 00:00:57.840 align:middle line:90%
+
+
+00:00:57.840 --> 00:01:00.570 align:middle line:84%
+The Ensemble
+graphical BPL editor
+
+00:01:00.570 --> 00:01:03.624 align:middle line:84%
+allows a Business Process
+to be displayed and modified
+
+00:01:03.624 --> 00:01:06.840 align:middle line:84%
+in a visual form
+like a flowchart
+
+00:01:06.840 --> 00:01:09.190 align:middle line:84%
+with activities
+connected by lines.
+
+00:01:09.190 --> 00:01:11.390 align:middle line:84%
+The details of each
+activity are accessed
+
+00:01:11.390 --> 00:01:14.510 align:middle line:84%
+by clicking on the
+activity in the BPL editor.
+
+00:01:14.510 --> 00:01:18.600 align:middle line:84%
+The Business Process is then
+added to an Ensemble Production
+
+00:01:18.600 --> 00:01:23.570 align:middle line:84%
+to be invoked from a Business
+Service or another Business
+
+00:01:23.570 --> 00:01:24.740 align:middle line:90%
+Process.
+
+00:01:24.740 --> 00:01:27.880 align:middle line:84%
+A new Business
+Process written in BPL
+
+00:01:27.880 --> 00:01:32.030 align:middle line:84%
+is created in the Management
+Portal or the Ensemble Studio.
+
+00:01:32.030 --> 00:01:35.180 align:middle line:84%
+Let's go to the BPL editor
+in the Management Portal.
+
+00:01:35.180 --> 00:01:40.500 align:middle line:84%
+So we'll click on Ensemble,
+Build, and Business Process.
+
+00:01:40.500 --> 00:01:43.360 align:middle line:90%
+
+
+00:01:43.360 --> 00:01:46.160 align:middle line:84%
+We will create a
+new Business Process
+
+00:01:46.160 --> 00:01:49.420 align:middle line:84%
+by clicking on the
+New button, where
+
+00:01:49.420 --> 00:01:55.761 align:middle line:84%
+we are prompted for a package
+and name of the Business
+
+00:01:55.761 --> 00:01:56.260 align:middle line:90%
+Process.
+
+00:01:56.260 --> 00:02:04.700 align:middle line:90%
+
+
+00:02:04.700 --> 00:02:08.850 align:middle line:84%
+When we click OK, you will
+see that we have the starting
+
+00:02:08.850 --> 00:02:15.270 align:middle line:84%
+point of a Business Process
+with a start and end activity.
+
+00:02:15.270 --> 00:02:19.960 align:middle line:84%
+In the General tab, you
+can see general information
+
+00:02:19.960 --> 00:02:23.510 align:middle line:90%
+about this Business Process.
+
+00:02:23.510 --> 00:02:30.570 align:middle line:84%
+In the Context tab, you specify
+the Request and Response
+
+00:02:30.570 --> 00:02:34.620 align:middle line:84%
+Messages sent to and returned
+by this Business Process.
+
+00:02:34.620 --> 00:02:36.530 align:middle line:84%
+It also allows you
+to add properties
+
+00:02:36.530 --> 00:02:38.510 align:middle line:90%
+to the Context object.
+
+00:02:38.510 --> 00:02:43.120 align:middle line:84%
+And I'll explain more about
+Context in just a moment.
+
+00:02:43.120 --> 00:02:46.700 align:middle line:84%
+A Business Process is invoked
+when a Request Message
+
+00:02:46.700 --> 00:02:49.290 align:middle line:84%
+is sent to it by
+a Business Service
+
+00:02:49.290 --> 00:02:51.420 align:middle line:90%
+or by another Business Process.
+
+00:02:51.420 --> 00:02:54.990 align:middle line:84%
+This message is known
+as the primary request.
+
+00:02:54.990 --> 00:02:56.960 align:middle line:84%
+Within the Business
+Process, this
+
+00:02:56.960 --> 00:03:00.950 align:middle line:84%
+can be accessed as the
+request object reference.
+
+00:03:00.950 --> 00:03:03.610 align:middle line:84%
+If the Business Process
+returns a response,
+
+00:03:03.610 --> 00:03:06.600 align:middle line:84%
+it is done via the
+primary response,
+
+00:03:06.600 --> 00:03:11.150 align:middle line:84%
+and is accessed as the
+response object reference.
+
+00:03:11.150 --> 00:03:14.440 align:middle line:84%
+The primary request and
+the primary response
+
+00:03:14.440 --> 00:03:17.300 align:middle line:84%
+are configured in
+the Context tab,
+
+00:03:17.300 --> 00:03:21.050 align:middle line:84%
+and their properties are
+available to all activities
+
+00:03:21.050 --> 00:03:24.240 align:middle line:90%
+in this Business Process.
+
+00:03:24.240 --> 00:03:28.970 align:middle line:84%
+You can then add a new activity
+by clicking on Add Activity
+
+00:03:28.970 --> 00:03:31.620 align:middle line:84%
+and selecting the
+activity to add.
+
+00:03:31.620 --> 00:03:37.130 align:middle line:84%
+For example, if I wish to make
+a call to another Business
+
+00:03:37.130 --> 00:03:40.350 align:middle line:84%
+Process or to a
+Business Operation,
+
+00:03:40.350 --> 00:03:42.600 align:middle line:90%
+I will add the call activity.
+
+00:03:42.600 --> 00:03:44.780 align:middle line:84%
+And in the Activity
+tab, I can fill
+
+00:03:44.780 --> 00:03:50.860 align:middle line:84%
+in the details for the type
+of message to send and return.
+
+00:03:50.860 --> 00:04:01.960 align:middle line:84%
+I then can connect
+the activity so we
+
+00:04:01.960 --> 00:04:03.370 align:middle line:90%
+have a complete flowchart.
+
+00:04:03.370 --> 00:04:09.830 align:middle line:90%
+
+
+00:04:09.830 --> 00:04:13.550 align:middle line:84%
+When a BPL-based
+Business Process starts,
+
+00:04:13.550 --> 00:04:16.730 align:middle line:84%
+the response object is
+automatically created.
+
+00:04:16.730 --> 00:04:20.190 align:middle line:84%
+But it is the responsibility
+of the Business Process
+
+00:04:20.190 --> 00:04:23.560 align:middle line:84%
+to set the properties
+of the response.
+
+00:04:23.560 --> 00:04:26.280 align:middle line:84%
+During execution of
+the Business Process,
+
+00:04:26.280 --> 00:04:28.910 align:middle line:84%
+you may need to store values
+that are not properties
+
+00:04:28.910 --> 00:04:33.330 align:middle line:84%
+of either the primary request
+or the primary response
+
+00:04:33.330 --> 00:04:35.490 align:middle line:90%
+that you will use later.
+
+00:04:35.490 --> 00:04:39.320 align:middle line:84%
+These should be stored as
+properties of the Context
+
+00:04:39.320 --> 00:04:45.080 align:middle line:84%
+object, and are defined
+in the Context tab.
+
+00:04:45.080 --> 00:04:49.100 align:middle line:84%
+Most Business Processes
+require Context properties.
+
+00:04:49.100 --> 00:04:52.530 align:middle line:84%
+You can simply add variable
+properties to the Context
+
+00:04:52.530 --> 00:04:56.830 align:middle line:84%
+object, or you can define it
+to have properties that are
+
+00:04:56.830 --> 00:04:59.470 align:middle line:90%
+serial or persistent objects.
+
+00:04:59.470 --> 00:05:04.150 align:middle line:84%
+For example, if I need to
+store a temporary customer ID,
+
+00:05:04.150 --> 00:05:07.530 align:middle line:84%
+I can add a string
+property CustomerID
+
+00:05:07.530 --> 00:05:10.160 align:middle line:84%
+by clicking on the plus
+sign and adding the details.
+
+00:05:10.160 --> 00:05:22.780 align:middle line:90%
+
+
+00:05:22.780 --> 00:05:27.930 align:middle line:84%
+And we have just added
+a Context property.
+
+00:05:27.930 --> 00:05:30.930 align:middle line:84%
+At different points in the
+Business Process, execution
+
+00:05:30.930 --> 00:05:33.400 align:middle line:84%
+stops and the state of
+the Business Process,
+
+00:05:33.400 --> 00:05:37.760 align:middle line:84%
+including the request,
+context, and response objects,
+
+00:05:37.760 --> 00:05:39.580 align:middle line:90%
+are stored to disk.
+
+00:05:39.580 --> 00:05:41.720 align:middle line:84%
+When the Business
+Process wakes up again,
+
+00:05:41.720 --> 00:05:46.610 align:middle line:84%
+these objects are reopened, but
+any local variables are lost.
+
+00:05:46.610 --> 00:05:49.440 align:middle line:90%
+
+
+00:05:49.440 --> 00:05:53.260 align:middle line:84%
+Let's look at a working
+example of a Business Process.
+
+00:05:53.260 --> 00:05:56.880 align:middle line:84%
+This process is used in
+an online ordering system
+
+00:05:56.880 --> 00:05:59.820 align:middle line:84%
+and makes call to an inventory
+system, order processing
+
+00:05:59.820 --> 00:06:02.100 align:middle line:84%
+system, and a price
+list database.
+
+00:06:02.100 --> 00:06:06.530 align:middle line:84%
+Let's take a look at
+this Business Process.
+
+00:06:06.530 --> 00:06:12.270 align:middle line:84%
+The primary request
+and primary responses
+
+00:06:12.270 --> 00:06:16.730 align:middle line:84%
+are defined as an order
+request and an order response.
+
+00:06:16.730 --> 00:06:19.650 align:middle line:84%
+We also have several
+context properties
+
+00:06:19.650 --> 00:06:24.500 align:middle line:84%
+so that we will be able to use
+them within the specific calls.
+
+00:06:24.500 --> 00:06:28.840 align:middle line:84%
+As soon as the order request
+comes into the Business
+
+00:06:28.840 --> 00:06:33.040 align:middle line:84%
+Process, we make a call
+to CheckInventory to see
+
+00:06:33.040 --> 00:06:35.060 align:middle line:90%
+if there is enough stock.
+
+00:06:35.060 --> 00:06:38.080 align:middle line:84%
+If there is, we place the
+order, check the price,
+
+00:06:38.080 --> 00:06:41.540 align:middle line:84%
+build the response, check for
+restock, and we're finished.
+
+00:06:41.540 --> 00:06:46.030 align:middle line:84%
+If there is not enough
+stock, the order is refused
+
+00:06:46.030 --> 00:06:48.470 align:middle line:84%
+and we build an
+appropriate response
+
+00:06:48.470 --> 00:06:51.270 align:middle line:84%
+and finish off the
+Business Process.
+
+00:06:51.270 --> 00:06:54.890 align:middle line:90%
+
+
+00:06:54.890 --> 00:06:58.140 align:middle line:84%
+You have been watching
+Getting Started with Ensemble,
+
+00:06:58.140 --> 00:07:01.290 align:middle line:90%
+A Business Process Overview.
+
+00:07:01.290 --> 00:07:02.604 align:middle line:90%

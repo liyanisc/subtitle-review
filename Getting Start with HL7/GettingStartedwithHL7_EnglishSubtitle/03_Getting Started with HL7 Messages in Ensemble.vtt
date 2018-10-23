@@ -1,0 +1,516 @@
+﻿WEBVTT
+
+00:00:00.000 --> 00:00:08.890 align:middle line:90%
+
+
+00:00:08.890 --> 00:00:10.570 align:middle line:84%
+Welcome to the
+eLearning session,
+欢迎来到 eLearning 课程
+
+00:00:10.570 --> 00:00:16.530 align:middle line:84%
+"Getting Started with
+Ensemble and HL7 Messages."
+Ensemble 和 HL7 消息入门。
+
+00:00:16.530 --> 00:00:18.934 align:middle line:84%
+Let's look at an HL7
+message in Ensemble
+让我们通过消息浏览器
+
+00:00:18.934 --> 00:00:20.100 align:middle line:90%
+through the Message Browser.
+来看一下 Ensemble 中 HL7 消息
+
+00:00:20.100 --> 00:00:22.940 align:middle line:90%
+
+
+00:00:22.940 --> 00:00:25.550 align:middle line:84%
+Notice that Ensemble
+understands the message
+注意，Ensemble 是理解这些消息的
+
+00:00:25.550 --> 00:00:28.010 align:middle line:84%
+and gives us hover text
+capabilities to help the user
+并且能给出悬浮文本帮助用户
+
+00:00:28.010 --> 00:00:31.230 align:middle line:90%
+know what each field represents.
+理解每个字段代表什么。
+
+00:00:31.230 --> 00:00:33.720 align:middle line:84%
+Ensemble takes a few things
+to understand the message
+Ensemble 会用一些细节来理解消息///////////////////////////////////?????
+
+00:00:33.720 --> 00:00:36.000 align:middle line:90%
+that we will talk about later.
+我们会在后面讲解到。
+
+00:00:36.000 --> 00:00:37.970 align:middle line:84%
+The first thing we can
+note is that the message
+首先，我们注意到一个消息
+
+00:00:37.970 --> 00:00:39.250 align:middle line:90%
+has a DocType Category.
+有一个文档类 (DocType Category)
+
+00:00:39.250 --> 00:00:42.720 align:middle line:90%
+
+
+00:00:42.720 --> 00:00:44.970 align:middle line:90%
+Often, we call this a Schema.
+常常，我们称其为 Schema.
+
+00:00:44.970 --> 00:00:47.220 align:middle line:84%
+I can then look at the
+contents of the message
+然后，我来看一下消息的内容
+
+00:00:47.220 --> 00:00:49.530 align:middle line:84%
+and hover over a field
+to see which field it is.
+将鼠标悬停在字段之上，来看该字段是什么。
+
+00:00:49.530 --> 00:00:53.010 align:middle line:90%
+
+
+00:00:53.010 --> 00:00:54.639 align:middle line:84%
+Notice here we can
+tell that English is
+这里可以注意到，English 是
+
+00:00:54.639 --> 00:00:55.930 align:middle line:90%
+the PrimaryLanguage.identifier.
+PrimaryLanguage.identifier.
+
+00:00:55.930 --> 00:00:59.870 align:middle line:90%
+
+
+00:00:59.870 --> 00:01:03.070 align:middle line:84%
+Ensemble stores all of these
+standard HL7 definitions
+Ensemble 存有所有的标准 HL7 的定义
+
+00:01:03.070 --> 00:01:05.190 align:middle line:84%
+as well as any custom
+schemas inside it.
+也包括用户自定义的 schemas.
+
+00:01:05.190 --> 00:01:09.450 align:middle line:90%
+
+
+00:01:09.450 --> 00:01:14.550 align:middle line:84%
+Let's find the same Schema 2.3.1
+in the Interoperate menu item
+让我们在 Interoperate 菜单中找到同样的 Schema 2.3.1
+
+00:01:14.550 --> 00:01:17.215 align:middle line:84%
+and look at the HL7
+v2.x Schema structures.
+然后查看 HL7 v2.x 的 Schema 结构。
+
+00:01:17.215 --> 00:01:28.480 align:middle line:90%
+
+
+00:01:28.480 --> 00:01:31.440 align:middle line:84%
+Notice here are all of our
+defined Schemas, both standard
+注意到，这里有我们所有定义的 Schemas,
+
+00:01:31.440 --> 00:01:33.060 align:middle line:90%
+and custom.
+包括标准的和用户自定义的。
+
+00:01:33.060 --> 00:01:35.647 align:middle line:84%
+Demo.HL7.MsgRouter.Schema
+is a custom schema
+Demo.HL7.MsgRouter.Schema 就是一个用户自定义 Schema.
+
+
+00:01:35.647 --> 00:01:36.605 align:middle line:90%
+that we've pre-defined.
+是我们预先定义的。
+
+00:01:36.605 --> 00:01:39.230 align:middle line:90%
+
+
+00:01:39.230 --> 00:01:42.350 align:middle line:84%
+We can think of them as a
+set of message definitions.
+我们可以认为他们是一组消息定义集。
+
+00:01:42.350 --> 00:01:44.870 align:middle line:84%
+Inside of a schema, we have
+different message types.
+在一个 schema里，我们有不同的消息类型。
+
+00:01:44.870 --> 00:01:49.540 align:middle line:90%
+
+
+00:01:49.540 --> 00:01:52.060 align:middle line:84%
+Now, some of these messages
+actually hold the same data,
+当前，有些消息实际上含有相同的数据，
+
+00:01:52.060 --> 00:01:53.710 align:middle line:90%
+but for different reasons.
+但是有不同的目的。
+
+00:01:53.710 --> 00:01:58.740 align:middle line:84%
+For example, an ADT_A01
+message and ADT_A08 message
+比如， 一个 ADT_A01 消息和一个 ADT_A08 消息
+
+00:01:58.740 --> 00:02:02.700 align:middle line:84%
+look exactly the same with the
+only difference being purpose.
+看上去是完全一样的，但是在目的上有所不同。
+
+00:02:02.700 --> 00:02:06.400 align:middle line:84%
+While an ADT_A01 message
+is an admit message,
+ADT_A01 消息时一个入院消息，
+
+00:02:06.400 --> 00:02:10.240 align:middle line:84%
+ADT_A08 updates
+a patient record.
+而 ADT_A08 则是修改病人记录。
+
+00:02:10.240 --> 00:02:12.280 align:middle line:84%
+Therefore, in
+Ensemble, we specify
+因此，在 Ensemble, 我们指定
+
+00:02:12.280 --> 00:02:15.085 align:middle line:84%
+that both messages share
+the same Message Structure.
+这两个消息共享同样的消息结构。
+
+00:02:15.085 --> 00:02:22.020 align:middle line:90%
+
+
+00:02:22.020 --> 00:02:24.125 align:middle line:84%
+To find a Message
+Structure, we have segments.
+我们通过片断 (segments) 查找消息结构。
+
+00:02:24.125 --> 00:02:26.670 align:middle line:90%
+
+
+00:02:26.670 --> 00:02:29.190 align:middle line:84%
+For example, the PID segment
+holds patient identification
+比如，PID 片断持有病人身份
+
+00:02:29.190 --> 00:02:31.130 align:middle line:90%
+information.
+辨识信息
+
+00:02:31.130 --> 00:02:37.490 align:middle line:84%
+Inside a segment, we have fields
+like Patient Name or Patient
+在这个片断内，我们有字段，病人姓名或
+
+00:02:37.490 --> 00:02:38.034 align:middle line:90%
+Address.
+病人地址。
+
+00:02:38.034 --> 00:02:39.700 align:middle line:84%
+And for each field,
+there can optionally
+这里，每个字段可以是由
+
+00:02:39.700 --> 00:02:41.040 align:middle line:90%
+be sub-fields or components.
+子字段或部件构成。
+
+00:02:41.040 --> 00:02:47.890 align:middle line:90%
+
+
+00:02:47.890 --> 00:02:52.670 align:middle line:84%
+In Ensemble, HL7 messages are
+stored as instances of the HL7
+在 Ensemble 中，HL7 消息存储在 HL7 类////////////////////?????
+
+00:02:52.670 --> 00:02:56.320 align:middle line:90%
+class ENSLIB.HL7Message.
+ENSLIB.HL7Message。
+
+00:02:56.320 --> 00:03:00.170 align:middle line:84%
+This is a special type of class
+known as a Virtual Document.
+这是一个特殊的类，被称之为虚拟文档。
+
+00:03:00.170 --> 00:03:01.820 align:middle line:84%
+The class has a
+number of properties,
+这个类有一些属性，
+
+00:03:01.820 --> 00:03:03.760 align:middle line:84%
+but most are not
+set by the user.
+但是大部分不是由用户设置而成。
+
+00:03:03.760 --> 00:03:07.980 align:middle line:84%
+They are calculated from
+the content of the message.
+他们通过消息的内容计算而得。
+
+00:03:07.980 --> 00:03:10.720 align:middle line:84%
+To access segments within
+the message or fields
+可以通过虚拟属性路径 (Virtual Property Path)
+在消息内访问片断，
+
+00:03:10.720 --> 00:03:13.690 align:middle line:84%
+within a segment, you use
+the Virtual Property path.
+或是在片断内访问字段.
+
+00:03:13.690 --> 00:03:19.870 align:middle line:84%
+For example, an ADT_A01 message
+will have fields such as MSH:9
+比如，一个 ADT_A01 消息有字段 MSH:9
+
+00:03:19.870 --> 00:03:22.280 align:middle line:90%
+PID:2.1.
+PID:2.1.
+
+00:03:22.280 --> 00:03:28.234 align:middle line:84%
+These can also be referred to by
+the names of the fields defined
+这些也可以通过标准定义的
+
+00:03:28.234 --> 00:03:28.900 align:middle line:90%
+in the standard.
+字段名字引用。
+
+00:03:28.900 --> 00:03:33.480 align:middle line:84%
+For example, in version
+2.3.1 ADT_A01 message,
+比如，版本 2.3.1 ADT_A01 消息，
+
+00:03:33.480 --> 00:03:35.492 align:middle line:84%
+these would be the MSH,
+message type, and PID,
+MSH 为消息类型 (message type)
+
+00:03:35.492 --> 00:03:36.450 align:middle line:90%
+PatientIDExternalID.ID.
+PID 为病人外部号 (PatientIDExternalID.ID).
+
+00:03:36.450 --> 00:03:41.020 align:middle line:90%
+
+
+00:03:41.020 --> 00:03:42.950 align:middle line:84%
+For Ensemble to
+currently access a value,
+当前，Ensemble 为了访问到一个值
+
+00:03:42.950 --> 00:03:46.200 align:middle line:90%
+it needs to know three things.
+它需要知道三件事情。
+
+00:03:46.200 --> 00:03:47.850 align:middle line:90%
+One, the virtual property path.
+第一，虚拟属性路径 (virtual property path)
+
+00:03:47.850 --> 00:03:51.390 align:middle line:90%
+For example, PID:2.1.
+如，PID:2.1.
+
+00:03:51.390 --> 00:03:53.025 align:middle line:90%
+The message structure.
+消息结构。
+
+00:03:53.025 --> 00:03:53.900 align:middle line:90%
+For example, ADT_A01.
+比如，ADT_A01.
+
+00:03:53.900 --> 00:03:57.090 align:middle line:90%
+
+
+00:03:57.090 --> 00:03:58.220 align:middle line:90%
+And the schema category.
+以及 schema 类别
+
+00:03:58.220 --> 00:04:00.920 align:middle line:90%
+For example 2.3.1.
+比如，2.3.1.
+
+00:04:00.920 --> 00:04:05.024 align:middle line:84%
+This may be a standard
+HL7 version 2 document,
+这也许是一个 HL7 版本 2 的标准文档
+
+00:04:05.024 --> 00:04:06.690 align:middle line:84%
+or it could be a
+custom schema category.
+或者也可以是用户自定义的 schema 类别。
+
+00:04:06.690 --> 00:04:09.314 align:middle line:90%
+
+
+00:04:09.314 --> 00:04:11.730 align:middle line:84%
+This is needed because the
+structure in different versions
+需要 schema 的原因是消息结构在不同版本
+
+00:04:11.730 --> 00:04:13.550 align:middle line:90%
+can be very different.
+可能是不同的。
+
+00:04:13.550 --> 00:04:16.350 align:middle line:84%
+A schema category is normally
+associated with a message
+一个 schema 类别通常在消息
+
+00:04:16.350 --> 00:04:20.089 align:middle line:84%
+when it is created
+and not changed.
+生成的时候关联起来，不能再改变。/////////////////////////////???
+00:04:20.089 --> 00:04:23.130 align:middle line:84%
+At run time, Ensemble uses the
+schema category and message
+在运行的时候，Ensemble 利用 schema 类别 
+
+00:04:23.130 --> 00:04:24.962 align:middle line:84%
+structure and
+virtual property path
+消息结构以及虚拟属性路径
+
+00:04:24.962 --> 00:04:26.670 align:middle line:84%
+to locate the right
+place in the message.
+定位到消息中合适的地方。
+
+00:04:26.670 --> 00:04:29.400 align:middle line:90%
+
+
+00:04:29.400 --> 00:04:31.640 align:middle line:84%
+There are three primary
+places where virtual property
+有三个主要的地方需要用到
+
+00:04:31.640 --> 00:04:32.900 align:middle line:90%
+paths are used.
+虚拟属性路径。
+
+00:04:32.900 --> 00:04:35.480 align:middle line:84%
+Routing Rules, Data
+Transformations,
+路由规则，数据转换，
+
+00:04:35.480 --> 00:04:37.450 align:middle line:90%
+and in Caché Object Script.
+和 Caché 对象脚本。
+
+00:04:37.450 --> 00:04:40.460 align:middle line:84%
+We'll focus on the first two, as
+using Object Script in the HL7
+我们会关注在前两个，至于在 HL7 中
+
+00:04:40.460 --> 00:04:41.710 align:middle line:90%
+is a little bit more advanced.
+使用对象脚本，有些略为超前。//////////////////////////////////???
+
+00:04:41.710 --> 00:04:44.230 align:middle line:90%
+
+
+00:04:44.230 --> 00:04:45.790 align:middle line:84%
+The way they are
+used vary slightly,
+在如何使用上，有些略微不同，
+
+00:04:45.790 --> 00:04:49.980 align:middle line:84%
+but the property path is
+the same in each case.
+但是属性路径在每个例子中都是一样的。
+
+00:04:49.980 --> 00:04:53.420 align:middle line:84%
+Let's first look at
+the Routing Rule.
+让我们看一下路由规则。
+
+00:04:53.420 --> 00:04:55.720 align:middle line:84%
+If we look at this
+rule, we'll notice here
+我们看这规则时候，在此我们会发现
+
+00:04:55.720 --> 00:05:00.410 align:middle line:84%
+that we have in the constraint
+that our schema is 2.3.1
+我们有个约束条件是 schema 须是 2.3.1
+
+00:05:00.410 --> 00:05:03.310 align:middle line:84%
+and we can infer that the
+message structure is ADT_A01.
+并且我们可以推断消息结构是 ADT_A01.
+
+00:05:03.310 --> 00:05:06.760 align:middle line:90%
+
+
+00:05:06.760 --> 00:05:13.630 align:middle line:84%
+If we go into the Condition,
+to have Ensemble give us some
+如果我们进入到条件 (Condition), 
+为了使 Ensemble 给我们提供选项
+
+00:05:13.630 --> 00:05:18.130 align:middle line:84%
+options, we have to type
+HL7.{, and then we can type
+我们输入 HL7.{, 然后我们可以输入
+
+
+00:05:18.130 --> 00:05:19.690 align:middle line:84%
+in the rest of
+the property path.
+剩下的属性路径。
+
+00:05:19.690 --> 00:05:27.680 align:middle line:90%
+
+
+00:05:27.680 --> 00:05:31.060 align:middle line:84%
+In a Data Transformation to be
+able to look at the property
+在数据转换中，也可以看属性路径，
+
+00:05:31.060 --> 00:05:34.710 align:middle line:84%
+path, you'll notice here
+in our property we have
+你可能会在此注意到，我们的属性有
+
+00:05:34.710 --> 00:05:37.730 align:middle line:84%
+target.target.[? PID.PatientID.ID ?]
+and
+target.target.[? PID.PatientID.ID ?] 和
+
+00:05:37.730 --> 00:05:41.780 align:middle line:84%
+source.source.[? PID.PatientID.ID ?]
+So we are still using that
+source.source.[? PID.PatientID.ID ?]
+所以我们还是在使用
+
+00:05:41.780 --> 00:05:44.030 align:middle line:90%
+property path.
+属性路径。
+
+00:05:44.030 --> 00:05:45.999 align:middle line:84%
+Thank you for watching
+this eLearning session.
+感谢您收看 eLearning 课程。
+
+00:05:45.999 --> 00:05:47.540 align:middle line:84%
+We hope you learned
+a little bit more
+我们希望您能从中学到
+
+00:05:47.540 --> 00:05:51.550 align:middle line:84%
+about getting started with
+Ensemble and HL7 Messages.
+关于 Ensemble 和 HL7 消息的入门知识。
+
+00:05:51.550 --> 00:05:53.667 align:middle line:90%

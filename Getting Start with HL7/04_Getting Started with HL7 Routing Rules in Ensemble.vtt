@@ -1,0 +1,540 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:10.390 align:middle line:90%
+
+
+00:00:10.390 --> 00:00:12.420 align:middle line:84%
+欢迎来到 elearning 课程
+
+00:00:12.420 --> 00:00:16.810 align:middle line:90%
+HL7路由规则入门。
+
+00:00:16.810 --> 00:00:19.390 align:middle line:84%
+路由引擎是一个基于规则的业务流程组件(Business Process)
+
+00:00:19.390 --> 00:00:22.470 align:middle line:84%
+用于将消息路由到特定的目的地。
+
+00:00:22.470 --> 00:00:25.100 align:middle line:84%
+业务流程组件通常居于
+
+00:00:25.100 --> 00:00:26.946 align:middle line:90%
+配置页面的中间位置。
+
+00:00:26.946 --> 00:00:28.320 align:middle line:84%
+路由引擎的目的是为了
+
+00:00:28.320 --> 00:00:31.920 align:middle line:84%
+决定消息要发送至什么地方。
+
+00:00:31.920 --> 00:00:34.140 align:middle line:84%
+消息可以发送到多地，
+
+00:00:34.140 --> 00:00:36.520 align:middle line:90%
+或什么地方也不送
+
+00:00:36.520 --> 00:00:40.720 align:middle line:84%
+路由引擎最常见的是用于HL7消息路由
+
+00:00:40.720 --> 00:00:43.030 align:middle line:84%
+but can be used to route
+other messages, as well.
+当然也可以用于路由其他消息。
+
+00:00:43.030 --> 00:00:46.480 align:middle line:90%
+
+
+00:00:46.480 --> 00:00:49.880 align:middle line:84%
+一个HL7路由引擎会自动的被添加到产品
+
+
+00:00:49.880 --> 00:00:52.990 align:middle line:84%
+当添加一个输入型接口，或者一个业务服务的时候
+
+00:00:52.990 --> 00:00:55.540 align:middle line:84%
+除此之外，也可以利用配置向导
+
+00:00:55.540 --> 00:00:57.336 align:middle line:90%
+单独添加。
+
+00:00:57.336 --> 00:01:00.500 align:middle line:90%
+
+
+00:01:00.500 --> 00:01:02.155 align:middle line:84%
+路由引擎利用一组规则集
+
+00:01:02.155 --> 00:01:04.649 align:middle line:84%
+来决定消息送往何处，
+
+00:01:04.649 --> 00:01:06.940 align:middle line:84%
+以及发送前是否要对消息进行转换。
+
+00:01:06.940 --> 00:01:09.470 align:middle line:90%
+
+
+00:01:09.470 --> 00:01:11.520 align:middle line:84%
+在规则集中的每条规则由
+
+00:01:11.520 --> 00:01:15.740 align:middle line:84%
+约束，条件以及动作构成。
+
+00:01:15.740 --> 00:01:19.170 align:middle line:84%
+约束主要用来匹配消息的来源，
+
+00:01:19.170 --> 00:01:22.340 align:middle line:84%
+而condition主要是为了查看消息的内容
+
+00:01:22.340 --> 00:01:24.470 align:middle line:90%
+based on the contents.
+然后根据内容路由消息。
+
+00:01:24.470 --> 00:01:26.270 align:middle line:84%
+如果条件和约束
+
+00:01:26.270 --> 00:01:29.180 align:middle line:84%
+被判定为真，那么就执行动作。
+
+00:01:29.180 --> 00:01:32.260 align:middle line:90%
+
+
+00:01:32.260 --> 00:01:35.370 align:middle line:84%
+让我们来看一组已有的规则集。
+
+00:01:35.370 --> 00:01:37.520 align:middle line:84%
+如果一条规则被判定为真，
+
+00:01:37.520 --> 00:01:39.610 align:middle line:84%
+is a return at the
+end of that rule,
+并且在规则的最后有返回(return)，
+
+00:01:39.610 --> 00:01:41.685 align:middle line:84%
+那么路由引擎会停止处理，
+
+00:01:41.685 --> 00:01:44.930 align:middle line:84%
+不会继续去判定其他的规则。
+
+00:01:44.930 --> 00:01:46.970 align:middle line:84%
+如果最后没有返回(return)，那么路由引擎
+
+00:01:46.970 --> 00:01:50.120 align:middle line:84%
+会试图去匹配列表中的下一条规则。
+
+00:01:50.120 --> 00:01:53.550 align:middle line:84%
+在第一个例子中，我们看到第一条规则却是有个返回，
+
+00:01:53.550 --> 00:01:57.480 align:middle line:84%
+这意味着，如果符合其约束和条件，
+
+00:01:57.480 --> 00:02:02.330 align:middle line:84%
+规则引擎会停止处理，而不会去判定下一个规则。
+
+
+00:02:02.330 --> 00:02:04.380 align:middle line:84%
+这里约束包括消息源，
+
+00:02:04.380 --> 00:02:06.630 align:middle line:84%
+Service that sent the message
+也就是发送这消息的到
+
+00:02:06.630 --> 00:02:08.470 align:middle line:90%
+to the routing engine.
+路由引擎的业务服务。
+
+
+00:02:08.470 --> 00:02:10.497 align:middle line:84%
+在这例子中，我们对每个业务处理，
+
+00:02:10.497 --> 00:02:11.580 align:middle line:90%
+有一个专属的路由引擎。
+
+00:02:11.580 --> 00:02:14.480 align:middle line:90%
+So this is not very important.
+因此是否判断消息源不是非常重要。
+
+00:02:14.480 --> 00:02:18.320 align:middle line:84%
+We next have the doc name which
+refers to the message type.
+接下一个是doc name(文档名)，指的是消息的类型
+
+00:02:18.320 --> 00:02:22.550 align:middle line:84%
+比如ORMO01以及schema
+
+00:02:22.550 --> 00:02:27.130 align:middle line:84%
+其要么是是HL7的版本号，比如 2.3.1,
+
+
+00:02:27.130 --> 00:02:34.080 align:middle line:84%
+或是一个用户定制的变量，比如这里的EMR2.3.
+
+00:02:34.080 --> 00:02:36.510 align:middle line:84%
+The condition matches
+on an individual field
+条件(condition)可以用来匹配消息内部
+
+00:02:36.510 --> 00:02:38.740 align:middle line:90%
+within the message itself.
+的每个单独字段。
+
+00:02:38.740 --> 00:02:41.590 align:middle line:84%
+这里，如 MSH6, 显而易见，
+
+00:02:41.590 --> 00:02:46.520 align:middle line:84%
+在这里，指的是 MSH segment的第六个字段。
+
+00:02:46.520 --> 00:02:48.600 align:middle line:84%
+但是有些表达式会比较复杂
+
+00:02:48.600 --> 00:02:50.150 align:middle line:84%
+我们会在后面解释。
+
+00:02:50.150 --> 00:02:52.720 align:middle line:90%
+
+
+00:02:52.720 --> 00:02:55.510 align:middle line:84%
+至于动作(action)部分，几乎总是发送(Send)动作
+
+00:02:55.510 --> 00:02:58.680 align:middle line:84%
+该动作可以附带相关的数据转换，
+
+00:02:58.680 --> 00:03:01.920 align:middle line:90%
+在消息被发送到目标组件之前。
+
+00:03:01.920 --> 00:03:05.080 align:middle line:84%
+注意到这里target就是目的地。
+
+00:03:05.080 --> 00:03:07.130 align:middle line:84%
+So in this case, if we
+match both the constraint
+因此在这个例子里，如果我们匹配上约束
+
+00:03:07.130 --> 00:03:09.713 align:middle line:84%
+和条件，我们将该消息发送到我们的目标
+
+00:03:09.713 --> 00:03:12.120 align:middle line:90%
+To_ProVation.
+
+00:03:12.120 --> 00:03:14.560 align:middle line:84%
+通常目的地是一个业务操作
+
+00:03:14.560 --> 00:03:16.350 align:middle line:84%
+或者是输出型连接，但是也可以
+
+00:03:16.350 --> 00:03:18.760 align:middle line:90%
+发送到另外一个业务流程。
+
+00:03:18.760 --> 00:03:21.010 align:middle line:84%
+注意到，我们也可以在条件中
+
+00:03:21.010 --> 00:03:25.099 align:middle line:84%
+进行布尔逻辑运算，比如 AND,
+
+00:03:25.099 --> 00:03:27.765 align:middle line:84%
+并且我们可以有多个动作分别进行不同的数据转换。
+
+00:03:27.765 --> 00:03:31.630 align:middle line:90%
+
+
+00:03:31.630 --> 00:03:33.440 align:middle line:84%
+现在，让我们来创建一个我们自己的规则集。
+
+00:03:33.440 --> 00:03:36.320 align:middle line:90%
+
+
+00:03:36.320 --> 00:03:38.540 align:middle line:84%
+让我们通过向导来设置这个业务规则。
+
+00:03:38.540 --> 00:03:42.840 align:middle line:90%
+
+
+00:03:42.840 --> 00:03:45.160 align:middle line:84%
+注意到，我们有一个空的路由规则。
+
+00:03:45.160 --> 00:03:50.080 align:middle line:84%
+我想做的第一件事是打开 "General" 标签。
+
+00:03:50.080 --> 00:03:52.560 align:middle line:84%
+然后我要指定哪个Production
+
+00:03:52.560 --> 00:03:53.780 align:middle line:90%
+会用这个规则集。
+
+00:03:53.780 --> 00:03:56.340 align:middle line:84%
+这样后面的配置中Ensemble会给我提示
+
+00:03:56.340 --> 00:03:58.910 align:middle line:90%
+这个产品中有效的目标业务组件。
+
+00:03:58.910 --> 00:04:00.650 align:middle line:84%
+所以让我们指定我们所要的 Production 
+
+00:04:00.650 --> 00:04:04.000 align:middle line:84%
+名字 MyHospital.HL7Engine.
+
+00:04:04.000 --> 00:04:10.600 align:middle line:90%
+
+
+00:04:10.600 --> 00:04:14.600 align:middle line:84%
+返回到规则集页面，我们将要添加一条规则。
+
+00:04:14.600 --> 00:04:17.600 align:middle line:90%
+
+
+00:04:17.600 --> 00:04:20.680 align:middle line:84%
+我首先点击规则集，
+
+00:04:20.680 --> 00:04:23.100 align:middle line:84%
+然后选中"加号" 添加一条新规则。
+
+00:04:23.100 --> 00:04:30.790 align:middle line:90%
+
+
+00:04:30.790 --> 00:04:33.660 align:middle line:84%
+每条规则都有一组约束和条件。
+
+00:04:33.660 --> 00:04:37.790 align:middle line:84%
+Constraints match on attributes
+about the message coming in,
+约束与消息来源的属性想匹配，
+
+00:04:37.790 --> 00:04:40.360 align:middle line:84%
+而条件通常查看消息的内容或者
+
+00:04:40.360 --> 00:04:43.110 align:middle line:90%
+based on the contents.
+基于内容路由消息。
+
+00:04:43.110 --> 00:04:45.270 align:middle line:84%
+双击约束的选框，
+
+00:04:45.270 --> 00:04:47.301 align:middle line:84%
+我们可以看到一个指定消息属性的
+
+00:04:47.301 --> 00:04:48.050 align:middle line:90%
+向导
+
+00:04:48.050 --> 00:04:53.050 align:middle line:90%
+
+
+00:04:53.050 --> 00:04:54.910 align:middle line:84%
+这里注意到，源是指
+
+00:04:54.910 --> 00:05:00.230 align:middle line:84%
+消息路由器所接受的消息来自于哪一个业务服务
+
+00:05:00.230 --> 00:05:04.020 align:middle line:84%
+也可以指定 schema 和文档名字，
+
+00:05:04.020 --> 00:05:06.200 align:middle line:90%
+这里指消息类型。
+
+00:05:06.200 --> 00:05:07.270 align:middle line:90%
+比如，ADT01.
+
+00:05:07.270 --> 00:05:10.270 align:middle line:90%
+
+
+00:05:10.270 --> 00:05:12.030 align:middle line:84%
+让我们在这里指定一些属性。
+
+00:05:12.030 --> 00:05:26.210 align:middle line:90%
+
+
+00:05:26.210 --> 00:05:28.500 align:middle line:84%
+如果我们需要根据内容进行路由，
+
+00:05:28.500 --> 00:05:35.140 align:middle line:84%
+我们必须至少指定 schema 和消息类型。
+
+00:05:35.140 --> 00:05:37.360 align:middle line:84%
+然后一个条件可以在 condition 字段上
+
+00:05:37.360 --> 00:05:38.610 align:middle line:90%
+通过双击添加。
+
+00:05:38.610 --> 00:05:43.210 align:middle line:90%
+
+
+00:05:43.210 --> 00:05:45.720 align:middle line:84%
+从这个向导，我们可以更灵活的
+
+00:05:45.720 --> 00:05:48.670 align:middle line:84%
+来指定基于什么内容来路由。
+
+00:05:48.670 --> 00:05:53.360 align:middle line:84%
+为了匹配一个 HL7 消息的字段，需要以 HL7.{ 开始。
+
+00:05:53.360 --> 00:06:00.470 align:middle line:90%
+
+
+00:06:00.470 --> 00:06:04.070 align:middle line:84%
+只要你在条件中指定了 schema 和消息结构
+
+00:06:04.070 --> 00:06:05.640 align:middle line:84%
+向导会
+
+00:06:05.640 --> 00:06:07.350 align:middle line:90%
+给出可能的路径和字段。
+
+00:06:07.350 --> 00:06:10.320 align:middle line:90%
+
+
+00:06:10.320 --> 00:06:13.090 align:middle line:84%
+让我们来看一下病人的身份信息，
+
+00:06:13.090 --> 00:06:14.540 align:middle line:90%
+病人姓名，名。
+
+00:06:14.540 --> 00:06:22.110 align:middle line:90%
+
+
+00:06:22.110 --> 00:06:24.970 align:middle line:84%
+Using the pre-built functions
+and operations buttons
+使用顶部显示的预制的函数和运算符按钮
+
+00:06:24.970 --> 00:06:27.775 align:middle line:84%
+at the top allows you to create
+more complicated conditions.
+你可以创建更复杂的条件。
+
+00:06:27.775 --> 00:06:30.630 align:middle line:90%
+
+
+00:06:30.630 --> 00:06:33.500 align:middle line:84%
+让我们来使用一下 "fx" 的函数按钮，
+
+00:06:33.500 --> 00:06:36.520 align:middle line:84%
+比如，我们要要名字的字母以 j 打头。
+
+00:06:36.520 --> 00:06:47.410 align:middle line:90%
+
+
+00:06:47.410 --> 00:06:50.320 align:middle line:84%
+一但我们见好了我们想要的规则，
+
+00:06:50.320 --> 00:06:51.210 align:middle line:90%
+可以点击 OK。
+
+00:06:51.210 --> 00:06:54.960 align:middle line:90%
+
+
+00:06:54.960 --> 00:06:57.160 align:middle line:84%
+最后所要做的事是添加
+
+00:06:57.160 --> 00:07:00.550 align:middle line:84%
+动作，它定义了当条件满足时
+
+00:07:00.550 --> 00:07:01.710 align:middle line:90%
+if the condition is true.
+会做什么事情。
+
+00:07:01.710 --> 00:07:04.500 align:middle line:90%
+
+
+00:07:04.500 --> 00:07:07.770 align:middle line:84%
+The main thing I want to do
+is send the message somewhere.
+我的主要目的是想要把消息发送到某地。
+
+00:07:07.770 --> 00:07:14.460 align:middle line:84%
+所以我选中 "When", 点击"+"号，然后发送。
+
+00:07:14.460 --> 00:07:17.990 align:middle line:90%
+
+
+00:07:17.990 --> 00:07:21.520 align:middle line:84%
+在这例子中，我要指定目标组件为 To_Lab,
+
+00:07:21.520 --> 00:07:22.220 align:middle line:90%
+并点击 OK.
+
+00:07:22.220 --> 00:07:30.810 align:middle line:90%
+
+
+00:07:30.810 --> 00:07:31.720 align:middle line:90%
+然后点击 OK.
+
+00:07:31.720 --> 00:07:35.670 align:middle line:90%
+
+
+00:07:35.670 --> 00:07:38.470 align:middle line:84%
+我还可以添加第二个动作，并且
+
+00:07:38.470 --> 00:07:40.310 align:middle line:90%
+发送消息到To_Billing.
+
+00:07:40.310 --> 00:07:53.780 align:middle line:90%
+
+
+00:07:53.780 --> 00:07:56.080 align:middle line:84%
+或者我可以简单同时选中它们俩
+
+00:07:56.080 --> 00:08:03.160 align:middle line:84%
+同时发送消息到这两地。
+
+00:08:03.160 --> 00:08:05.210 align:middle line:84%
+如果将它们两个分别设置，
+
+00:08:05.210 --> 00:08:07.670 align:middle line:84%
+可以允许我对两个动作
+
+00:08:07.670 --> 00:08:10.950 align:middle line:90%
+做不同的数据转换。
+
+00:08:10.950 --> 00:08:12.940 align:middle line:84%
+我还可以添加更多的规则到这个规则集。
+
+00:08:12.940 --> 00:08:16.030 align:middle line:84%
+通过点击规则集后点击 "Add" 按钮。
+
+00:08:16.030 --> 00:08:20.340 align:middle line:90%
+
+
+00:08:20.340 --> 00:08:22.930 align:middle line:84%
+你可能会有很多的规则
+
+00:08:22.930 --> 00:08:26.520 align:middle line:84%
+取决于您的需求的复杂程度。
+
+00:08:26.520 --> 00:08:28.090 align:middle line:84%
+当你修改规则集的时候，
+
+00:08:28.090 --> 00:08:31.308 align:middle line:84%
+你一定要通过按 "Save" 按钮保存修改的结果。
+
+00:08:31.308 --> 00:08:37.169 align:middle line:90%
+
+
+00:08:37.169 --> 00:08:40.000 align:middle line:84%
+现在，当我们返回配置页面的时候，
+
+00:08:40.000 --> 00:08:42.280 align:middle line:84%
+我们一定要保证我们也修改了
+
+00:08:42.280 --> 00:08:45.500 align:middle line:84%
+刚产生的这条新规则的名字。
+
+00:08:45.500 --> 00:08:55.480 align:middle line:90%
+
+
+00:08:55.480 --> 00:08:57.160 align:middle line:84%
+然后，如果我们点击了From_ApplicationX_Router边上的小圈
+
+00:08:57.160 --> 00:09:00.860 align:middle line:84%
+你现在可以看到
+
+00:09:00.860 --> 00:09:03.520 align:middle line:84%
+From_ApplicationX_Router同时
+
+00:09:03.520 --> 00:09:07.310 align:middle line:84%
+发送消息到 To_Billing 和 To_Lab.
+
+00:09:07.310 --> 00:09:09.380 align:middle line:84%
+感谢您收看这个 eLearning 课程。
+
+00:09:09.380 --> 00:09:11.129 align:middle line:84%
+我们希望您能从中学到一些
+
+00:09:11.129 --> 00:09:14.220 align:middle line:84%
+如何使用 HL7 路由规则。

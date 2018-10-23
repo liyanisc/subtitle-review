@@ -1,0 +1,388 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.340 align:middle line:90%
+
+
+00:00:01.340 --> 00:00:03.650 align:middle line:84%
+Welcome to the eLearning
+session Getting
+
+00:00:03.650 --> 00:00:06.130 align:middle line:84%
+Started with Ensemble:
+Record Mapper - Composite
+
+00:00:06.130 --> 00:00:08.500 align:middle line:90%
+and Serial Fields.
+
+00:00:08.500 --> 00:00:11.750 align:middle line:84%
+The Record Wrapper CSV
+Wizard can automatically
+
+00:00:11.750 --> 00:00:15.110 align:middle line:84%
+create the field definition
+for you from a sample file.
+
+00:00:15.110 --> 00:00:18.060 align:middle line:84%
+While this is easier when
+the file has a header row,
+
+00:00:18.060 --> 00:00:21.680 align:middle line:84%
+much repetitive work can be
+reduced even without one.
+
+00:00:21.680 --> 00:00:25.570 align:middle line:84%
+The sample file is identified
+along with the record map name.
+
+00:00:25.570 --> 00:00:27.780 align:middle line:84%
+Identify the record
+and field separators
+
+00:00:27.780 --> 00:00:29.390 align:middle line:90%
+and create the record map.
+
+00:00:29.390 --> 00:00:33.310 align:middle line:84%
+Composite and serial fields
+cannot be created using the CSV
+
+00:00:33.310 --> 00:00:34.040 align:middle line:90%
+Wizard.
+
+00:00:34.040 --> 00:00:35.520 align:middle line:90%
+But they can be added later.
+
+00:00:35.520 --> 00:00:38.890 align:middle line:84%
+And you may want to change
+the field names, especially
+
+00:00:38.890 --> 00:00:43.410 align:middle line:90%
+when there is no header row.
+
+00:00:43.410 --> 00:00:45.610 align:middle line:84%
+In the Ensemble
+Management Portal,
+
+00:00:45.610 --> 00:00:48.010 align:middle line:84%
+we're going to
+create a new record
+
+00:00:48.010 --> 00:00:50.330 align:middle line:90%
+map using the CSV Wizard.
+
+00:00:50.330 --> 00:00:58.630 align:middle line:84%
+So we will click on CSV
+Wizard, then select File.
+
+00:00:58.630 --> 00:01:02.010 align:middle line:84%
+We will choose the
+appropriate text file.
+
+00:01:02.010 --> 00:01:07.220 align:middle line:90%
+
+
+00:01:07.220 --> 00:01:09.990 align:middle line:84%
+The record map
+name is Demo.Name.
+
+00:01:09.990 --> 00:01:15.780 align:middle line:90%
+
+
+00:01:15.780 --> 00:01:20.250 align:middle line:84%
+The separator character
+will be a semi-colon.
+
+00:01:20.250 --> 00:01:22.820 align:middle line:84%
+We will keep carriage
+return line feed
+
+00:01:22.820 --> 00:01:24.920 align:middle line:90%
+as our record terminator.
+
+00:01:24.920 --> 00:01:29.820 align:middle line:84%
+And we will check Sample
+File has header row.
+
+00:01:29.820 --> 00:01:34.120 align:middle line:84%
+When we click Create
+Record Map, the record map
+
+00:01:34.120 --> 00:01:37.300 align:middle line:84%
+will be created for
+us automatically.
+
+00:01:37.300 --> 00:01:42.680 align:middle line:84%
+And the field names are those
+that come from the header row.
+
+00:01:42.680 --> 00:01:45.850 align:middle line:84%
+Without the header
+row, these field names
+
+00:01:45.850 --> 00:01:51.240 align:middle line:84%
+would just be Property1,
+Property2, and so on.
+
+00:01:51.240 --> 00:01:53.990 align:middle line:84%
+Sometimes, the fields
+in a fixed-width
+
+00:01:53.990 --> 00:01:57.350 align:middle line:84%
+or to delimited file,
+are made up of subfields.
+
+00:01:57.350 --> 00:01:59.930 align:middle line:84%
+In the Record Mapper,
+this is represented
+
+00:01:59.930 --> 00:02:01.500 align:middle line:90%
+by a composite field.
+
+00:02:01.500 --> 00:02:05.220 align:middle line:84%
+For a delimted record, you
+can specify multiple separator
+
+00:02:05.220 --> 00:02:08.699 align:middle line:84%
+characters that define
+the structural hierarchy
+
+00:02:08.699 --> 00:02:11.100 align:middle line:90%
+of the flat file.
+
+00:02:11.100 --> 00:02:15.230 align:middle line:84%
+By examining the
+Name field, you can
+
+00:02:15.230 --> 00:02:21.100 align:middle line:84%
+see that there is a comma and
+a space used as sub separators.
+
+00:02:21.100 --> 00:02:25.620 align:middle line:84%
+So we're going to add those
+two characters to our field
+
+00:02:25.620 --> 00:02:27.240 align:middle line:90%
+separator list.
+
+00:02:27.240 --> 00:02:36.170 align:middle line:84%
+First, the comma, and then
+the space, which is Escaped.
+
+00:02:36.170 --> 00:02:41.340 align:middle line:90%
+
+
+00:02:41.340 --> 00:02:44.180 align:middle line:84%
+Once we have done
+that, we're going
+
+00:02:44.180 --> 00:02:51.455 align:middle line:84%
+to make the Name field
+a Composite field.
+
+00:02:51.455 --> 00:02:54.460 align:middle line:90%
+
+
+00:02:54.460 --> 00:03:02.270 align:middle line:84%
+And then we're going to add
+a new composite field, which
+
+00:03:02.270 --> 00:03:07.200 align:middle line:90%
+will be LastName.
+
+00:03:07.200 --> 00:03:11.890 align:middle line:90%
+
+
+00:03:11.890 --> 00:03:17.825 align:middle line:84%
+We will add another
+one, GivenName.
+
+00:03:17.825 --> 00:03:22.240 align:middle line:90%
+
+
+00:03:22.240 --> 00:03:26.040 align:middle line:84%
+And the GivenName is
+going to be a Composite
+
+00:03:26.040 --> 00:03:29.820 align:middle line:84%
+so that we can break
+apart the first name
+
+00:03:29.820 --> 00:03:30.885 align:middle line:90%
+from the middle initial.
+
+00:03:30.885 --> 00:03:35.050 align:middle line:90%
+
+
+00:03:35.050 --> 00:03:45.860 align:middle line:84%
+So we will add to the
+GivenName, the FirstName,
+
+00:03:45.860 --> 00:03:49.690 align:middle line:84%
+and add one more
+field here, which
+
+00:03:49.690 --> 00:03:52.170 align:middle line:90%
+will be the Middle Initial.
+
+00:03:52.170 --> 00:03:55.670 align:middle line:90%
+
+
+00:03:55.670 --> 00:04:00.240 align:middle line:84%
+And there is our
+Composite definition.
+
+00:04:00.240 --> 00:04:07.160 align:middle line:84%
+Once we save this, we should see
+the change in our sample data.
+
+00:04:07.160 --> 00:04:11.880 align:middle line:84%
+And as you can see,
+LastName separated by comma
+
+00:04:11.880 --> 00:04:14.430 align:middle line:84%
+from the FirstName,
+separated by a space
+
+00:04:14.430 --> 00:04:16.875 align:middle line:84%
+from the middle initial,
+have been defined.
+
+00:04:16.875 --> 00:04:20.579 align:middle line:90%
+
+
+00:04:20.579 --> 00:04:24.540 align:middle line:84%
+Through a naming convention
+for the field names,
+
+00:04:24.540 --> 00:04:28.810 align:middle line:84%
+serial classes can be created
+and embedded in the record map
+
+00:04:28.810 --> 00:04:30.670 align:middle line:90%
+class automatically.
+
+00:04:30.670 --> 00:04:34.165 align:middle line:84%
+This can only be done with
+the top level delimiter.
+
+00:04:34.165 --> 00:04:37.290 align:middle line:90%
+
+
+00:04:37.290 --> 00:04:42.150 align:middle line:84%
+We're going to create two
+sets of serial fields,
+
+00:04:42.150 --> 00:04:44.830 align:middle line:84%
+one for the home
+address information,
+
+00:04:44.830 --> 00:04:47.850 align:middle line:84%
+and one for the work
+address information.
+
+00:04:47.850 --> 00:04:59.180 align:middle line:84%
+By clicking on HomeCity, we will
+change the name to Home.City
+
+00:04:59.180 --> 00:05:02.600 align:middle line:84%
+so that we will be able
+to create the Home serial
+
+00:05:02.600 --> 00:05:07.820 align:middle line:84%
+class to be embedded directly
+into the record map class
+
+00:05:07.820 --> 00:05:10.090 align:middle line:90%
+when we generate.
+
+00:05:10.090 --> 00:05:28.820 align:middle line:84%
+We'll repeat this procedure
+for all of the Home fields
+
+00:05:28.820 --> 00:05:34.660 align:middle line:84%
+so that the serial class
+will contain four properties.
+
+00:05:34.660 --> 00:05:39.080 align:middle line:84%
+And we will do the same for
+the work address information.
+
+00:05:39.080 --> 00:05:59.100 align:middle line:90%
+
+
+00:05:59.100 --> 00:06:05.350 align:middle line:84%
+Now, when we click
+on Generate, we
+
+00:06:05.350 --> 00:06:12.440 align:middle line:84%
+will see that all
+of the classes,
+
+00:06:12.440 --> 00:06:16.390 align:middle line:84%
+including the serial
+classes for Home and Work,
+
+00:06:16.390 --> 00:06:18.660 align:middle line:90%
+will be generated as well.
+
+00:06:18.660 --> 00:06:23.010 align:middle line:90%
+
+
+00:06:23.010 --> 00:06:28.310 align:middle line:84%
+And here's our list of
+classes that were generated.
+
+00:06:28.310 --> 00:06:32.770 align:middle line:84%
+There are several pre-built
+Business Services,
+
+00:06:32.770 --> 00:06:39.490 align:middle line:84%
+such as EnsLib.RecordMap
+.Service.FileService to create
+
+00:06:39.490 --> 00:06:42.610 align:middle line:84%
+an Ensemble message
+from a flat file,
+
+00:06:42.610 --> 00:06:46.750 align:middle line:84%
+as well as complementary
+Business Operations like
+
+00:06:46.750 --> 00:06:51.150 align:middle line:84%
+EnsLib.RecordMap
+.Operation.FileOperation
+
+00:06:51.150 --> 00:06:54.910 align:middle line:84%
+to create a flat file
+from and Ensemble message.
+
+00:06:54.910 --> 00:06:58.970 align:middle line:84%
+These would be used with the
+appropriate inbound or outbound
+
+00:06:58.970 --> 00:07:00.100 align:middle line:90%
+adapters.
+
+00:07:00.100 --> 00:07:02.910 align:middle line:84%
+Simply add the
+appropriate record map
+
+00:07:02.910 --> 00:07:06.650 align:middle line:84%
+to the Business Service
+or Business Operation
+
+00:07:06.650 --> 00:07:09.175 align:middle line:84%
+and fill in the
+appropriate settings.
+
+00:07:09.175 --> 00:07:12.080 align:middle line:90%
+
+
+00:07:12.080 --> 00:07:13.950 align:middle line:84%
+You have been watching
+Getting Started
+
+00:07:13.950 --> 00:07:19.110 align:middle line:84%
+with Ensemble: Record Mapper
+- Composite and Serial Fields.
+
+00:07:19.110 --> 00:07:19.970 align:middle line:90%

@@ -1,0 +1,376 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.270 align:middle line:90%
+
+
+00:00:01.270 --> 00:00:03.200 align:middle line:84%
+Welcome to the
+eLearning session,
+
+00:00:03.200 --> 00:00:06.040 align:middle line:84%
+Getting Started with
+Ensemble, Adding Activities
+
+00:00:06.040 --> 00:00:08.020 align:middle line:90%
+to a Business Process.
+
+00:00:08.020 --> 00:00:10.320 align:middle line:84%
+In this session, we
+will look in more detail
+
+00:00:10.320 --> 00:00:13.650 align:middle line:84%
+at some of the most
+common BPL activities.
+
+00:00:13.650 --> 00:00:16.050 align:middle line:84%
+An Ensemble Process
+does not directly
+
+00:00:16.050 --> 00:00:18.220 align:middle line:84%
+interact with
+external applications,
+
+00:00:18.220 --> 00:00:21.190 align:middle line:84%
+but sends requests to
+Business Operations
+
+00:00:21.190 --> 00:00:25.370 align:middle line:84%
+that are designed to interface
+with the external applications.
+
+00:00:25.370 --> 00:00:28.320 align:middle line:84%
+A Business Process
+can also send requests
+
+00:00:28.320 --> 00:00:31.320 align:middle line:90%
+to other Business Processes.
+
+00:00:31.320 --> 00:00:33.580 align:middle line:84%
+The call activity is
+probably used more
+
+00:00:33.580 --> 00:00:36.200 align:middle line:90%
+than any other activity.
+
+00:00:36.200 --> 00:00:38.930 align:middle line:84%
+It allows the Business
+Process to send a message
+
+00:00:38.930 --> 00:00:44.320 align:middle line:84%
+and receive one in response
+from another Business Process
+
+00:00:44.320 --> 00:00:47.060 align:middle line:90%
+or Business Operation.
+
+00:00:47.060 --> 00:00:51.870 align:middle line:84%
+Receiving a primary request from
+either another Business Process
+
+00:00:51.870 --> 00:00:55.970 align:middle line:84%
+or a Business Service starts
+the Business Process and returns
+
+00:00:55.970 --> 00:00:58.730 align:middle line:90%
+a primary response if needed.
+
+00:00:58.730 --> 00:01:02.430 align:middle line:84%
+The call activity sends
+its own call request
+
+00:01:02.430 --> 00:01:05.180 align:middle line:84%
+to another Business Process
+or Business Operation,
+
+00:01:05.180 --> 00:01:08.660 align:middle line:84%
+receiving a call
+response in return.
+
+00:01:08.660 --> 00:01:11.460 align:middle line:84%
+The properties of a call
+request and call response
+
+00:01:11.460 --> 00:01:14.790 align:middle line:84%
+are only available to
+this call activity.
+
+00:01:14.790 --> 00:01:17.730 align:middle line:84%
+Use the Context object
+for properties needed
+
+00:01:17.730 --> 00:01:19.700 align:middle line:90%
+outside of this call activity.
+
+00:01:19.700 --> 00:01:22.400 align:middle line:84%
+Let's take a look at a sample
+Production in the Management
+
+00:01:22.400 --> 00:01:26.490 align:middle line:84%
+portal and discuss the Business
+Process and its related
+
+00:01:26.490 --> 00:01:27.790 align:middle line:90%
+components.
+
+00:01:27.790 --> 00:01:32.910 align:middle line:84%
+Here's an Ensemble Production
+for order processing.
+
+00:01:32.910 --> 00:01:35.390 align:middle line:84%
+We're going to
+take a closer look
+
+00:01:35.390 --> 00:01:40.240 align:middle line:84%
+at the CompositeOrderProcess
+in just a minute.
+
+00:01:40.240 --> 00:01:42.860 align:middle line:84%
+This is the Business Process
+that we will examine.
+
+00:01:42.860 --> 00:01:48.700 align:middle line:84%
+While this Business Process is
+called CompositeOrderProcess,
+
+00:01:48.700 --> 00:01:53.259 align:middle line:84%
+you can see that the actual
+class for the Business Process
+
+00:01:53.259 --> 00:01:54.550 align:middle line:90%
+is DEF.Production.OrderProcess.
+
+00:01:54.550 --> 00:01:57.880 align:middle line:90%
+
+
+00:01:57.880 --> 00:02:02.390 align:middle line:84%
+We can also see the
+various components
+
+00:02:02.390 --> 00:02:05.370 align:middle line:84%
+that this Business
+Process works with.
+
+00:02:05.370 --> 00:02:10.610 align:middle line:84%
+A message coming in from
+the CompositeOrderService
+
+00:02:10.610 --> 00:02:13.840 align:middle line:84%
+starts the
+CompositeOrderProcess,
+
+00:02:13.840 --> 00:02:18.080 align:middle line:84%
+which will then make calls
+to the ReStockProcess
+
+00:02:18.080 --> 00:02:22.110 align:middle line:84%
+as well as the Business
+Operations, Inventory,
+
+00:02:22.110 --> 00:02:25.990 align:middle line:90%
+OrderProcessing, and PriceList.
+
+00:02:25.990 --> 00:02:28.645 align:middle line:84%
+Let's take a closer look at
+the CompositeOrderProcess.
+
+00:02:28.645 --> 00:02:31.830 align:middle line:90%
+
+
+00:02:31.830 --> 00:02:35.070 align:middle line:84%
+When we first start
+this Business Process
+
+00:02:35.070 --> 00:02:39.730 align:middle line:84%
+on the receipt of a
+composite order request,
+
+00:02:39.730 --> 00:02:43.060 align:middle line:90%
+we first check inventory.
+
+00:02:43.060 --> 00:02:49.596 align:middle line:84%
+This is a call to the
+Inventory Business Operation.
+
+00:02:49.596 --> 00:02:54.870 align:middle line:84%
+If we take a quick look back
+at our Ensemble Production,
+
+00:02:54.870 --> 00:02:57.930 align:middle line:84%
+we can see that the
+CompositeOrderProcess indeed
+
+00:02:57.930 --> 00:03:02.580 align:middle line:84%
+makes a call to the
+Inventory Business Operation.
+
+00:03:02.580 --> 00:03:06.960 align:middle line:84%
+We are checking
+inventory here, utilizing
+
+00:03:06.960 --> 00:03:11.690 align:middle line:84%
+some Context properties, a
+specific message type that
+
+00:03:11.690 --> 00:03:16.500 align:middle line:84%
+will be sent to the
+Inventory Business Operation,
+
+00:03:16.500 --> 00:03:20.460 align:middle line:84%
+getting a response back,
+and setting a value
+
+00:03:20.460 --> 00:03:25.200 align:middle line:84%
+from that response back into
+Context so that we can then
+
+00:03:25.200 --> 00:03:30.700 align:middle line:84%
+test conditionally to see
+if there is sufficient stock
+
+00:03:30.700 --> 00:03:33.200 align:middle line:90%
+in order to place the order.
+
+00:03:33.200 --> 00:03:37.330 align:middle line:84%
+We do a simple test
+using a calculation
+
+00:03:37.330 --> 00:03:43.300 align:middle line:84%
+to determine if there is enough
+quantity to place the order.
+
+00:03:43.300 --> 00:03:49.080 align:middle line:84%
+If there is sufficient stock,
+we will then place the order
+
+00:03:49.080 --> 00:03:54.560 align:middle line:84%
+by sending a message to the
+OrderProcessing Business
+
+00:03:54.560 --> 00:04:00.000 align:middle line:84%
+Operation, the CheckPrice
+Business Operation,
+
+00:04:00.000 --> 00:04:04.760 align:middle line:84%
+and we have a rule for
+determining the shipping price.
+
+00:04:04.760 --> 00:04:08.322 align:middle line:84%
+On the other hand, if there
+is insufficient stock,
+
+00:04:08.322 --> 00:04:10.675 align:middle line:90%
+then the order will be rejected.
+
+00:04:10.675 --> 00:04:14.160 align:middle line:90%
+
+
+00:04:14.160 --> 00:04:19.720 align:middle line:84%
+In either case, we
+build a response
+
+00:04:19.720 --> 00:04:22.820 align:middle line:84%
+using the information we've
+received from checking
+
+00:04:22.820 --> 00:04:30.200 align:middle line:84%
+the stock and placing the
+order, and we force a reply back
+
+00:04:30.200 --> 00:04:33.390 align:middle line:90%
+to the Business Service.
+
+00:04:33.390 --> 00:04:35.760 align:middle line:84%
+Once we finish
+with that, we check
+
+00:04:35.760 --> 00:04:39.330 align:middle line:90%
+to see if we need to restock.
+
+00:04:39.330 --> 00:04:43.610 align:middle line:84%
+And if we have to
+restock this product,
+
+00:04:43.610 --> 00:04:48.030 align:middle line:84%
+we call the ReStock
+Business Process.
+
+00:04:48.030 --> 00:04:51.900 align:middle line:90%
+
+
+00:04:51.900 --> 00:04:57.530 align:middle line:84%
+The "if" activity is
+a true-false branch.
+
+00:04:57.530 --> 00:05:03.990 align:middle line:84%
+If you require more than two,
+you can use a "switch" instead,
+
+00:05:03.990 --> 00:05:08.270 align:middle line:84%
+which will allow you to have
+as many branches as needed,
+
+00:05:08.270 --> 00:05:11.220 align:middle line:84%
+just like you would in a "case"
+statement in many programming
+
+00:05:11.220 --> 00:05:12.680 align:middle line:90%
+languages.
+
+00:05:12.680 --> 00:05:15.550 align:middle line:84%
+In the case of a
+switch, the conditional
+
+00:05:15.550 --> 00:05:21.850 align:middle line:84%
+is put on the connector to
+the individual activities
+
+00:05:21.850 --> 00:05:24.330 align:middle line:90%
+that you are branching to.
+
+00:05:24.330 --> 00:05:29.600 align:middle line:84%
+From time to time, you may find
+the need for Caché ObjectScript
+
+00:05:29.600 --> 00:05:32.910 align:middle line:84%
+code within your
+Business Process.
+
+00:05:32.910 --> 00:05:36.900 align:middle line:84%
+To support that, we
+have a code activity.
+
+00:05:36.900 --> 00:05:41.390 align:middle line:84%
+The foreach allows
+you to repeat actions.
+
+00:05:41.390 --> 00:05:45.760 align:middle line:84%
+Foreach will loop over a
+Caché object list collection
+
+00:05:45.760 --> 00:05:49.020 align:middle line:90%
+or an array.
+
+00:05:49.020 --> 00:05:53.070 align:middle line:84%
+Throw and catch
+and catch all allow
+
+00:05:53.070 --> 00:05:55.560 align:middle line:90%
+you to do some error handling.
+
+00:05:55.560 --> 00:05:59.970 align:middle line:84%
+As you can see, there
+are many activities
+
+00:05:59.970 --> 00:06:04.830 align:middle line:84%
+to make your Business
+Process very robust.
+
+00:06:04.830 --> 00:06:08.170 align:middle line:84%
+You have been watching
+Getting Started with Ensemble,
+
+00:06:08.170 --> 00:06:11.623 align:middle line:84%
+Adding Activities to
+a Business Process.
+
+00:06:11.623 --> 00:06:12.123 align:middle line:90%

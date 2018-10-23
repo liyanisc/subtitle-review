@@ -1,0 +1,983 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:09.380 align:middle line:90%
+
+
+00:00:09.380 --> 00:00:11.560 align:middle line:84%
+欢迎来到 eLearning 课程
+
+00:00:11.560 --> 00:00:13.815 align:middle line:90%
+Ensemble 和 HL7 入门
+
+00:00:13.815 --> 00:00:17.260 align:middle line:84%
+Ensemble 支持广泛的集成功能和协议
+
+00:00:17.260 --> 00:00:20.600 align:middle line:84%
+但在这个课程里，我们主要讲解一些基本的组件
+
+00:00:20.600 --> 00:00:23.080 align:middle line:84%
+以及如何使用 Ensemble 
+
+00:00:23.080 --> 00:00:25.390 align:middle line:90%
+作为 HL7 接口引擎的解决方案
+
+00:00:25.390 --> 00:00:28.360 align:middle line:90%
+
+
+00:00:28.360 --> 00:00:31.340 align:middle line:84%
+如大家所知，Ensemble 的服务称为 Production 
+
+00:00:31.340 --> 00:00:34.700 align:middle line:84%
+一个 Production 可以由很多组件组成
+
+00:00:34.700 --> 00:00:37.050 align:middle line:84%
+用来处理输入和输出的连接
+
+00:00:37.050 --> 00:00:40.080 align:middle line:84%
+以及控制输入输出间的信息流
+
+00:00:40.080 --> 00:00:42.640 align:middle line:84%
+Production创建后，一些组件和配置项 
+
+00:00:42.640 --> 00:00:45.170 align:middle line:84%
+会被加入进来行程这个服务
+
+00:00:45.170 --> 00:00:47.500 align:middle line:84%
+一个大的 Production 也许会有数百个配置组件
+
+
+00:00:47.500 --> 00:00:49.630 align:middle line:84%
+为了方便阐述
+
+00:00:49.630 --> 00:00:50.920 align:middle line:90%
+这里仅给出一个小的例子
+
+
+00:00:54.230 --> 00:00:57.730 align:middle line:84%
+输入的连接称之为 Business Services
+
+00:00:57.730 --> 00:01:00.240 align:middle line:84%
+其利用如下的技术进行连接
+
+00:01:00.240 --> 00:01:07.200 align:middle line:84%
+比如 TCP/IP,文本文件，SOAP, FTP,或者 HTTP
+
+00:01:07.200 --> 00:01:09.630 align:middle line:84%
+对于一些格式，比如 HL7, 这些
+
+00:01:09.630 --> 00:01:11.310 align:middle line:84%
+are pre-built components that just
+组件已经预制
+
+00:01:11.310 --> 00:01:13.790 align:middle line:84%
+只需要进行适当的参数配置即可
+
+00:01:13.790 --> 00:01:16.260 align:middle line:84%
+比如对于 TCP/IP 的端口号
+
+00:01:16.260 --> 00:01:18.610 align:middle line:84%
+或者文本文件的路径和文件名
+
+00:01:18.610 --> 00:01:21.730 align:middle line:90%
+
+
+00:01:21.730 --> 00:01:24.950 align:middle line:84%
+输出的连接称之为 Business Operations
+
+00:01:24.950 --> 00:01:27.960 align:middle line:84%
+如同 Business Service, 他们由配置向导加入
+
+00:01:27.960 --> 00:01:29.970 align:middle line:90%
+
+00:01:29.970 --> 00:01:32.500 align:middle line:84%
+Business Service 和 Business Operation
+
+00:01:32.500 --> 00:01:34.440 align:middle line:84%
+处理所有关于连接的事项
+
+00:01:34.440 --> 00:01:38.590 align:middle line:84%
+比如初始化连接，重试，超时，分帧
+
+00:01:38.590 --> 00:01:41.070 align:middle line:84%
+以及连线实际的协议
+
+
+00:01:41.070 --> 00:01:43.820 align:middle line:84%
+将这些与消息的路由以及转换逻辑
+
+
+00:01:43.820 --> 00:01:47.220 align:middle line:90%
+分离开来
+
+00:01:47.220 --> 00:01:50.160 align:middle line:84%
+在 HL7 中，一个 Business Service 通常发送消息
+
+00:01:50.160 --> 00:01:53.350 align:middle line:90%
+到消息路由
+
+00:01:53.350 --> 00:01:55.510 align:middle line:84%
+通常，一个的消息路由
+
+00:01:55.510 --> 00:01:57.310 align:middle line:84%
+对应一个 Business Service
+
+00:01:57.310 --> 00:02:00.620 align:middle line:90%
+虽然这不是必须的
+
+00:02:00.620 --> 00:02:04.580 align:middle line:84%
+消息路由利用一组路由规则
+
+00:02:04.580 --> 00:02:06.720 align:middle line:84%
+以决定要将消息要送到何处
+
+00:02:06.720 --> 00:02:10.475 align:middle line:84%
+以及要针对每个目的进行怎样的数据装换
+
+00:02:10.475 --> 00:02:12.350 align:middle line:84%
+路由规则根据消息源，
+
+00:02:12.350 --> 00:02:15.190 align:middle line:84%
+消息类型以及消息内容
+
+00:02:15.190 --> 00:02:18.400 align:middle line:84%
+决定消息送往何处
+
+00:02:18.400 --> 00:02:20.250 align:middle line:84%
+比如，病人入院消息
+
+00:02:20.250 --> 00:02:22.500 align:middle line:84%
+可能送往某一组应用
+
+00:02:22.500 --> 00:02:27.060 align:middle line:84%
+但结果可能送往其他地方
+
+00:02:27.060 --> 00:02:29.900 align:middle line:84%
+通常你可能希望在发送消息到目的地之前
+
+00:02:29.900 --> 00:02:32.000 align:middle line:90%
+对其进行修改
+
+00:02:32.000 --> 00:02:34.340 align:middle line:84%
+这可以由数据转换 (Data Transformation) 来完成
+
+00:02:34.340 --> 00:02:37.610 align:middle line:84%
+这是一个图形化的编辑器，你可以将片断或字段
+
+00:02:37.610 --> 00:02:39.830 align:middle line:84%
+从旧消息复制到新消息
+
+00:02:39.830 --> 00:02:41.710 align:middle line:84%
+根据目标的要求进行转换
+
+00:02:41.710 --> 00:02:44.800 align:middle line:90%
+
+00:02:44.800 --> 00:02:47.050 align:middle line:84%
+同时根据消息要发送到何处
+
+
+00:02:47.050 --> 00:02:49.740 align:middle line:84%
+路由规则会决定在发送前
+
+00:02:49.740 --> 00:02:52.461 align:middle line:90%
+做什么样的数据转换。
+
+00:02:52.461 --> 00:02:56.270 align:middle line:84%
+在 Ensemble 连接管理和配置中
+
+00:02:56.270 --> 00:02:59.620 align:middle line:84%
+决定消息向何处的路由的逻辑以及数据转换的逻辑
+
+00:02:59.620 --> 00:03:01.460 align:middle line:84%
+是分开的
+
+00:03:01.460 --> 00:03:03.880 align:middle line:84%
+其原因是使开发和测试简单化
+
+00:03:03.880 --> 00:03:06.860 align:middle line:90%
+
+
+00:03:06.860 --> 00:03:08.990 align:middle line:84%
+还有些其它的项目也许要添加到 Production.
+
+00:03:08.990 --> 00:03:11.180 align:middle line:84%
+比如，你需要加入一个坏消息的处理机制
+
+
+00:03:11.180 --> 00:03:13.910 align:middle line:84%
+来接受没有通过校验的消息
+
+00:03:13.910 --> 00:03:15.594 align:middle line:84%
+or an alert handler
+to route alerts
+或者到正确接受目的的
+
+00:03:15.594 --> 00:03:16.635 align:middle line:90%
+to the right destination.
+路由警报
+
+00:03:16.635 --> 00:03:22.440 align:middle line:90%
+
+00:03:22.440 --> 00:03:24.760 align:middle line:84%
+我将从头开始创建一个 Production 
+
+00:03:24.760 --> 00:03:26.610 align:middle line:90%
+来演示这些组件
+
+
+00:03:26.610 --> 00:03:31.115 align:middle line:84%
+在这节课程中，我会用 Ensemble 的 2012.1 版本
+
+00:03:31.115 --> 00:03:34.610 align:middle line:84%
+这个版本，从外观上与以前的版本 2010.2
+
+00:03:34.610 --> 00:03:36.410 align:middle line:84%
+有比较大的改变
+
+00:03:36.410 --> 00:03:39.752 align:middle line:90%
+这些改变使这个版本更容易使用
+
+00:03:39.752 --> 00:03:41.460 align:middle line:84%
+让我们从一个新的安装开始
+
+00:03:41.460 --> 00:03:44.441 align:middle line:84%
+假设我们已经完成一个 Ensemble 的安装
+
+00:03:44.441 --> 00:03:46.440 align:middle line:84%
+在你配置第一个连接前，
+
+00:03:46.440 --> 00:03:48.590 align:middle line:90%
+你必须先创建一个 Production
+
+00:03:48.590 --> 00:03:50.580 align:middle line:84%
+这是组成你所有 HL7 路由方案的
+
+00:03:50.580 --> 00:03:52.580 align:middle line:84%
+接口的集合
+
+00:03:52.580 --> 00:03:55.846 align:middle line:90%
+并且你只需要创建一次。
+
+00:03:55.846 --> 00:03:57.220 align:middle line:84%
+为了创建一个新的 Production
+
+00:03:57.220 --> 00:03:58.720 align:middle line:84%
+我们需要进入到管理门户
+
+00:03:58.720 --> 00:04:00.160 align:middle line:90%
+点击 Ensemble 标签
+
+00:04:00.160 --> 00:04:04.230 align:middle line:90%
+
+
+00:04:04.230 --> 00:04:06.690 align:middle line:84%
+然后我们需要选择一个 Namespace 
+
+00:04:06.690 --> 00:04:07.815 align:middle line:90%
+作为一个工作区
+
+00:04:07.815 --> 00:04:08.690 align:middle line:90%
+我们会选 ENSDEMO
+
+00:04:08.690 --> 00:04:13.150 align:middle line:90%
+
+
+00:04:13.150 --> 00:04:15.872 align:middle line:84%
+然后我们到 Productions 的列表
+
+00:04:15.872 --> 00:04:18.829 align:middle line:90%
+
+
+00:04:18.829 --> 00:04:22.410 align:middle line:84%
+在列表中，我们可以看到一列例子 Productions
+
+00:04:22.410 --> 00:04:24.750 align:middle line:84%
+这是已经为我们创建好的
+
+00:04:24.750 --> 00:04:26.360 align:middle line:84%
+为了创建一个新的，我们只要
+
+00:04:26.360 --> 00:04:29.340 align:middle line:84%
+简单的点击在顶部的新建(New) 按钮
+
+
+00:04:29.340 --> 00:04:31.239 align:middle line:90%
+
+
+00:04:31.239 --> 00:04:33.780 align:middle line:84%
+我将要创建一个名为 MyHospital.HL7Engine 的 Production
+
+00:04:33.780 --> 00:04:36.930 align:middle line:90%
+
+
+00:04:36.930 --> 00:04:38.920 align:middle line:84%
+点击 HL7 前的选择按钮
+
+00:04:38.920 --> 00:04:41.630 align:middle line:84%
+我们可以看到一些预制的组件
+
+00:04:41.630 --> 00:04:42.875 align:middle line:90%
+我们会在以后用到
+
+00:04:42.875 --> 00:04:47.510 align:middle line:90%
+
+
+00:04:47.510 --> 00:04:52.000 align:middle line:84%
+一个通用的 Production 在一开始没有任何组件
+
+00:04:52.000 --> 00:04:54.340 align:middle line:84%
+首先我们给 Production 起一个名字
+
+00:04:54.340 --> 00:04:56.530 align:middle line:90%
+我将要输入一个新的名字
+
+00:04:56.530 --> 00:05:00.300 align:middle line:84%
+至于我的包名，我会起为 MyHospital
+
+
+00:05:00.300 --> 00:05:04.810 align:middle line:84%
+我给 Production 起名为 HL7Engine
+
+00:05:04.810 --> 00:05:06.390 align:middle line:84%
+我也可以输入一些描述性的东西
+
+00:05:06.390 --> 00:05:09.000 align:middle line:84%
+解释这个 Production 会做什么 (可选)
+
+00:05:09.000 --> 00:05:12.520 align:middle line:90%
+
+
+00:05:12.520 --> 00:05:15.080 align:middle line:84%
+当填完这些字段后，我点击 OK.
+
+00:05:15.080 --> 00:05:19.290 align:middle line:90%
+
+
+00:05:19.290 --> 00:05:21.630 align:middle line:84%
+在左侧，你可以看到 Business Service 或输入连接
+
+00:05:21.630 --> 00:05:24.560 align:middle line:84%
+在右边有 Business Operation 或输出连接
+
+00:05:24.560 --> 00:05:27.590 align:middle line:84%
+以及 Business Process 或者规则引擎 (Routine Engine)
+
+00:05:27.590 --> 00:05:30.121 align:middle line:90%
+在中间
+
+00:05:30.121 --> 00:05:32.120 align:middle line:84%
+我现在启动 Production
+
+00:05:32.120 --> 00:05:33.120 align:middle line:90%
+虽然它目前什么也没有做
+
+00:05:33.120 --> 00:05:40.140 align:middle line:90%
+
+
+00:05:40.140 --> 00:05:43.660 align:middle line:84%
+我将创建两个输入连接和一个输出连接
+
+00:05:43.660 --> 00:05:46.540 align:middle line:90%
+不需要按特定次序创建
+
+00:05:46.540 --> 00:05:49.430 align:middle line:84%
+首先，我要通过 TCP/IP 发送消息
+
+00:05:49.430 --> 00:05:51.470 align:middle line:90%
+到检验系统
+
+00:05:51.470 --> 00:05:54.914 align:middle line:84%
+虽然，我已经创建了一些 Business Operations
+
+00:05:54.914 --> 00:05:59.300 align:middle line:84%
+我还是要从头开始创建一个
+
+00:05:59.300 --> 00:06:01.915 align:middle line:84%
+首先，我知道我需要通过 TCP/IP
+
+00:06:01.915 --> 00:06:03.840 align:middle line:90%
+发送消息到检验系统。
+
+00:06:03.840 --> 00:06:06.510 align:middle line:84%
+虽然，我已经创建了一些 Business Operations
+
+00:06:06.510 --> 00:06:09.810 align:middle line:84%
+我还是要从头开始创建一个 Business Operation
+
+
+00:06:09.810 --> 00:06:14.445 align:middle line:84%
+点击 Operation 边上的加号
+
+00:06:14.445 --> 00:06:18.750 align:middle line:90%
+
+
+00:06:18.750 --> 00:06:22.130 align:middle line:84%
+创建向导会指引我输入一些关键选项
+
+00:06:22.130 --> 00:06:24.770 align:middle line:84%
+首先，我要选择这是一个 HL7 输出
+
+
+00:06:24.770 --> 00:06:28.130 align:middle line:84%
+所以，我会选择 HL7 标签
+
+00:06:28.130 --> 00:06:30.060 align:middle line:84%
+然后，我选择 TCP
+
+00:06:30.060 --> 00:06:32.560 align:middle line:84%
+因为我知道我需要的是一个 TCP 连接
+
+00:06:32.560 --> 00:06:35.560 align:middle line:90%
+
+
+00:06:35.560 --> 00:06:36.814 align:middle line:90%
+我可以选一个名字
+
+00:06:36.814 --> 00:06:38.480 align:middle line:84%
+我将要选 To_Lab, 因为这个名字
+
+00:06:38.480 --> 00:06:40.580 align:middle line:90%
+相当明确
+
+00:06:40.580 --> 00:06:43.880 align:middle line:84%
+现在我也可以提供 IP 地址以及端口号
+
+00:06:43.880 --> 00:06:47.260 align:middle line:84%
+我也可以空着，以后配置。
+
+00:06:47.260 --> 00:06:48.680 align:middle line:84%
+我已经配置了一个应用
+
+00:06:48.680 --> 00:06:51.680 align:middle line:84%
+其会通过 TCP 连接发送消息
+
+00:06:51.680 --> 00:06:53.790 align:middle line:84%
+所以我们会用我已知的 
+
+00:06:53.790 --> 00:06:55.580 align:middle line:90%
+IP 地址和端口号
+
+
+00:06:55.580 --> 00:06:58.210 align:middle line:84%
+然后我选择 "Enable Now"
+
+00:06:58.210 --> 00:06:59.900 align:middle line:84%
+因为我要它马上启用
+
+00:06:59.900 --> 00:07:04.500 align:middle line:90%
+
+
+00:07:04.500 --> 00:07:07.790 align:middle line:84%
+我还需要发送一个文本文件到一个计费系统
+
+00:07:07.790 --> 00:07:10.790 align:middle line:84%
+我会做为此做同样的事情，但这次
+
+00:07:10.790 --> 00:07:15.640 align:middle line:84%
+我会用一个文件的 Business Operation,起名为 To_Billing
+
+00:07:15.640 --> 00:07:25.050 align:middle line:90%
+
+
+00:07:25.050 --> 00:07:27.370 align:middle line:84%
+注意到，在这里，我们会有一组不同的配置
+
+00:07:27.370 --> 00:07:29.690 align:middle line:84%
+对于文件型的 Business Operation
+
+00:07:29.690 --> 00:07:31.514 align:middle line:84%
+我们有两个不同的选项
+
+00:07:31.514 --> 00:07:34.180 align:middle line:84%
+我们会要一个文件输出，比如文件的路径和
+
+00:07:34.180 --> 00:07:34.680 align:middle line:90%
+文件名
+
+00:07:34.680 --> 00:07:36.970 align:middle line:90%
+
+
+00:07:36.970 --> 00:07:41.500 align:middle line:84%
+actually do mean something.
+注意到，我用了 %F 和 %Q，它们有相应的含义
+
+
+00:07:41.500 --> 00:07:45.430 align:middle line:84%
+%F 意味着我们会用和输入同样的文件名
+
+00:07:45.430 --> 00:07:50.160 align:middle line:84%
+%Q 表明我们会加上时间戳
+
+00:07:50.160 --> 00:07:52.470 align:middle line:84%
+为简便起见，我们只用 billing.txt 文件。
+
+00:07:52.470 --> 00:08:00.980 align:middle line:90%
+
+
+00:08:00.980 --> 00:08:02.500 align:middle line:90%
+作为输入。
+
+00:08:02.500 --> 00:08:04.730 align:middle line:84%
+我知道会我们会从一个应用 ApplicactionX
+
+00:08:04.730 --> 00:08:08.080 align:middle line:90%
+收到一个文本文件
+
+00:08:08.080 --> 00:08:10.570 align:middle line:84%
+所以在使用 Business Service 向导的时候
+ 
+
+00:08:10.570 --> 00:08:15.410 align:middle line:84%
+我会选择 File 并指定文件路径和文件名
+
+00:08:15.410 --> 00:08:16.800 align:middle line:84%
+创建一个新的 Business Service,
+
+00:08:16.800 --> 00:08:19.174 align:middle line:84%
+我将用 Business Services 边上的加号。
+
+00:08:19.174 --> 00:08:23.856 align:middle line:90%
+
+
+00:08:23.856 --> 00:08:25.230 align:middle line:84%
+然后如同 Buiness Operation 那样，
+
+00:08:25.230 --> 00:08:30.115 align:middle line:84%
+我将选择 HL7 输入并选择 File 类型
+
+00:08:30.115 --> 00:08:34.490 align:middle line:84%
+至于我的 HL7 Business Service 命名，
+
+00:08:34.490 --> 00:08:36.265 align:middle line:84%
+我打算起为,From_ApplicationX
+
+00:08:36.265 --> 00:08:41.340 align:middle line:90%
+
+
+00:08:41.340 --> 00:08:45.680 align:middle line:84%
+同时在向导中，我也会指定
+
+00:08:45.680 --> 00:08:48.610 align:middle line:90%
+文件路径和文件名
+
+00:08:48.610 --> 00:08:53.250 align:middle line:84%
+注意到， “*" 号意味着，我会选取所有
+
+00:08:53.250 --> 00:08:54.390 align:middle line:90%
+".txt" 为结尾的文件
+
+00:08:54.390 --> 00:09:00.830 align:middle line:90%
+
+
+00:09:00.830 --> 00:09:03.190 align:middle line:84%
+我还会告诉 Ensemble，在这个连接上
+
+00:09:03.190 --> 00:09:05.910 align:middle line:84%
+将要收到的消息版本
+
+00:09:05.910 --> 00:09:10.120 align:middle line:84%
+你可以看到我们支持所有标准版本。
+
+00:09:10.120 --> 00:09:12.300 align:middle line:84%
+你也会发现在下拉框中有
+
+00:09:12.300 --> 00:09:14.370 align:middle line:84%
+用户自定义的 schema
+
+00:09:14.370 --> 00:09:18.270 align:middle line:90%
+
+
+00:09:18.270 --> 00:09:19.840 align:middle line:84%
+向导也提供其它选项
+
+00:09:19.840 --> 00:09:23.630 align:middle line:84%
+选用一个已经存在的路由引擎或是新建一个
+
+00:09:23.630 --> 00:09:26.350 align:middle line:84%
+对于大多数例子，每一个 Business Service
+
+00:09:26.350 --> 00:09:27.520 align:middle line:90%
+有个专属的路由引擎
+
+00:09:27.520 --> 00:09:30.320 align:middle line:90%
+
+
+00:09:30.320 --> 00:09:31.891 align:middle line:90%
+确保选择启用
+
+00:09:31.891 --> 00:09:33.765 align:middle line:84%
+现在我们需要查找这个 Business Service
+
+00:09:33.765 --> 00:09:37.540 align:middle line:90%
+
+
+00:09:37.540 --> 00:09:39.670 align:middle line:84%
+我们可以点击 OK， 因为这只是
+
+00:09:39.670 --> 00:09:41.760 align:middle line:84%
+创建我们新的消息路由。
+
+00:09:41.760 --> 00:09:47.400 align:middle line:90%
+
+
+00:09:47.400 --> 00:09:49.890 align:middle line:84%
+注意到，在 From_ApplicationX 有个点，
+
+00:09:49.890 --> 00:09:53.710 align:middle line:84%
+如果我们点击这个点，
+
+
+00:09:53.710 --> 00:09:57.090 align:middle line:90%
+它会显示出一连接线。
+
+00:09:57.090 --> 00:09:59.590 align:middle line:84%
+显示出 From_ApplicationX 将会发送消息
+
+00:09:59.590 --> 00:10:00.756 align:middle line:90%
+到 From_ApplicationX_Router.
+
+00:10:00.756 --> 00:10:03.720 align:middle line:90%
+
+
+00:10:03.720 --> 00:10:06.040 align:middle line:84%
+到目前为止，我们创建了
+
+00:10:06.040 --> 00:10:08.440 align:middle line:90%
+一个输入和两个输出连接。
+
+00:10:08.440 --> 00:10:09.832 align:middle line:84%
+我们还创建了一个路由引擎，
+
+00:10:09.832 --> 00:10:11.290 align:middle line:84%
+同时输入连接配置成
+
+00:10:11.290 --> 00:10:16.470 align:middle line:84%
+发送所有消息到路由引擎。
+
+
+00:10:16.470 --> 00:10:18.290 align:middle line:84%
+当创建路由引擎时，
+
+00:10:18.290 --> 00:10:20.680 align:middle line:84%
+一组路由规则也会被创建。
+
+00:10:20.680 --> 00:10:23.090 align:middle line:84%
+但是，目前为止，路由规则是空的。
+
+00:10:23.090 --> 00:10:26.090 align:middle line:84%
+所以消息不会被发送出去。
+
+00:10:26.090 --> 00:10:27.720 align:middle line:84%
+下一步，需要加入路由规则
+
+00:10:27.720 --> 00:10:30.990 align:middle line:84%
+以决定消息要送到哪里。
+
+00:10:30.990 --> 00:10:33.920 align:middle line:84%
+让我们看一下路由规则。
+
+00:10:33.920 --> 00:10:37.070 align:middle line:84%
+我们选中 From_ApplicationX_Router.
+
+00:10:37.070 --> 00:10:40.260 align:middle line:84%
+在设置的右手边，
+
+00:10:40.260 --> 00:10:44.590 align:middle line:84%
+你会注意到 Business Rule Name 的设置。
+
+00:10:44.590 --> 00:10:47.350 align:middle line:84%
+如果你点击那个放大镜，
+
+00:10:47.350 --> 00:10:50.330 align:middle line:84%
+我的规则组就会在顶部显示出来。
+
+00:10:50.330 --> 00:10:53.800 align:middle line:90%
+
+
+00:10:53.800 --> 00:10:58.040 align:middle line:84%
+我可以看到规则组中有一条规则，
+
+00:10:58.040 --> 00:11:01.540 align:middle line:90%
+但是没有发送消息去任何地方
+
+00:11:01.540 --> 00:11:03.380 align:middle line:84%
+一个路由规则有一些约束条件
+
+00:11:03.380 --> 00:11:05.440 align:middle line:84%
+在消息类型、消息源
+
+00:11:05.440 --> 00:11:08.580 align:middle line:84%
+以及消息内容上可以设置条件
+
+00:11:08.580 --> 00:11:12.990 align:middle line:84%
+如果条件评定为真，那么执行动作。
+
+00:11:12.990 --> 00:11:15.160 align:middle line:84%
+让我们先来创建一条规则，
+
+00:11:15.160 --> 00:11:20.720 align:middle line:84%
+从 From_AppliationX 进来的消息类型为 ADT_A01，
+
+00:11:20.720 --> 00:11:23.500 align:middle line:90%
+schema 为 2.5
+
+00:11:23.500 --> 00:11:28.850 align:middle line:84%
+要编辑这条规则，我双击 "constraint"
+
+00:11:28.850 --> 00:11:31.130 align:middle line:90%
+我可以选数据源。
+
+00:11:31.130 --> 00:11:33.470 align:middle line:84%
+在我们这个例子里，我选 ApplicationX
+
+00:11:33.470 --> 00:11:37.070 align:middle line:90%
+
+
+00:11:37.070 --> 00:11:39.821 align:middle line:84%
+注意，消息的类型指的是文档
+
+00:11:39.821 --> 00:11:40.320 align:middle line:90%
+Name.
+
+00:11:40.320 --> 00:11:47.630 align:middle line:90%
+
+
+00:11:47.630 --> 00:11:53.240 align:middle line:84%
+当我们加入这条规则，然后我们加入目标
+
+00:11:53.240 --> 00:11:54.980 align:middle line:90%
+发送其到某个地方
+
+00:11:54.980 --> 00:11:56.222 align:middle line:90%
+所以我添加一个加号
+
+00:11:56.222 --> 00:11:57.180 align:middle line:90%
+我选中 "when"
+
+00:11:57.180 --> 00:12:03.850 align:middle line:90%
+
+
+00:12:03.850 --> 00:12:05.575 align:middle line:84%
+我的条件是永远为真
+
+00:12:05.575 --> 00:12:09.650 align:middle line:90%
+
+
+00:12:09.650 --> 00:12:11.376 align:middle line:84%
+然后，我要发送其到目的地。
+
+00:12:11.376 --> 00:12:20.820 align:middle line:90%
+
+
+00:12:20.820 --> 00:12:22.570 align:middle line:84%
+我要将其发送到我的 To_Billing
+
+00:12:22.570 --> 00:12:27.930 align:middle line:90%
+
+
+00:12:27.930 --> 00:12:31.100 align:middle line:84%
+我也可以选则多个目的地，
+
+00:12:31.100 --> 00:12:32.790 align:middle line:90%
+一次发送它到两个地方。
+
+00:12:32.790 --> 00:12:35.770 align:middle line:84%
+比如，如果我要发送到这两个地方，
+
+
+00:12:35.770 --> 00:12:37.966 align:middle line:84%
+我可选中这两个选框。
+
+00:12:37.966 --> 00:12:39.840 align:middle line:84%
+目前，我只选择 To_Billing.
+
+00:12:39.840 --> 00:12:44.010 align:middle line:90%
+
+
+00:12:44.010 --> 00:12:48.700 align:middle line:84%
+现在，我要建下一个规则，我要发送它去 To_Lab.
+
+00:12:48.700 --> 00:12:51.010 align:middle line:84%
+所以我会添加另一条规则。
+
+00:12:51.010 --> 00:12:53.480 align:middle line:90%
+点击规则组。
+
+00:12:53.480 --> 00:12:55.630 align:middle line:90%
+加入另一条规则
+
+00:12:55.630 --> 00:13:05.480 align:middle line:84%
+我想要这第二条规则如果匹配所有的项目
+
+00:13:05.480 --> 00:13:07.970 align:middle line:84%
+会发送消息到 To_Lab.
+
+00:13:07.970 --> 00:13:16.180 align:middle line:90%
+
+
+00:13:16.180 --> 00:13:18.670 align:middle line:90%
+现在我们有两个目的地。
+
+00:13:18.670 --> 00:13:22.080 align:middle line:84%
+在规则中，我们也可以加入数据转换 (可选）
+
+00:13:22.080 --> 00:13:23.600 align:middle line:90%
+
+00:13:23.600 --> 00:13:28.530 align:middle line:84%
+你会注意到有个标签为 "Transform" 的空框。
+
+00:13:28.530 --> 00:13:31.820 align:middle line:84%
+如果规则为真，然后返回，
+
+00:13:31.820 --> 00:13:34.500 align:middle line:90%
+那么会退出规则组。
+
+00:13:34.500 --> 00:13:37.340 align:middle line:90%
+注意到，就在此返回。
+
+00:13:37.340 --> 00:13:40.510 align:middle line:84%
+如果规则判定为假，那么规则引擎
+
+00:13:40.510 --> 00:13:44.160 align:middle line:84%
+会移到规则组的下一条规则，
+
+00:13:44.160 --> 00:13:47.580 align:middle line:84%
+然后检验规则二，
+
+00:13:47.580 --> 00:13:51.840 align:middle line:84%
+如果我们略去我们的返回，那么当第一个规则为真，
+
+00:13:51.840 --> 00:13:55.020 align:middle line:84%
+会继续去匹配第二个规则。
+
+00:13:55.020 --> 00:13:58.160 align:middle line:90%
+
+
+00:13:58.160 --> 00:14:04.440 align:middle line:84%
+我们确认我们保存了路由规则
+
+00:14:04.440 --> 00:14:07.390 align:middle line:84%
+然后回到我们的配置页面。
+
+00:14:07.390 --> 00:14:14.130 align:middle line:84%
+现在我们已经准备好放入文件，并察看它是如何工作的。
+
+00:14:14.130 --> 00:14:17.930 align:middle line:84%
+注意到，From_ApplicationX 边上有个红点。
+
+00:14:17.930 --> 00:14:20.820 align:middle line:84%
+这意味着，Ensemble 注意到
+
+00:14:20.820 --> 00:14:22.940 align:middle line:90%
+这个组件有错误发生。
+
+00:14:22.940 --> 00:14:27.250 align:middle line:84%
+我知道在设置的时候，虽然我已经指定了
+
+00:14:27.250 --> 00:14:32.150 align:middle line:84%
+文件路径，但是我没有真正地在我的系统里创建这路径。
+
+00:14:32.150 --> 00:14:35.050 align:middle line:84%
+在这文件夹下放入文件前，
+
+00:14:35.050 --> 00:14:38.280 align:middle line:90%
+我要确认创建了路径。
+
+00:14:38.280 --> 00:14:41.690 align:middle line:84%
+我有一些例子文件
+
+00:14:41.690 --> 00:14:46.030 align:middle line:84%
+
+00:14:46.030 --> 00:14:49.902 align:middle line:84%
+我会将这文件粘贴到我的文件夹
+
+00:14:49.902 --> 00:14:51.360 align:middle line:84%
+然后注意到，不要做任何事情，
+
+00:14:51.360 --> 00:14:54.410 align:middle line:84%
+Ensemble 立即取走了这些文件。
+
+00:14:54.410 --> 00:14:59.120 align:middle line:84%
+我可以回到管理门户的首页，
+
+00:14:59.120 --> 00:15:02.840 align:middle line:84%
+然后我可以在 Ensemble 中直接察看消息。
+
+00:15:02.840 --> 00:15:06.555 align:middle line:84%
+为此，我们选择 "View","Message" 
+
+00:15:06.555 --> 00:15:10.280 align:middle line:90%
+
+
+00:15:10.280 --> 00:15:12.920 align:middle line:84%
+我们可以看到我们有一条消息
+
+00:15:12.920 --> 00:15:16.370 align:middle line:84%
+来自于 From-ApplicationX 并且直接
+
+00:15:16.370 --> 00:15:19.450 align:middle line:90%
+发送到 From_ApplicationX_Router.
+
+00:15:19.450 --> 00:15:26.230 align:middle line:84%
+如果我选中这消息，在右手边，
+
+00:15:26.230 --> 00:15:29.630 align:middle line:90%
+我可以看消息的内容。
+
+00:15:29.630 --> 00:15:31.925 align:middle line:84%
+并且，我也可以看这消息
+
+00:15:31.925 --> 00:15:33.494 align:middle line:90%
+经由的的跟踪和路径
+
+00:15:33.494 --> 00:15:38.240 align:middle line:90%
+
+
+00:15:38.240 --> 00:15:41.430 align:middle line:84%
+我们在此可以看到消息从 From_ApplicationX
+
+00:15:41.430 --> 00:15:44.870 align:middle line:84%
+到 From_ApplicationX_Router 以及路由
+
+00:15:44.870 --> 00:15:46.945 align:middle line:90%
+到 To_Lab Business Operation。
+
+00:15:46.945 --> 00:15:49.650 align:middle line:90%
+
+
+00:15:49.650 --> 00:15:51.300 align:middle line:90%
+现在我们回顾一下我们所做的事情。
+
+00:15:51.300 --> 00:15:53.420 align:middle line:84%
+我们创建了两个输出连接
+
+00:15:53.420 --> 00:15:55.130 align:middle line:90%
+或者说 Business Operations.
+
+00:15:55.130 --> 00:15:58.370 align:middle line:84%
+然后我们创建了一个输入连接，或者说 Business Service.
+
+00:15:58.370 --> 00:16:00.600 align:middle line:84%
+我们也创建了一个消息路由，在此
+
+00:16:00.600 --> 00:16:02.770 align:middle line:84%
+我们可以编辑我们的路由规则
+
+00:16:02.770 --> 00:16:04.620 align:middle line:84%
+以及根据一组条件，
+
+00:16:04.620 --> 00:16:06.622 align:middle line:90%
+路由到两个 Business Operations
+
+00:16:06.622 --> 00:16:08.080 align:middle line:84%
+我们希望只能帮助大家学习如何
+
+00:16:08.080 --> 00:16:09.620 align:middle line:90%
+配置一个基本的 Production。
+
+00:16:09.620 --> 00:16:11.220 align:middle line:84%
+感谢您的收看，我们也希望
+
+00:16:11.220 --> 00:16:14.390 align:middle line:84%
+这能帮助大家学习基本的 Ensemble
+
+00:16:14.390 --> 00:16:15.076 align:middle line:90%

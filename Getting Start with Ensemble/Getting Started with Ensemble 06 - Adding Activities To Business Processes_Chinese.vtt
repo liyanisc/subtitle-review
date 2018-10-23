@@ -1,0 +1,290 @@
+﻿WEBVTT
+
+00:00:00.000 --> 00:00:01.270 align:middle line:90%
+
+00:00:01.270 --> 00:00:03.200 align:middle line:84%
+欢迎来到 eLearning 课程
+
+00:00:03.200 --> 00:00:08.040 align:middle line:84%
+Ensemble 入门，添加Activity到一个Business Process
+
+00:00:08.020 --> 00:00:13.320 align:middle line:84%
+在这个课程中，我们会具体看一些最为常见的 BPL Activity。
+
+00:00:13.650 --> 00:00:18.050 align:middle line:84%
+一个 Ensmeble 的BP不会直接与外部应用交互,
+
+00:00:18.220 --> 00:00:21.190 align:middle line:84%
+但是会发送请求 (request) 到业务操作(Business Operation)
+
+00:00:21.190 --> 00:00:25.370 align:middle line:84%
+BO是与外部应用的交互接口。
+
+00:00:25.370 --> 00:00:28.320 align:middle line:84%
+一个业务流程也可以发送请求
+
+00:00:28.320 --> 00:00:31.320 align:middle line:90%
+到另外一个业务流程。
+
+00:00:31.320 --> 00:00:36.580 align:middle line:84%
+比较起其它活动而言, 调用 (call) 活动也许最多使用的
+
+
+00:00:36.200 --> 00:00:44.320 align:middle line:84%
+它允许一个业务流程发送和接受消息到另外一个业务流程，
+
+00:00:38.930 --> 00:00:44.320 align:middle line:84%
+消息到另外一个业务流程，或
+
+00:00:44.320 --> 00:00:47.060 align:middle line:90%
+或者到另一个业务操作(BO)。
+
+00:00:47.060 --> 00:00:51.870 align:middle line:84%
+一个业务流程接收来自于另一个业务流程或者业务服务的primary request，
+
+00:00:51.870 --> 00:00:55.970 align:middle line:84%
+启动，并且如果有需要返回
+
+00:00:55.970 --> 00:00:58.730 align:middle line:90%
+一个 primary response。
+
+00:00:58.730 --> 00:01:02.430 align:middle line:84%
+调用(call) 活动发送它自己的调用请求
+
+00:01:02.430 --> 00:01:05.180 align:middle line:84%
+至另一个业务流程或者业务操作,
+
+00:01:05.180 --> 00:01:08.660 align:middle line:84%
+并接受返回的 response。
+
+00:01:08.660 --> 00:01:11.460 align:middle line:84%
+调用的 request 和 reponse 的属性
+
+00:01:11.460 --> 00:01:14.790 align:middle line:84%
+只为当前的调用活动所用。
+
+00:01:14.790 --> 00:01:17.730 align:middle line:84%
+在调用活动的范围之外，如果有需要，
+
+00:01:17.730 --> 00:01:19.700 align:middle line:90%
+使用 Context 对象的属性
+
+00:01:19.700 --> 00:01:22.400 align:middle line:84%
+让我们在管理门户中看一个例子 Production
+
+00:01:22.400 --> 00:01:26.490 align:middle line:84%
+并讨论业务流程和它相关的
+
+00:01:26.490 --> 00:01:27.790 align:middle line:90%
+components.
+其他业务组件。
+
+00:01:27.790 --> 00:01:32.910 align:middle line:84%
+这里有一个订单处理的 Ensemble产品.
+
+00:01:32.910 --> 00:01:35.390 align:middle line:84%
+下面，我们更进一步地来看一下，
+
+00:01:35.390 --> 00:01:40.240 align:middle line:84%
+CompositeOrderProcess。
+
+00:01:40.240 --> 00:01:42.860 align:middle line:84%
+这是个业务流程，让我们仔细察看一下。
+
+
+00:01:42.860 --> 00:01:48.700 align:middle line:84%
+这个业务流程称之为 CompositeOrderProcess,
+
+00:01:48.700 --> 00:01:53.259 align:middle line:84%
+你可以看到这个业务流程的实际类
+
+00:01:53.259 --> 00:01:54.550 align:middle line:90%
+是 DEF.Production.OrderProcess.
+
+00:01:54.550 --> 00:01:57.880 align:middle line:90%
+
+
+00:01:57.880 --> 00:02:02.390 align:middle line:84%
+我们也可以看到这个业务流程
+
+00:02:02.390 --> 00:02:05.370 align:middle line:84%
+和其它不同的组件一起工作。
+
+00:02:05.370 --> 00:02:10.610 align:middle line:84%
+一个来自于 CompositeOrderService 的消息
+
+00:02:10.610 --> 00:02:13.840 align:middle line:84%
+启动 CompositeOrderProcess,
+
+00:02:13.840 --> 00:02:18.080 align:middle line:84%
+其然后调用 ReStockProcess,
+
+00:02:18.080 --> 00:02:22.110 align:middle line:84%
+同时也调用业务运营，Inventory,
+
+00:02:22.110 --> 00:02:25.990 align:middle line:90%
+OrderProcessing 和 PriceList.
+
+00:02:25.990 --> 00:02:28.645 align:middle line:84%
+让我们进一步看一下 CompositeOrderProcess.
+
+00:02:28.645 --> 00:02:31.830 align:middle line:90%
+
+
+00:02:31.830 --> 00:02:35.070 align:middle line:84%
+当我们第一次启动这个业务流程，是通过
+
+00:02:35.070 --> 00:02:39.730 align:middle line:84%
+接收一个综合订单请求，
+
+00:02:39.730 --> 00:02:43.060 align:middle line:90%
+我们首先检查一下库存。
+
+00:02:43.060 --> 00:02:49.596 align:middle line:84%
+这个调用 Inventory 业务运营。
+
+00:02:49.596 --> 00:02:54.870 align:middle line:84%
+如果我们快速回看一下我们的 Ensemble Production,
+
+00:02:54.870 --> 00:02:57.930 align:middle line:84%
+我们可以看到 CompositeOrderProcess 实际上
+
+00:02:57.930 --> 00:03:02.580 align:middle line:84%
+产生了一个调用，调用了 Inventory 业务运营
+
+00:03:02.580 --> 00:03:06.960 align:middle line:84%
+我们在此检查库存，利用
+
+00:03:06.960 --> 00:03:11.690 align:middle line:84%
+一些 Context 属性，一个指定的消息类型
+
+00:03:11.690 --> 00:03:16.500 align:middle line:84%
+会发送到 Inventory 业务运营，
+
+00:03:16.500 --> 00:03:20.460 align:middle line:84%
+并返回一个 response, 并且
+
+00:03:20.460 --> 00:03:25.200 align:middle line:84%
+从这个返回的 response 设置一个 Context 值，
+
+00:03:25.200 --> 00:03:30.700 align:middle line:84%
+然后，我们可以检查是否有足够的库存
+
+00:03:30.700 --> 00:03:33.200 align:middle line:90%
+可以下订单。
+
+00:03:33.200 --> 00:03:37.330 align:middle line:84%
+我们做一个简单的计算测试
+
+00:03:37.330 --> 00:03:43.300 align:middle line:84%
+一决定是否有足够的库存下订单。
+
+00:03:43.300 --> 00:03:49.080 align:middle line:84%
+如果有足够的库存，我们通过
+
+00:03:49.080 --> 00:03:54.560 align:middle line:84%
+发送消息到 OrderProcessing 业务运营，
+
+00:03:54.560 --> 00:04:00.000 align:middle line:84%
+CheckPrice 业务运营，下订单，
+
+00:04:00.000 --> 00:04:04.760 align:middle line:84%
+并且我们有条规则决定运费价格。
+
+00:04:04.760 --> 00:04:08.322 align:middle line:84%
+另外一方面，如果没有足够的库存，
+
+00:04:08.322 --> 00:04:10.675 align:middle line:90%
+这个订单会被拒绝。
+
+00:04:10.675 --> 00:04:14.160 align:middle line:90%
+
+
+00:04:14.160 --> 00:04:19.720 align:middle line:84%
+在上述两种情形中，我们都会通过
+
+00:04:19.720 --> 00:04:22.820 align:middle line:84%
+接收到检查库存的信息产生一个 response,
+
+00:04:22.820 --> 00:04:30.200 align:middle line:84%
+并下订单，同时我们也会强制回复
+
+00:04:30.200 --> 00:04:33.390 align:middle line:90%
+业务服务。
+
+00:04:33.390 --> 00:04:35.760 align:middle line:84%
+一旦我么完成上述动作，我们会
+
+00:04:35.760 --> 00:04:39.330 align:middle line:90%
+检查是否需要进货。
+
+00:04:39.330 --> 00:04:43.610 align:middle line:84%
+如果我们需要对这个产品进货，
+
+00:04:43.610 --> 00:04:48.030 align:middle line:84%
+我们调用 ReStock 业务流程。
+
+00:04:48.030 --> 00:04:51.900 align:middle line:90%
+
+
+00:04:51.900 --> 00:04:57.530 align:middle line:84%
+"if" 活动带有一个真-假分支。
+
+00:04:57.530 --> 00:05:03.990 align:middle line:84%
+如果你需要多个分支，可以使用 "switch",
+
+00:05:03.990 --> 00:05:08.270 align:middle line:84%
+其允许你根据需要产生多个分支，
+
+00:05:08.270 --> 00:05:11.220 align:middle line:84%
+如同许多编程语言一样的 "case" 
+
+00:05:11.220 --> 00:05:12.680 align:middle line:90%
+语句
+
+00:05:12.680 --> 00:05:15.550 align:middle line:84%
+在 "switch" 情况下，条件
+
+00:05:15.550 --> 00:05:21.850 align:middle line:84%
+放置在和各个活动的连接上
+
+00:05:21.850 --> 00:05:24.330 align:middle line:90%
+从而你可以进行分支。
+
+00:05:24.330 --> 00:05:29.600 align:middle line:84%
+不时，你也许发现你需要用到 Caché ObjectScript
+
+00:05:29.600 --> 00:05:32.910 align:middle line:84%
+代码代码在你的业务流程中。
+
+00:05:32.910 --> 00:05:36.900 align:middle line:84%
+为了支持这种情形，我们也有 "code" 活动。
+
+00:05:36.900 --> 00:05:41.390 align:middle line:84%
+"foreach” 允许你重复动作。
+
+00:05:41.390 --> 00:05:45.760 align:middle line:84%
+"Foreach“ 会遍历 Caché 中的列表
+
+00:05:45.760 --> 00:05:49.020 align:middle line:90%
+或者数组对象。
+
+00:05:49.020 --> 00:05:53.070 align:middle line:84%
+"throw", "catch", 以及 "catch all" 允许
+
+00:05:53.070 --> 00:05:55.560 align:middle line:90%
+你做一些错误处理。
+
+00:05:55.560 --> 00:05:59.970 align:middle line:84%
+正如你所见的，这里有许多活动，
+
+00:05:59.970 --> 00:06:04.830 align:middle line:84%
+可使你的业务流程鲁棒性更强。
+
+00:06:04.830 --> 00:06:08.170 align:middle line:84%
+您刚才收看的是 Ensemble 入门，
+
+00:06:08.170 --> 00:06:11.623 align:middle line:84%
+添加活动到业务流程。
+
+00:06:11.623 --> 00:06:12.123 align:middle line:90%

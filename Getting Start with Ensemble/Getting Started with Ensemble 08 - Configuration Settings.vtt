@@ -1,0 +1,489 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.010 align:middle line:90%
+
+
+00:00:01.010 --> 00:00:04.600 align:middle line:84%
+欢迎来到elearning课程"Ensemble入门"
+
+00:00:04.600 --> 00:00:07.170 align:middle line:90%
+Configuration Settings(配置的设置)
+
+00:00:07.170 --> 00:00:10.180 align:middle line:84%
+加入到Ensemble产品中的许多业务组件
+
+00:00:10.180 --> 00:00:13.440 align:middle line:84%
+使用的是InterSystems提供的标准类
+
+00:00:13.440 --> 00:00:17.180 align:middle line:84%
+或者是Intersystems提供的适配器。
+
+00:00:17.180 --> 00:00:20.640 align:middle line:84%
+这些部件要经过Configuration Setting(配置设置)
+
+00:00:20.640 --> 00:00:23.030 align:middle line:84%
+得以在你的专门的场景下工作
+
+00:00:23.030 --> 00:00:27.410 align:middle line:84%
+比如很简单的例子，假设一个业务服务
+
+00:00:27.410 --> 00:00:30.790 align:middle line:90%
+使用文件接入适配器
+
+00:00:30.790 --> 00:00:35.660 align:middle line:84%
+适配器使用的文件路径和文件规范
+
+00:00:35.660 --> 00:00:38.570 align:middle line:84%
+不是固定写在代码里的
+
+00:00:38.570 --> 00:00:43.660 align:middle line:84%
+它们从你产品的Configuration Settings得到。
+
+00:00:43.660 --> 00:00:45.890 align:middle line:84%
+很多使用相同类创建的业务组件可以被加入
+
+00:00:45.890 --> 00:00:48.830 align:middle line:84%
+到同一个产品，
+
+00:00:48.830 --> 00:00:51.530 align:middle line:84%
+各自(在产品中)担任不同的角色，基于他们
+
+00:00:51.530 --> 00:00:53.680 align:middle line:90%
+Configured不同。
+
+00:00:53.680 --> 00:00:56.430 align:middle line:84%
+Settings(设置)可以设置于产品中的所有Configuration item(配置项)
+
+00:00:56.430 --> 00:00:59.720 align:middle line:84%
+或者用于整个产品本身。
+
+00:00:59.720 --> 00:01:02.810 align:middle line:90%
+
+
+00:01:02.810 --> 00:01:06.480 align:middle line:84%
+要配置设置项，到产品配置
+
+00:01:06.480 --> 00:01:09.750 align:middle line:84%
+页面， 在Ensemble管理页面
+
+00:01:09.750 --> 00:01:14.110 align:middle line:84%
+如果你选择"Production Setting"链接然后选
+
+00:01:14.110 --> 00:01:17.510 align:middle line:84%
+这个setting页面，你可以修改
+
+00:01:17.510 --> 00:01:19.220 align:middle line:90%
+整个产品的设置。
+
+00:01:19.220 --> 00:01:22.100 align:middle line:84%
+这里有两个设置是
+
+00:01:22.100 --> 00:01:26.680 align:middle line:84%
+和你的产品相关的，如"Testing Enabled"
+
+00:01:26.680 --> 00:01:30.730 align:middle line:84%
+这个设置允许你测试你的产品
+
+00:01:30.730 --> 00:01:36.520 align:middle line:84%
+还有个设置是"default Actor Pool Size"。
+
+00:01:36.520 --> 00:01:41.490 align:middle line:84%
+如果你选中左侧面板里一个单独的组件
+
+00:01:41.490 --> 00:01:46.920 align:middle line:84%
+setting页面将展现这个组件的设置项
+
+00:01:46.920 --> 00:01:50.720 align:middle line:84%
+这些Setting(设置)分成几组。
+
+00:01:50.720 --> 00:01:52.980 align:middle line:84%
+在Informatinal设置组
+
+00:01:52.980 --> 00:01:59.050 align:middle line:84%
+你可以看到一些字段，比如类名和适配器名。
+
+00:01:59.050 --> 00:02:01.360 align:middle line:84%
+类名其实不是真正的设置项
+
+00:02:01.360 --> 00:02:04.440 align:middle line:84%
+but are shown here for
+reference and convenience.
+他们被显示出来只是方便你查看。
+
+00:02:04.440 --> 00:02:07.580 align:middle line:84%
+你最可能修改的设置项
+
+00:02:07.580 --> 00:02:13.860 align:middle line:84%
+应该放在Basic Settings组。
+
+00:02:13.860 --> 00:02:15.820 align:middle line:84%
+其他组的设置项
+
+00:02:15.820 --> 00:02:18.130 align:middle line:84%
+带有缺省值，其中很多非常可能
+
+00:02:18.130 --> 00:02:22.052 align:middle line:84%
+符合你的要求而不用你再去修改。
+
+00:02:22.052 --> 00:02:23.385 align:middle line:90%
+Let's look at a couple examples.
+让我们看两个例子：
+
+00:02:23.385 --> 00:02:26.680 align:middle line:90%
+
+
+00:02:26.680 --> 00:02:31.560 align:middle line:84%
+首先，我们将检查MyBusinessService
+
+00:02:31.560 --> 00:02:34.810 align:middle line:90%
+在eLearning.DemoProduction
+
+00:02:34.810 --> 00:02:37.490 align:middle line:84%
+在Informational Settings组
+
+00:02:37.490 --> 00:02:39.610 align:middle line:84%
+你可以看到适配器类名
+
+00:02:39.610 --> 00:02:40.860 align:middle line:90%
+是EnsLib.File.InboundAdapter
+
+00:02:40.860 --> 00:02:44.590 align:middle line:90%
+
+
+00:02:44.590 --> 00:02:46.970 align:middle line:84%
+再看看Basic Settings组
+
+00:02:46.970 --> 00:02:51.140 align:middle line:84%
+你可以看到这个适配器的许多设置
+
+00:02:51.140 --> 00:02:56.520 align:middle line:84%
+包括文件路径，文件格式，打包文件路径
+
+00:02:56.520 --> 00:03:00.570 align:middle line:90%
+和工作路径。
+
+00:03:00.570 --> 00:03:04.880 align:middle line:84%
+然后看看MyTCPService,我们看到它
+
+00:03:04.880 --> 00:03:08.850 align:middle line:90%
+使用一个TCP接入适配器
+
+00:03:08.850 --> 00:03:16.150 align:middle line:84%
+As a result, you see additional
+settings, such as port number.
+不用说，你可以看到它使用的设置项，比如端口号，
+
+00:03:16.150 --> 00:03:18.670 align:middle line:90%
+
+
+00:03:18.670 --> 00:03:21.960 align:middle line:84%
+And, in the new
+Connections Settings
+而且，在你看到了新的Connections Settings组
+
+00:03:21.960 --> 00:03:25.050 align:middle line:84%
+因为这是个TCP服务
+
+00:03:25.050 --> 00:03:26.550 align:middle line:90%
+we have the IP address.
+在这里我们找到了IP地址设置项
+
+00:03:26.550 --> 00:03:30.860 align:middle line:90%
+
+
+00:03:30.860 --> 00:03:36.550 align:middle line:84%
+MySQLOperation业务操作 
+
+00:03:36.550 --> 00:03:38.370 align:middle line:84%
+使用EnsLib.SQL.OutboundAdapter.
+
+00:03:38.370 --> 00:03:42.810 align:middle line:90%
+
+
+00:03:42.810 --> 00:03:50.100 align:middle line:84%
+这里，Basic Settings组包括DSN和credentials
+
+00:03:50.100 --> 00:03:54.580 align:middle line:84%
+Connection Setting组包括JDBC连接的有关设置
+
+00:03:54.580 --> 00:03:56.590 align:middle line:90%
+如果需要的他们的话。
+
+00:03:56.590 --> 00:04:02.970 align:middle line:84%
+The actual SQL statement
+is handled in the class
+实际的SQL语句被
+
+00:04:02.970 --> 00:04:07.620 align:middle line:84%
+eLearning.SQLOperation,
+providing flexibility
+eLearning.SQLOperation处理，得到灵活性
+00:04:07.620 --> 00:04:10.730 align:middle line:90%
+in creating the query.
+在建立查寻的时候
+
+00:04:10.730 --> 00:04:14.120 align:middle line:84%
+当你接着查看不同的适配器时
+
+00:04:14.120 --> 00:04:16.269 align:middle line:84%
+你会发现他们都有设置项
+
+00:04:16.269 --> 00:04:19.959 align:middle line:84%
+that are appropriate for
+their particular technology.
+这些设置项对应于不同的接口技术。
+
+00:04:19.959 --> 00:04:23.250 align:middle line:84%
+有些设置可以用于所有的业务组件
+
+00:04:23.250 --> 00:04:25.740 align:middle line:84%
+不管用的是那种适配器技术
+
+00:04:25.740 --> 00:04:27.310 align:middle line:84%
+这些设置包括是否该组件
+
+00:04:27.310 --> 00:04:29.600 align:middle line:84%
+被激活了，组件资源池(Pool Size)大小 
+
+00:04:29.600 --> 00:04:31.720 align:middle line:84%
+该组件被定时运行的时间，
+
+00:04:31.720 --> 00:04:36.530 align:middle line:84%
+当出错的时候他们怎么表现，诸如此类等等
+
+00:04:36.530 --> 00:04:39.020 align:middle line:84%
+我开始的时候说你可以控制
+
+00:04:39.020 --> 00:04:41.740 align:middle line:84%
+INTERSYSTEMS提供的标准组件
+
+00:04:41.740 --> 00:04:44.330 align:middle line:84%
+但你可能也要添加设置到
+
+00:04:44.330 --> 00:04:45.880 align:middle line:90%
+你自己建造的业务组件
+
+00:04:45.880 --> 00:04:51.090 align:middle line:84%
+所以让我们看看在CLASS里面他们是什么样子的
+
+00:04:51.090 --> 00:04:53.560 align:middle line:84%
+比如， 你可能刚刚写了
+
+00:04:53.560 --> 00:04:57.860 align:middle line:84%
+业务操作类elearning.SQLOperation
+
+00:04:57.860 --> 00:05:01.910 align:middle line:84%
+如果你从STUIDO看，你会发现
+
+00:05:01.910 --> 00:05:06.900 align:middle line:84%
+这只是一个很简单的表更新的类 
+
+00:05:06.900 --> 00:05:12.120 align:middle line:84%
+请求消息送了一个值，另一个是timestamp
+
+00:05:12.120 --> 00:05:17.700 align:middle line:84%
+另一个是‘部门’在代码里写成固定的"SALES"
+
+00:05:17.700 --> 00:05:20.790 align:middle line:84%
+如果我想要‘部门’是可以配置的
+
+00:05:20.790 --> 00:05:23.400 align:middle line:90%
+我可以把它设成一个‘SETTING'
+
+00:05:23.400 --> 00:05:32.426 align:middle line:84%
+首先，我要在类里面加一个"部门"的属性(property)
+
+00:05:32.426 --> 00:05:43.300 align:middle line:90%
+
+
+00:05:43.300 --> 00:05:47.580 align:middle line:84%
+I can use this
+value in my update
+我可以在我的Update语句里用这个值
+
+00:05:47.580 --> 00:05:53.760 align:middle line:84%
+by replacing the
+hard coded literal
+而不是代码里的固定值
+
+
+00:05:53.760 --> 00:06:01.290 align:middle line:84%
+with a reference to the property
+now to make property a setting.
+用一个reference to property，现在，为了使这个property成为setting项
+
+00:06:01.290 --> 00:06:03.695 align:middle line:90%
+I add a SETTINGS parameter.
+我添加一个SETTINGS parameter
+
+00:06:03.695 --> 00:06:17.620 align:middle line:90%
+
+
+00:06:17.620 --> 00:06:21.130 align:middle line:84%
+注意字SETTING是全大写
+
+00:06:21.130 --> 00:06:26.270 align:middle line:84%
+而Department要和property名字的大小写一样
+
+00:06:26.270 --> 00:06:31.150 align:middle line:84%
+你可以给很多property名字，用逗号分隔
+
+00:06:31.150 --> 00:06:35.270 align:middle line:84%
+这可以自动展现设置在管理
+
+00:06:35.270 --> 00:06:36.620 align:middle line:90%
+portal.
+页面
+
+00:06:36.620 --> 00:06:43.590 align:middle line:84%
+如我们看到的， 当我编译这个class
+
+00:06:43.590 --> 00:06:46.220 align:middle line:84%
+然后刷新管理页面
+
+00:06:46.220 --> 00:06:58.860 align:middle line:90%
+
+
+00:06:58.860 --> 00:07:06.150 align:middle line:84%
+当我们现在看 MySQLOperation
+
+00:07:06.150 --> 00:07:11.090 align:middle line:84%
+我们可以看到在‘Additional Settings'里面
+
+00:07:11.090 --> 00:07:17.480 align:middle line:84%
+我们现在看到了'Department'，以前那里没有
+
+00:07:17.480 --> 00:07:21.500 align:middle line:84%
+参数'SETTINGS'有一些窍门
+
+00:07:21.500 --> 00:07:25.240 align:middle line:84%
+如果你已经把值定义在父类里了
+
+00:07:25.240 --> 00:07:28.310 align:middle line:84%
+那这个值不会被覆盖
+
+00:07:28.310 --> 00:07:32.950 align:middle line:84%
+只是添加新值到已经存在的Setting列表里
+
+00:07:32.950 --> 00:07:36.390 align:middle line:84%
+你甚至可以取消在superclass里定义的某个设置
+
+00:07:36.390 --> 00:07:38.290 align:middle line:90%
+用减号
+
+00:07:38.290 --> 00:07:40.870 align:middle line:84%
+你会这么做如果你决定把把一个值在代码里写成固定值
+
+00:07:40.870 --> 00:07:46.060 align:middle line:84%
+一个合适你的应用逻辑里特定值。
+
+00:07:46.060 --> 00:07:47.810 align:middle line:84%
+注意这里settings可以定义
+
+00:07:47.810 --> 00:07:50.090 align:middle line:84%
+在任何业务组件，业务服务
+
+00:07:50.090 --> 00:07:54.570 align:middle line:84%
+业务流程，业务操作, 或者它们使用的适配器
+
+00:07:54.570 --> 00:07:57.260 align:middle line:84%
+这些设置都显示在一起
+
+00:07:57.260 --> 00:08:00.280 align:middle line:90%
+在配置页面
+
+00:08:00.280 --> 00:08:02.580 align:middle line:84%
+现在让我们说说settings怎么保存
+
+00:08:02.580 --> 00:08:05.120 align:middle line:84%
+到产品，还有会发生什么
+
+00:08:05.120 --> 00:08:10.650 align:middle line:84%
+当你把产品从开发阶段升级到测试然后到上线阶段
+
+00:08:10.650 --> 00:08:13.790 align:middle line:84%
+回到studio,我们将看看
+
+00:08:13.790 --> 00:08:18.580 align:middle line:90%
+产品的XML
+
+00:08:18.580 --> 00:08:23.600 align:middle line:84%
+在产品定义的XML里面能看到这些Settings
+
+00:08:23.600 --> 00:08:27.510 align:middle line:84%
+如你们看到这里， 对于MyBusinessService
+
+00:08:27.510 --> 00:08:31.070 align:middle line:84%
+我们有很多settings，从适配器文件
+
+00:08:31.070 --> 00:08:33.240 align:middle line:90%
+路径等等
+
+00:08:33.240 --> 00:08:36.110 align:middle line:84%
+如果你从你的测试系统导出这些类
+
+00:08:36.110 --> 00:08:38.710 align:middle line:84%
+然后导入到一个上线的系统
+
+00:08:38.710 --> 00:08:40.580 align:middle line:90%
+这些设置将被拷贝
+
+00:08:40.580 --> 00:08:43.059 align:middle line:84%
+如果这是个设置项的以前的版本
+
+00:08:43.059 --> 00:08:46.050 align:middle line:84%
+那它将被覆盖。
+
+00:08:46.050 --> 00:08:48.560 align:middle line:84%
+在大多数情况下，这正是
+
+00:08:48.560 --> 00:08:51.860 align:middle line:84%
+你想要的,但是对另一些settings，比如TCP/IP
+
+00:08:51.860 --> 00:08:54.520 align:middle line:84%
+地址或者文件路径，这些值
+
+00:08:54.520 --> 00:08:57.020 align:middle line:84%
+在测试系统和在线系统
+
+00:08:57.020 --> 00:08:59.530 align:middle line:90%
+有意的要不一样
+
+00:08:59.530 --> 00:09:04.210 align:middle line:84%
+如果你覆盖了一个在线业务操作的TCP地址设置 
+
+00:09:04.210 --> 00:09:07.580 align:middle line:84%
+用测试系统的这个值
+
+00:09:07.580 --> 00:09:11.660 align:middle line:84%
+在线系统的消息将被路由到你的测试系统
+
+00:09:11.660 --> 00:09:16.560 align:middle line:84%
+为了避免这个，你可以设置系统的缺省settings
+
+00:09:16.560 --> 00:09:20.370 align:middle line:84%
+这个存在产品定义以外
+
+00:09:20.370 --> 00:09:23.390 align:middle line:84%
+如果你这么做，同时确认这个setting应该
+
+00:09:23.390 --> 00:09:25.380 align:middle line:84%
+以系统默认值为准
+
+00:09:25.380 --> 00:09:27.290 align:middle line:84%
+这个值不会被拷贝
+
+00:09:27.290 --> 00:09:30.090 align:middle line:84%
+在产品定义，从而这个值
+
+00:09:30.090 --> 00:09:33.060 align:middle line:90%
+就不会被覆盖
+
+00:09:33.060 --> 00:09:36.080 align:middle line:84%
+你刚刚看的是‘ensemble入门'
+
+00:09:36.080 --> 00:09:38.550 align:middle line:90%
+Configuration Settings.
+配置设置
+
+00:09:38.550 --> 00:09:39.222 align:middle line:90%

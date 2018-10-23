@@ -1,0 +1,973 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:00.610 align:middle line:90%
+
+
+00:00:00.610 --> 00:00:02.410 align:middle line:84%
+Welcome to the
+eLearning session,
+欢迎来到 eLearning 课程
+
+00:00:02.410 --> 00:00:06.570 align:middle line:84%
+Getting Started with HL7
+Data Transformations.
+HL7 数据转换入门。
+
+00:00:06.570 --> 00:00:08.670 align:middle line:84%
+When exchanging data
+with different systems,
+当我们在不同系统减交换数据时候，
+
+00:00:08.670 --> 00:00:11.770 align:middle line:84%
+it is common to have to map
+data from one record or message
+常需要将一条记录或消息结构映射
+
+00:00:11.770 --> 00:00:14.810 align:middle line:84%
+structure to another that
+is slightly different.
+到另外一条稍微不同的记录或消息上。
+
+00:00:14.810 --> 00:00:17.150 align:middle line:84%
+Likewise when sending
+an HL7 message
+如同当我们从一个应用发送 Hl7 消息
+
+00:00:17.150 --> 00:00:20.060 align:middle line:84%
+from one application to
+another, it is almost always
+到另一个应用，常需要
+
+00:00:20.060 --> 00:00:24.130 align:middle line:84%
+necessary to transform the data
+so the receiving system gets it
+转换数据，那样接受方可以
+
+00:00:24.130 --> 00:00:26.090 align:middle line:90%
+in the correct format.
+接受到正确格式的数据。
+
+00:00:26.090 --> 00:00:30.250 align:middle line:84%
+For example, perhaps you have
+a treatment order message
+比如，也许你有一个治疗的医嘱消息进来，
+
+00:00:30.250 --> 00:00:32.840 align:middle line:84%
+coming in that will
+trigger an EDT message that
+其会触发一个 EDT 消息，
+
+00:00:32.840 --> 00:00:34.680 align:middle line:84%
+needs to be sent
+out based on some
+而这个消息需要根据医嘱消息的
+
+00:00:34.680 --> 00:00:37.290 align:middle line:84%
+of the contents of
+the order message.
+的一些内容发送。
+
+00:00:37.290 --> 00:00:39.230 align:middle line:84%
+Or perhaps you have
+a message coming
+或者你有个消息进来，
+
+00:00:39.230 --> 00:00:42.700 align:middle line:84%
+in that needs to make a decision
+based on the particular state
+根据消息中病人特定的州或国家
+
+00:00:42.700 --> 00:00:44.612 align:middle line:90%
+or country of the patient.
+需要做出一些决定。
+
+00:00:44.612 --> 00:00:46.070 align:middle line:84%
+There are many
+different things you
+有很多不同的事情，你可能需要消息
+
+00:00:46.070 --> 00:00:49.350 align:middle line:84%
+may need to do to the
+message to get it in a format
+以某种格式
+
+00:00:49.350 --> 00:00:51.530 align:middle line:84%
+that the receiving
+application can use.
+适合接受应用的需求。
+
+00:00:51.530 --> 00:00:54.750 align:middle line:84%
+We will start with
+some basic examples.
+我们会从一些基础的例子讲起。
+
+00:00:54.750 --> 00:00:56.850 align:middle line:84%
+Let's start with a simple
+Data Transformation.
+让我们从一个简单的数据转换例子开始。
+
+00:00:56.850 --> 00:00:59.490 align:middle line:84%
+To create a new
+transformation, let's go
+我们可以到管理门户
+
+00:00:59.490 --> 00:01:01.860 align:middle line:90%
+to the Management Portal.
+创建一个新的数据转换。
+
+00:01:01.860 --> 00:01:11.011 align:middle line:84%
+We can click on Build,
+Data Transformations,
+我们可以选中 Build, Data Transformation 菜单
+
+
+00:01:11.011 --> 00:01:12.260 align:middle line:90%
+and then we want to click New.
+然后点击 "New".
+
+00:01:12.260 --> 00:01:15.890 align:middle line:90%
+
+
+00:01:15.890 --> 00:01:18.900 align:middle line:84%
+From this wizard, we get
+options to set it up.
+从向导中，我们可以获得设置的选项。
+
+00:01:18.900 --> 00:01:21.620 align:middle line:84%
+The first thing that we need to
+do is to give it a good name.
+首先，我们需要其一个合适的名字。
+
+00:01:21.620 --> 00:01:24.230 align:middle line:84%
+Very often you're going to have
+multiple data transformations,
+有多个数据转换是非常常见的，
+
+00:01:24.230 --> 00:01:27.740 align:middle line:84%
+so having a useful name
+allows you to quickly identify
+所以起一个有用的名字可允许你能快速
+
+00:01:27.740 --> 00:01:30.810 align:middle line:84%
+the Data Transformation
+you would like to use.
+断定你所需要使用的数据转换。
+
+00:01:30.810 --> 00:01:33.634 align:middle line:84%
+We'll call ours
+ADTDTL, because we're
+我会为我们的命名为 ADTDTL,
+
+00:01:33.634 --> 00:01:35.050 align:middle line:84%
+going to be doing
+a transformation
+因为我们会对一个简单的病人入院消息
+
+00:01:35.050 --> 00:01:38.370 align:middle line:90%
+with a simple admit message.
+作数据转换。
+
+00:01:38.370 --> 00:01:41.680 align:middle line:84%
+We then need to
+specify a source class.
+然后我们需要指定一个源类。
+
+00:01:41.680 --> 00:01:46.290 align:middle line:84%
+For HL7 messages, we are going
+to be using EnsLib.HL7Message.
+对于 HL7 消息，我们会用 EnsLib.HL7Message.
+
+00:01:46.290 --> 00:01:49.460 align:middle line:84%
+However, if we simply
+click the HL7 radio,
+然而，如果我们只是简单的选中 HL7 的单选按钮，
+
+00:01:49.460 --> 00:01:51.960 align:middle line:84%
+this will be automatically
+added for us.
+就会自动替我们添加这个类。
+
+00:01:51.960 --> 00:01:57.670 align:middle line:90%
+
+
+00:01:57.670 --> 00:02:01.590 align:middle line:84%
+We then need to choose
+our Source Doc Type.
+然后我们只需要选择源的文档类型。
+
+00:02:01.590 --> 00:02:15.490 align:middle line:84%
+Our doc type that we're going
+to choose is 2.3.1 ADT_A01.
+我们的文档类型会选为 2.3.1 ADT_A01.
+
+00:02:15.490 --> 00:02:19.000 align:middle line:84%
+This wizard will automatically
+set up our targets
+向导会自动地为我们将目标设置
+
+00:02:19.000 --> 00:02:21.810 align:middle line:84%
+be the same as my source,
+but we can always change
+为同我们的源一样,但是可以随时修改
+
+00:02:21.810 --> 00:02:23.950 align:middle line:90%
+that to be different values.
+成不同的值。
+
+00:02:23.950 --> 00:02:26.390 align:middle line:84%
+For this case, our
+target and our source
+在这个例子中，我们的目标和源
+
+00:02:26.390 --> 00:02:29.640 align:middle line:90%
+are going to be the same type.
+会用同一类型的数据。
+
+00:02:29.640 --> 00:02:30.570 align:middle line:90%
+Then we can click OK.
+然后我们点击 OK。
+
+00:02:30.570 --> 00:02:34.300 align:middle line:90%
+
+
+00:02:34.300 --> 00:02:37.080 align:middle line:84%
+Notice here we get a
+blank Data Transformation.
+注意到，这里，我们取得的是一个空的数据转换。
+
+00:02:37.080 --> 00:02:41.530 align:middle line:84%
+We have our source, which
+is of type 2.3.1 ADT_A01,
+我们的源数据的类型是 2.3.1 ADT_A01,
+
+00:02:41.530 --> 00:02:46.380 align:middle line:84%
+and our target, which
+is also 2.3.1 ADT_A01.
+并且我们的目标数据也是 2.3.1 ADT_A01.
+
+00:02:46.380 --> 00:02:49.150 align:middle line:84%
+The first thing that we
+want to do to set this up
+首先我们要做的在
+
+00:02:49.150 --> 00:02:51.660 align:middle line:84%
+is to go to the Transform
+tab on the right.
+右边的 Transform 标签页中进行设置。
+
+00:02:51.660 --> 00:02:56.000 align:middle line:90%
+
+
+00:02:56.000 --> 00:02:58.570 align:middle line:84%
+The first thing to do is to
+set up the Create property
+第一我们要做的是在 Transform 标签页中
+
+00:02:58.570 --> 00:03:00.910 align:middle line:90%
+from the Transform tab.
+设置 "Create" 属性。
+
+00:03:00.910 --> 00:03:02.260 align:middle line:90%
+We're going to choose New.
+我们会选者 "New".
+
+00:03:02.260 --> 00:03:03.780 align:middle line:84%
+This means that
+the target is going
+这意味着目标值
+
+00:03:03.780 --> 00:03:05.710 align:middle line:90%
+to start completely empty.
+起始为空。
+
+00:03:05.710 --> 00:03:08.160 align:middle line:84%
+If we did copy, the
+entire source message
+如果我们选择的是 "Copy",整个源消息
+
+
+00:03:08.160 --> 00:03:10.600 align:middle line:84%
+would be the starting
+place for the target.
+会被复制在目标消息中。
+
+00:03:10.600 --> 00:03:12.200 align:middle line:84%
+Typically, you only
+want to do this
+通常，你只有在文档类型
+
+00:03:12.200 --> 00:03:15.530 align:middle line:90%
+if the doc types are the same.
+相同的时候才这么做。
+
+00:03:15.530 --> 00:03:18.760 align:middle line:84%
+Let's start by mapping all
+the corresponding segments.
+让我们先对所有相应的片断作映射。
+
+00:03:18.760 --> 00:03:20.610 align:middle line:84%
+To map a segment,
+we're going to click
+为了对片断做映射，点击
+
+00:03:20.610 --> 00:03:23.420 align:middle line:84%
+on the dot next to
+the segment name
+片断名边上的点
+
+00:03:23.420 --> 00:03:27.335 align:middle line:84%
+and simply drag and
+drop to the target.
+然后简单的拖放到目标。
+00:03:27.335 --> 00:03:29.710 align:middle line:84%
+And then we can do this for
+all the rest of the segments.
+然后我们可以对剩下的片断重复该动作。
+
+00:03:29.710 --> 00:03:34.620 align:middle line:90%
+
+
+00:03:34.620 --> 00:03:37.190 align:middle line:84%
+Notice down below,
+now we have some text
+注意到在底部有一些文本，
+
+00:03:37.190 --> 00:03:41.020 align:middle line:84%
+that corresponds with the
+graphical editor above.
+其对应着上面的图形编辑器。
+
+00:03:41.020 --> 00:03:44.520 align:middle line:84%
+This is a good practice to
+get into to map each segment
+对每个片断进行映射，
+
+00:03:44.520 --> 00:03:47.360 align:middle line:90%
+from the source to the target.
+是一个非常好的实践活动。
+
+00:03:47.360 --> 00:03:51.580 align:middle line:84%
+Notice we don't have to
+do the fields underneath,
+注意到，在片断底下，没有看到字段，
+
+00:03:51.580 --> 00:03:54.060 align:middle line:84%
+because those are already done
+automatically when you just
+其原因是，当你映射片断时，
+
+00:03:54.060 --> 00:03:56.300 align:middle line:90%
+do the segment itself.
+自动给你做了字段的映射。
+
+00:03:56.300 --> 00:03:58.170 align:middle line:84%
+Then, if we want to
+change the target
+然后，如果我们需要改变目标值
+
+00:03:58.170 --> 00:04:00.820 align:middle line:84%
+to be anything other
+than the source,
+到任何不同于源的值。
+
+00:04:00.820 --> 00:04:04.990 align:middle line:84%
+we can do so by using the
+Add Action option at the top.
+我们可以利用在顶部的 "Add" 动作。
+
+00:04:04.990 --> 00:04:07.780 align:middle line:90%
+
+
+00:04:07.780 --> 00:04:11.090 align:middle line:84%
+We can add an "if" statement if
+a decision has to made or set
+我们可以添加一个 "if" 语句如果需要有个条件判定，
+
+00:04:11.090 --> 00:04:14.950 align:middle line:84%
+if we want to assign something
+to a string constant.
+或者一个 "set"， 如果我们需要设置一个字串的常量。
+
+
+00:04:14.950 --> 00:04:16.709 align:middle line:84%
+Let's take a look at
+a few other options
+让我们来看一下数据转换中的
+
+00:04:16.709 --> 00:04:19.769 align:middle line:84%
+that we have with
+data transformations.
+其他几个选项。
+
+00:04:19.769 --> 00:04:21.260 align:middle line:84%
+The first one is
+using a function
+第一个是使用一个函数，
+
+00:04:21.260 --> 00:04:25.980 align:middle line:84%
+to make all characters in
+the patient's name uppercase.
+可以改变病人的姓名字母为大写。
+
+00:04:25.980 --> 00:04:28.210 align:middle line:84%
+Let's first draw a line
+mapping the patient's name
+我们首先画一线将病人姓名
+
+00:04:28.210 --> 00:04:29.570 align:middle line:90%
+from the source to the target.
+从源映射到目标。
+
+00:04:29.570 --> 00:04:38.500 align:middle line:90%
+
+
+00:04:38.500 --> 00:04:41.890 align:middle line:84%
+We can then edit it to
+apply function to it.
+我们可以编辑它，将函数运用上。
+
+00:04:41.890 --> 00:04:44.890 align:middle line:84%
+We can use the magnifying
+glass to edit this value.
+我们可以利用放大镜来编辑这个值。
+
+00:04:44.890 --> 00:04:50.966 align:middle line:90%
+
+
+00:04:50.966 --> 00:04:53.090 align:middle line:84%
+Here, the function that we
+can choose is ToUpper().
+这里，我们可以选用 ToUpper() 函数。
+
+00:04:53.090 --> 00:04:55.959 align:middle line:90%
+
+
+00:04:55.959 --> 00:04:57.625 align:middle line:84%
+This will make the
+whole name uppercase.
+这个函数可使整个名字变成大写。
+
+00:04:57.625 --> 00:05:00.640 align:middle line:90%
+
+
+00:05:00.640 --> 00:05:02.340 align:middle line:84%
+The second is using
+a lookup table,
+第二个，我们使用对照 (lookup) 表，
+
+00:05:02.340 --> 00:05:05.190 align:middle line:84%
+so male and female are
+rendered as M and F.
+因而，男性和女性可分别用 M 和 F表示。
+
+00:05:05.190 --> 00:05:07.110 align:middle line:84%
+Just like any other
+function, lookup
+如同其他的函数，lookup 可以
+
+00:05:07.110 --> 00:05:09.460 align:middle line:84%
+can be used to apply
+a lookup table.
+使用 lookup 表。
+
+00:05:09.460 --> 00:05:13.500 align:middle line:84%
+So let's first go to Sex,
+and we can map that field
+所以，我们首先到 Sex 然后从
+
+00:05:13.500 --> 00:05:15.150 align:middle line:90%
+from the source to the target.
+源到目标映射这个字段。
+
+00:05:15.150 --> 00:05:17.090 align:middle line:84%
+Then on the right
+hand side, we can edit
+然后再右手边，我们可以编辑
+
+00:05:17.090 --> 00:05:18.980 align:middle line:90%
+this to apply our lookup table.
+它，然后将 lookup 表运用其上。
+
+00:05:18.980 --> 00:05:22.530 align:middle line:90%
+
+
+00:05:22.530 --> 00:05:26.980 align:middle line:84%
+From this wizard, we get the
+option to choose our table.
+从这个想到，有个选项可选择我们所要的表。
+
+00:05:26.980 --> 00:05:28.690 align:middle line:84%
+I've already set
+up a lookup table
+我已经设置好了一个 lookup 表，
+
+00:05:28.690 --> 00:05:31.550 align:middle line:84%
+that is going to do our
+correct gender lookup.
+这表可作我们的性别对照。
+
+00:05:31.550 --> 00:05:34.120 align:middle line:84%
+So I'm going to choose
+that lookup table.
+因此我们选在这张 lookup 表。
+
+00:05:34.120 --> 00:05:36.560 align:middle line:84%
+We can then choose what our
+default option would be.
+我们然后可以选则缺省选项。
+
+00:05:36.560 --> 00:05:40.430 align:middle line:84%
+Let's say, for us, the
+default will be Unknown.
+这里，对于我们，缺省为 Unknown.
+
+00:05:40.430 --> 00:05:43.410 align:middle line:84%
+So I'm simply going
+to type in "U."
+因而，我会简单得输入 "U".
+
+00:05:43.410 --> 00:05:46.580 align:middle line:84%
+The next option that I want to
+talk about is concatenation.
+对于下个选项，我想讲一下字串合并。
+
+00:05:46.580 --> 00:05:49.260 align:middle line:84%
+So for example, we can
+take City and State
+这个例子中，我们会拿城市和州
+
+00:05:49.260 --> 00:05:50.670 align:middle line:90%
+and put it into another field.
+合并后放在另一个字段。
+
+00:05:50.670 --> 00:05:54.820 align:middle line:90%
+
+
+00:05:54.820 --> 00:05:56.980 align:middle line:84%
+Notice here, we
+do a simple assign
+这里，我们注意到，我们只是做一个简单的赋值
+
+00:05:56.980 --> 00:05:59.950 align:middle line:84%
+even if the source and the
+target are not the same names.
+甚至源和目标字段不是同样的名字。
+
+00:05:59.950 --> 00:06:05.700 align:middle line:84%
+I can then concatenate another
+field by using an underscore.
+然后我可以用下划线合并另外一个字段。
+
+00:06:05.700 --> 00:06:08.140 align:middle line:84%
+So now our other
+designation is going
+所以，现在我们可指定另外一个值
+
+00:06:08.140 --> 00:06:12.480 align:middle line:84%
+to be the value of City
+underscore State or Province.
+为城市下划线州或者省。
+
+00:06:12.480 --> 00:06:15.100 align:middle line:84%
+So now my other
+designation is going
+因此，我们还制定一个值为，
+
+00:06:15.100 --> 00:06:18.710 align:middle line:84%
+to be my City comma
+State or Province.
+我的城市逗号州或者省。
+
+
+00:06:18.710 --> 00:06:21.260 align:middle line:84%
+Let's next talk about
+our "if" option.
+接下去，我们谈一下 "if" 选项。
+
+00:06:21.260 --> 00:06:24.410 align:middle line:84%
+I can use the "if" statement
+to check if the SSN starts
+我可以使用 "if" 语句来检查 SSN 是否
+
+00:06:24.410 --> 00:06:28.530 align:middle line:84%
+with three zeroes and then
+assign our target to be invalid
+以三个零开头，如果为真，
+
+00:06:28.530 --> 00:06:30.120 align:middle line:90%
+SSN if it is true.
+那么目标 SSN 为无效。
+
+00:06:30.120 --> 00:06:32.150 align:middle line:84%
+Let's first check
+our source field
+让我们先看一下我们的源数据字段
+
+00:06:32.150 --> 00:06:35.460 align:middle line:90%
+and then add our action "if".
+然后添加 "if" 动作。
+
+00:06:35.460 --> 00:06:38.210 align:middle line:84%
+So I'm going to click
+SSN number patient
+因此我会点击病人的 SSN 号码
+
+00:06:38.210 --> 00:06:42.680 align:middle line:90%
+and then choose Add Action "if".
+然后选中 "Add Action" 的 "if"。
+
+00:06:42.680 --> 00:06:45.050 align:middle line:84%
+This will give me a
+line to the center
+在编辑框的中间会显示我们一行
+
+00:06:45.050 --> 00:06:46.330 align:middle line:90%
+with a diamond in the center.
+并带有一个钻石符号。//////////////////////////////////////////////?????
+
+00:06:46.330 --> 00:06:49.590 align:middle line:90%
+
+
+00:06:49.590 --> 00:06:52.260 align:middle line:84%
+By default, the
+next assign that I
+缺省情况下，我会在这
+
+00:06:52.260 --> 00:06:55.090 align:middle line:84%
+do is going to put this
+in our if statement
+语句中赋值，
+
+00:06:55.090 --> 00:06:57.300 align:middle line:90%
+if our condition is true.
+如果条件为真。
+
+00:06:57.300 --> 00:06:58.910 align:middle line:84%
+Let's first set
+up our condition.
+让我们先来设置我们的条件。
+
+00:06:58.910 --> 00:07:10.000 align:middle line:84%
+We want to check to see if
+our SSN starts with 000.
+我们希望检查 SSN 是否以 000 开头。
+
+00:07:10.000 --> 00:07:11.770 align:middle line:90%
+StartsWith is a function.
+这里使用 "StartsWith" 函数。
+
+
+00:07:11.770 --> 00:07:16.970 align:middle line:84%
+And I can supply 000 as an
+argument to that function.
+我们可以给这个函数填上 "000" 作为参数。
+
+00:07:16.970 --> 00:07:18.880 align:middle line:84%
+Notice that the
+bottom of the screen,
+注意到，在屏幕的底部，
+
+00:07:18.880 --> 00:07:21.190 align:middle line:84%
+we automatically
+have an "if" with
+自动给我们添上 "if" 和
+
+00:07:21.190 --> 00:07:25.050 align:middle line:84%
+this "StartsWith"
+condition and an "else".
+"StartsWith" 条件以及 "else" 的语句。
+
+00:07:25.050 --> 00:07:27.360 align:middle line:84%
+If I click on "else",
+the following assignment
+如果我点中 "else", 那么下面的赋值
+
+00:07:27.360 --> 00:07:30.860 align:middle line:84%
+will be evaluated if the
+"if" condition is false.
+语句会检查如果条件为假的情况。
+
+00:07:30.860 --> 00:07:33.570 align:middle line:84%
+But I would like to
+assign, in this case,
+但在这个例子中，我们想
+
+00:07:33.570 --> 00:07:35.170 align:middle line:90%
+if the "if" condition is true.
+做的赋值为条件为真的情况。
+
+00:07:35.170 --> 00:07:37.560 align:middle line:90%
+So I will leave it on the "if".
+所以我们会停留在 "if" 的子句上。///////////////////////////////////////?????
+
+00:07:37.560 --> 00:07:41.990 align:middle line:84%
+The next thing I want
+to do is assign my SSN.
+下件事情，我要做的是对 SSN 赋值。
+
+00:07:41.990 --> 00:07:44.830 align:middle line:84%
+So I'm going to click
+on SSNNumberPatient
+所以，我会点击 SSNNumberPatient
+
+00:07:44.830 --> 00:07:46.990 align:middle line:90%
+and then Add Action "set".
+然后选中 "Add Add" 中的 "set"。
+
+00:07:46.990 --> 00:07:50.370 align:middle line:90%
+
+
+00:07:50.370 --> 00:07:55.440 align:middle line:84%
+And I want to specify that
+my value is "INVALID SSN".
+我想指定其值为 "INVALID SSN"。
+
+00:07:55.440 --> 00:08:01.220 align:middle line:84%
+Again, notice on the bottom
+my "if" is on line 22
+同样，我们可以注意到在底部，22行上有 "if"
+
+00:08:01.220 --> 00:08:04.400 align:middle line:84%
+while my "set" is
+line 23 indented,
+同时我们的 "set" 在23行上缩进去的地方，
+
+00:08:04.400 --> 00:08:08.490 align:middle line:84%
+showing us that that "set" is
+only going to occur if our "if"
+这表明在 "set" 只有当 "if" 条件
+
+00:08:08.490 --> 00:08:10.690 align:middle line:90%
+condition is true.
+为真时发生。
+
+
+00:08:10.690 --> 00:08:13.020 align:middle line:84%
+The last option that
+I'm going to cover
+最后我们要讲解的一个选项
+
+00:08:13.020 --> 00:08:15.850 align:middle line:84%
+is what to do with
+repeating segments.
+是如何处理重复的片段。
+
+00:08:15.850 --> 00:08:19.100 align:middle line:84%
+You'll notice that some
+segments have some parentheses
+你可能注意到有些片段在它们的名字后
+
+00:08:19.100 --> 00:08:24.520 align:middle line:84%
+at the end of the name, for
+example NK1, next of kin.
+带有括号，比如 NK1 (近亲)。
+
+00:08:24.520 --> 00:08:27.660 align:middle line:84%
+This means that we can
+have multiple next of kin
+这意味着，我们在 HL7 消息中
+
+00:08:27.660 --> 00:08:31.410 align:middle line:90%
+segments in my HL7 message.
+可以有多个近亲的片断。
+
+00:08:31.410 --> 00:08:35.970 align:middle line:84%
+Clicking on this link, I
+can tell my right hand side
+点中这个连接，在我们的右手边
+
+00:08:35.970 --> 00:08:40.120 align:middle line:84%
+that my NK1 has the
+parentheses that are empty.
+NK1带有一个空括号。
+
+00:08:40.120 --> 00:08:45.070 align:middle line:84%
+If I wanted to
+specify each NK1, I
+如果我要指定每个 NK1,
+
+00:08:45.070 --> 00:08:47.920 align:middle line:84%
+can put a number in
+those parentheses.
+我可以在括号中添加具体数字。
+
+00:08:47.920 --> 00:08:51.570 align:middle line:84%
+For example, just to copy
+over the first NK1 segment,
+比如我只想复制第一个 NK1 片段，
+
+00:08:51.570 --> 00:08:52.720 align:middle line:90%
+I can type in one.
+那么我就输入 1。
+
+00:08:52.720 --> 00:08:55.450 align:middle line:90%
+
+
+00:08:55.450 --> 00:09:01.120 align:middle line:84%
+We can also use the
+Add Action "for each"
+我们也可以用 "Add Action" 中的 "for each",
+
+00:09:01.120 --> 00:09:04.110 align:middle line:84%
+if I want to do more
+complicated things
+如果我们要对重复片断
+
+00:09:04.110 --> 00:09:05.990 align:middle line:90%
+with my repeating segments.
+做一些复杂处理。
+
+00:09:05.990 --> 00:09:08.210 align:middle line:84%
+Now that we have our
+transformation set up,
+现在，我们已设置好第一数据装换。
+
+00:09:08.210 --> 00:09:10.420 align:middle line:84%
+let's first compile
+and then test it.
+让我们编译并测试。
+
+00:09:10.420 --> 00:09:15.580 align:middle line:90%
+
+
+00:09:15.580 --> 00:09:18.500 align:middle line:84%
+To test our
+transformation, we can go
+为了测试我们的数据转换，我们可进入
+
+00:09:18.500 --> 00:09:25.390 align:middle line:90%
+to the Tools tab and then Test.
+工具 (Tools) 标签页，然后点击 "Test"。
+
+00:09:25.390 --> 00:09:27.720 align:middle line:84%
+Notice from this test
+transform wizard,
+注意，这里会有一个数据转换测试的向导。
+ 
+
+00:09:27.720 --> 00:09:32.910 align:middle line:84%
+I can copy and paste a message
+that I have on my file system,
+我可以复制粘贴消息在此，如果
+
+00:09:32.910 --> 00:09:34.245 align:middle line:90%
+possibly in a text document.
+消息存放在一个文本文件中。
+
+00:09:34.245 --> 00:09:37.190 align:middle line:90%
+
+
+00:09:37.190 --> 00:09:38.220 align:middle line:90%
+Then I can click Test.
+然后我点击 Test.
+
+00:09:38.220 --> 00:09:41.110 align:middle line:90%
+
+
+00:09:41.110 --> 00:09:43.360 align:middle line:84%
+Notice any segment
+that has been changed
+注意任何已经改变的片段，
+
+00:09:43.360 --> 00:09:48.440 align:middle line:84%
+is marked by a star
+in the output message.
+会在输出消息中带有星号。
+
+00:09:48.440 --> 00:09:51.130 align:middle line:84%
+For example, in
+my input message,
+比如在我们的输入消息中，
+
+00:09:51.130 --> 00:09:54.560 align:middle line:84%
+Massey and James
+are both lowercase.
+Massey 和 James 都是小写。
+
+00:09:54.560 --> 00:09:59.100 align:middle line:84%
+Notice in the output, Massey and
+James are now both uppercase.
+注意到，在输出重 Massey 和 James 都成大写了。
+
+00:09:59.100 --> 00:10:02.870 align:middle line:84%
+If we scroll over, we can also
+see that although in our input
+我们在滚动过去，看到虽然在输入消息中，
+
+00:10:02.870 --> 00:10:06.920 align:middle line:84%
+message we have our SSN
+that starts with 000,
+SSN 是以 000 开头的，
+
+00:10:06.920 --> 00:10:10.180 align:middle line:84%
+the output has changed to
+have the value INVALID SSN.
+但是输出重的值是 "INVALID SSN"。
+
+00:10:10.180 --> 00:10:13.300 align:middle line:90%
+We also applied a lookup table.
+我们也应用了我们的 lookup 表。
+
+00:10:13.300 --> 00:10:16.680 align:middle line:84%
+Notice in the input
+message we have
+注意到，在我们输入的消息中有
+
+00:10:16.680 --> 00:10:20.290 align:middle line:84%
+"M", which is in the
+output message also in "M".
+"M", 在输出的消息也有。
+
+00:10:20.290 --> 00:10:22.110 align:middle line:84%
+If we want to
+change this to test,
+如果我们转换这，进行测试，
+
+00:10:22.110 --> 00:10:26.010 align:middle line:84%
+I can simply type in
+"Male" in my input message
+我简单地在输入消息中，输入 "Male"
+
+00:10:26.010 --> 00:10:28.480 align:middle line:90%
+and then click Test again.
+然后再次点击测试。
+
+00:10:28.480 --> 00:10:31.100 align:middle line:84%
+Notice my output
+message is still "M".
+注意到，我的输出消息中还是 "M"。
+
+00:10:31.100 --> 00:10:34.890 align:middle line:84%
+It has correctly
+transported "Male" to "M".
+还是正确地将 "Male" 转换成了 "M"。
+
+00:10:34.890 --> 00:10:38.530 align:middle line:84%
+We can then apply this
+HL7 Data Transformation
+然后我们可以应用这个数据转换到
+
+00:10:38.530 --> 00:10:41.710 align:middle line:84%
+to our rules set
+by editing a rule
+我们的规则集中。我们需要编辑一个规则
+
+00:10:41.710 --> 00:10:43.790 align:middle line:84%
+and selecting it
+for our transform
+在数据发送到目标前，
+
+00:10:43.790 --> 00:10:46.881 align:middle line:90%
+before sending it to the target.
+加上数据转换。
+
+00:10:46.881 --> 00:10:48.380 align:middle line:84%
+We hoped you learn
+a little bit more
+我们希望您能通过
+
+00:10:48.380 --> 00:10:51.820 align:middle line:84%
+about getting started with
+HL7 Data Transformations.
+这个 HL7 的数据转换课程
+进一步学到一些知识。

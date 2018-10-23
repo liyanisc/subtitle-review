@@ -1,0 +1,539 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.100 align:middle line:90%
+
+
+00:00:01.100 --> 00:00:04.860 align:middle line:84%
+Welcome to the eLearning session
+Getting Started with Ensemble:
+
+00:00:04.860 --> 00:00:06.110 align:middle line:90%
+Technology Adapters.
+
+00:00:06.110 --> 00:00:08.920 align:middle line:90%
+
+
+00:00:08.920 --> 00:00:11.370 align:middle line:84%
+Business Services and
+Business Operations
+
+00:00:11.370 --> 00:00:13.900 align:middle line:84%
+provide the inbound and
+outbound connection points
+
+00:00:13.900 --> 00:00:15.570 align:middle line:90%
+for Ensemble Production.
+
+00:00:15.570 --> 00:00:19.470 align:middle line:84%
+While not always required, both
+Business Services and Business
+
+00:00:19.470 --> 00:00:23.310 align:middle line:84%
+Operations use adapters to
+achieve this connection.
+
+00:00:23.310 --> 00:00:26.230 align:middle line:84%
+Business Services
+use Inbound Adapters.
+
+00:00:26.230 --> 00:00:29.750 align:middle line:84%
+And Business Operations
+use Outbound Adaptors.
+
+00:00:29.750 --> 00:00:31.600 align:middle line:84%
+An adapter is a class
+that will handle
+
+00:00:31.600 --> 00:00:33.700 align:middle line:84%
+the details of the
+technology being
+
+00:00:33.700 --> 00:00:37.490 align:middle line:84%
+used for the connection, such
+as the wire protocol or file
+
+00:00:37.490 --> 00:00:41.200 align:middle line:84%
+format, together with
+retries and error handling.
+
+00:00:41.200 --> 00:00:43.200 align:middle line:84%
+The Business
+Operations and Services
+
+00:00:43.200 --> 00:00:47.630 align:middle line:84%
+handle the content
+at a higher level.
+
+00:00:47.630 --> 00:00:50.150 align:middle line:84%
+For a Business Service,
+the Inbound Adapter
+
+00:00:50.150 --> 00:00:53.440 align:middle line:84%
+is constantly looking
+for work, for example,
+
+00:00:53.440 --> 00:00:56.420 align:middle line:84%
+by listening on a
+TCP/IP connection port
+
+00:00:56.420 --> 00:00:59.180 align:middle line:84%
+or monitoring a
+directory of files.
+
+00:00:59.180 --> 00:01:04.040 align:middle line:84%
+When it finds work to do, it
+calls the method ProcessInput
+
+00:01:04.040 --> 00:01:08.080 align:middle line:84%
+of the Business Service, passing
+the input as a first parameter.
+
+00:01:08.080 --> 00:01:11.400 align:middle line:84%
+And the Business Service
+will pass back any response
+
+00:01:11.400 --> 00:01:15.550 align:middle line:84%
+by reference in the
+second parameter.
+
+00:01:15.550 --> 00:01:19.000 align:middle line:84%
+Let's take a look in
+Studio at an adapter class.
+
+00:01:19.000 --> 00:01:23.410 align:middle line:90%
+
+
+00:01:23.410 --> 00:01:26.220 align:middle line:84%
+As you can see, there
+are adapters to handle
+
+00:01:26.220 --> 00:01:33.330 align:middle line:84%
+a wide range of technologies--
+EDI, HL7, HTTP, SOAP SQL,
+
+00:01:33.330 --> 00:01:34.820 align:middle line:90%
+and so forth.
+
+00:01:34.820 --> 00:01:39.390 align:middle line:84%
+As an example, let's look
+at the File InboundAdapter
+
+00:01:39.390 --> 00:01:43.100 align:middle line:84%
+that is used for picking
+up operating system files
+
+00:01:43.100 --> 00:01:44.442 align:middle line:90%
+and processing them.
+
+00:01:44.442 --> 00:01:53.060 align:middle line:90%
+
+
+00:01:53.060 --> 00:01:55.810 align:middle line:84%
+Just like the Business
+Service or Operation,
+
+00:01:55.810 --> 00:01:58.500 align:middle line:90%
+an adapter class has settings.
+
+00:01:58.500 --> 00:02:00.850 align:middle line:84%
+In the case of the
+File InboundAdapter,
+
+00:02:00.850 --> 00:02:03.920 align:middle line:84%
+these include the File
+Path, Working Directory,
+
+00:02:03.920 --> 00:02:05.400 align:middle line:90%
+and Archive Directory.
+
+00:02:05.400 --> 00:02:08.440 align:middle line:84%
+These are properties
+of the adapter class.
+
+00:02:08.440 --> 00:02:12.700 align:middle line:84%
+Other adapters have settings
+appropriate to the technology
+
+00:02:12.700 --> 00:02:15.540 align:middle line:90%
+they handle.
+
+00:02:15.540 --> 00:02:18.990 align:middle line:84%
+When you configure a Business
+Service in a Production,
+
+00:02:18.990 --> 00:02:21.420 align:middle line:84%
+the adapter settings
+will appear along
+
+00:02:21.420 --> 00:02:24.890 align:middle line:84%
+with the other settings
+of the Business Service.
+
+00:02:24.890 --> 00:02:27.140 align:middle line:84%
+If the Business Service
+uses an adapter,
+
+00:02:27.140 --> 00:02:30.380 align:middle line:84%
+one or more jobs will be started
+when the Production is started
+
+00:02:30.380 --> 00:02:31.970 align:middle line:90%
+to run the Business Service.
+
+00:02:31.970 --> 00:02:35.120 align:middle line:84%
+The number of jobs is controlled
+by the Pool Size setting
+
+00:02:35.120 --> 00:02:38.660 align:middle line:90%
+for the Business Service.
+
+00:02:38.660 --> 00:02:41.680 align:middle line:84%
+When the file adapter is
+running in a Business Service,
+
+00:02:41.680 --> 00:02:46.670 align:middle line:84%
+it will check the FilePath for
+files that match the FileSpec.
+
+00:02:46.670 --> 00:02:50.370 align:middle line:84%
+If there are any, it will
+process them one by one.
+
+00:02:50.370 --> 00:02:53.050 align:middle line:84%
+It moves a file to
+the work directory,
+
+00:02:53.050 --> 00:02:56.850 align:middle line:84%
+if that has been specified,
+reads the file into a stream,
+
+00:02:56.850 --> 00:02:59.590 align:middle line:84%
+and passes the stream
+to the ProcessInput
+
+00:02:59.590 --> 00:03:02.090 align:middle line:90%
+method of the Business Service.
+
+00:03:02.090 --> 00:03:05.030 align:middle line:84%
+Upon successful completion
+of the Business Service,
+
+00:03:05.030 --> 00:03:07.920 align:middle line:84%
+the file is moved to
+the ArchiveDirectory,
+
+00:03:07.920 --> 00:03:10.010 align:middle line:90%
+if that has been specified.
+
+00:03:10.010 --> 00:03:12.240 align:middle line:84%
+If there are no
+files to process,
+
+00:03:12.240 --> 00:03:14.440 align:middle line:84%
+the adapter will go to
+sleep and check again
+
+00:03:14.440 --> 00:03:18.430 align:middle line:84%
+after the number of seconds
+specified in the Call Interval
+
+00:03:18.430 --> 00:03:19.730 align:middle line:90%
+setting.
+
+00:03:19.730 --> 00:03:22.600 align:middle line:84%
+To include this adapter
+in a Business Service,
+
+00:03:22.600 --> 00:03:26.050 align:middle line:84%
+I can use the New
+Business Service Wizard
+
+00:03:26.050 --> 00:03:30.085 align:middle line:84%
+in Studio, which will
+create a class like this.
+
+00:03:30.085 --> 00:03:32.700 align:middle line:90%
+
+
+00:03:32.700 --> 00:03:40.680 align:middle line:84%
+By clicking on New and
+selecting Business Service
+
+00:03:40.680 --> 00:03:47.730 align:middle line:84%
+in my Production tab, I
+can specify the Package,
+
+00:03:47.730 --> 00:03:48.707 align:middle line:90%
+the Business Service.
+
+00:03:48.707 --> 00:03:55.500 align:middle line:90%
+
+
+00:03:55.500 --> 00:03:58.920 align:middle line:84%
+When I click Next, I
+have the opportunity
+
+00:03:58.920 --> 00:04:02.620 align:middle line:84%
+to select the
+appropriate adapter.
+
+00:04:02.620 --> 00:04:06.400 align:middle line:90%
+
+
+00:04:06.400 --> 00:04:09.470 align:middle line:84%
+When I click Finish,
+you can see that I
+
+00:04:09.470 --> 00:04:14.640 align:middle line:84%
+have the basis of a new
+Business Service class.
+
+00:04:14.640 --> 00:04:17.640 align:middle line:84%
+The adapter parameter
+has been specified
+
+00:04:17.640 --> 00:04:22.990 align:middle line:84%
+as the file inbound adapter
+that I've just selected.
+
+00:04:22.990 --> 00:04:28.500 align:middle line:84%
+Now, I need to implement the
+OnProcessInput method in order
+
+00:04:28.500 --> 00:04:32.760 align:middle line:84%
+to process, line by line,
+the information that
+
+00:04:32.760 --> 00:04:34.472 align:middle line:90%
+was read into the input stream.
+
+00:04:34.472 --> 00:04:38.290 align:middle line:90%
+
+
+00:04:38.290 --> 00:04:43.980 align:middle line:84%
+Other Inbound Adapters, such as
+the FTP adapter, email adapter,
+
+00:04:43.980 --> 00:04:46.860 align:middle line:84%
+or SQL adapter behave
+in much the same way,
+
+00:04:46.860 --> 00:04:50.360 align:middle line:84%
+although the settings
+available are different.
+
+00:04:50.360 --> 00:04:54.220 align:middle line:84%
+The TCP and HTTP adapters
+are slightly different
+
+00:04:54.220 --> 00:04:59.110 align:middle line:84%
+and open a socket and listen for
+input continually, rather than
+
+00:04:59.110 --> 00:05:00.730 align:middle line:90%
+polling at intervals.
+
+00:05:00.730 --> 00:05:02.880 align:middle line:84%
+But the essential
+use is the same.
+
+00:05:02.880 --> 00:05:06.070 align:middle line:90%
+
+
+00:05:06.070 --> 00:05:08.770 align:middle line:84%
+Now we will look at
+Outbound Adapters, which are
+
+00:05:08.770 --> 00:05:11.820 align:middle line:90%
+called by Business Operations.
+
+00:05:11.820 --> 00:05:15.190 align:middle line:84%
+In a Business Operation,
+the property ADAPTER
+
+00:05:15.190 --> 00:05:18.290 align:middle line:84%
+holds an object reference
+to the adapter object
+
+00:05:18.290 --> 00:05:22.550 align:middle line:84%
+so you can call methods or
+set properties of the adapter.
+
+00:05:22.550 --> 00:05:25.940 align:middle line:84%
+Normally, the Outbound Adapter
+exposes a few simple methods
+
+00:05:25.940 --> 00:05:29.180 align:middle line:84%
+to make it easy to
+call the adapter.
+
+00:05:29.180 --> 00:05:31.810 align:middle line:84%
+Let's look at an example
+of a Business Operation
+
+00:05:31.810 --> 00:05:37.070 align:middle line:90%
+using the SQL Outbound Adapter.
+
+00:05:37.070 --> 00:05:40.920 align:middle line:84%
+So we will open
+Business Operations,
+
+00:05:40.920 --> 00:05:44.430 align:middle line:90%
+eLearning, SQLOperation.
+
+00:05:44.430 --> 00:05:47.720 align:middle line:90%
+
+
+00:05:47.720 --> 00:05:52.050 align:middle line:84%
+When using the Business
+Operation Wizard,
+
+00:05:52.050 --> 00:05:55.130 align:middle line:84%
+you define the adapter to
+be used for this Business
+
+00:05:55.130 --> 00:05:58.820 align:middle line:84%
+Operation, and that value
+becomes the ADAPTER property.
+
+00:05:58.820 --> 00:06:02.290 align:middle line:84%
+That makes coding the
+Business Operation much easier
+
+00:06:02.290 --> 00:06:05.260 align:middle line:84%
+since the adapter methods and
+properties are now exposed
+
+00:06:05.260 --> 00:06:07.220 align:middle line:90%
+to the Business Operation.
+
+00:06:07.220 --> 00:06:09.100 align:middle line:84%
+I can set properties
+of the adapter.
+
+00:06:09.100 --> 00:06:13.400 align:middle line:84%
+For example, in
+my OnInit method,
+
+00:06:13.400 --> 00:06:18.250 align:middle line:84%
+I have set the timeout in
+the Statement,Attrs property.
+
+00:06:18.250 --> 00:06:20.180 align:middle line:84%
+The main properties
+of each adapter
+
+00:06:20.180 --> 00:06:22.490 align:middle line:84%
+are exposed through
+the configuration
+
+00:06:22.490 --> 00:06:24.120 align:middle line:90%
+page of the Production.
+
+00:06:24.120 --> 00:06:28.740 align:middle line:84%
+So the values can be set either
+in the configuration item,
+
+00:06:28.740 --> 00:06:31.630 align:middle line:84%
+or they can be set in the
+Business Operation code.
+
+00:06:31.630 --> 00:06:36.450 align:middle line:90%
+
+
+00:06:36.450 --> 00:06:41.290 align:middle line:84%
+The MessageMap defines
+the post-message method
+
+00:06:41.290 --> 00:06:45.260 align:middle line:84%
+for StringRequest messages
+that are sent to this Business
+
+00:06:45.260 --> 00:06:47.700 align:middle line:90%
+Operation.
+
+00:06:47.700 --> 00:06:53.060 align:middle line:84%
+In this case, SQL
+inserts the text content
+
+00:06:53.060 --> 00:06:58.910 align:middle line:84%
+of my StringRequest message
+into one column and the time
+
+00:06:58.910 --> 00:07:01.930 align:middle line:90%
+and date into another column.
+
+00:07:01.930 --> 00:07:05.240 align:middle line:84%
+The SQL Outbound
+Adapter also has methods
+
+00:07:05.240 --> 00:07:07.710 align:middle line:90%
+to execute queries and updates.
+
+00:07:07.710 --> 00:07:10.020 align:middle line:84%
+When working with
+any adapter, you
+
+00:07:10.020 --> 00:07:13.490 align:middle line:84%
+will find the online class
+reference in our documentation
+
+00:07:13.490 --> 00:07:17.210 align:middle line:84%
+to be very useful for seeing
+what methods and properties are
+
+00:07:17.210 --> 00:07:18.440 align:middle line:90%
+available.
+
+00:07:18.440 --> 00:07:21.410 align:middle line:84%
+If we take a look
+at the configuration
+
+00:07:21.410 --> 00:07:29.720 align:middle line:84%
+page of a Production, we can
+add the SQL Business Operation
+
+00:07:29.720 --> 00:07:38.640 align:middle line:84%
+to the Production, simply
+selecting it from the list,
+
+00:07:38.640 --> 00:07:45.250 align:middle line:84%
+giving it a name, making
+sure it's enabled so that it
+
+00:07:45.250 --> 00:07:47.726 align:middle line:90%
+can be used, and clicking OK.
+
+00:07:47.726 --> 00:07:52.990 align:middle line:90%
+
+
+00:07:52.990 --> 00:07:57.510 align:middle line:84%
+If we take a look
+at this operation,
+
+00:07:57.510 --> 00:08:00.840 align:middle line:84%
+you can see in the
+Settings the adapter class
+
+00:08:00.840 --> 00:08:05.500 align:middle line:84%
+that's being utilized, the class
+for the Business Operation,
+
+00:08:05.500 --> 00:08:12.250 align:middle line:84%
+as well as information that
+would be required for a SQL
+
+00:08:12.250 --> 00:08:20.700 align:middle line:84%
+connection, for example, the DSN
+credentials, potentially JDBC
+
+00:08:20.700 --> 00:08:23.820 align:middle line:90%
+driver information, as well.
+
+00:08:23.820 --> 00:08:26.420 align:middle line:84%
+Thank you for listening
+to this session Getting
+
+00:08:26.420 --> 00:08:30.710 align:middle line:84%
+Started with Ensemble:
+Technology Adapters.

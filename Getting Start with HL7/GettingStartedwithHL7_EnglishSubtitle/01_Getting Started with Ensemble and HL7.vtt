@@ -1,0 +1,1466 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:09.380 align:middle line:90%
+
+
+00:00:09.380 --> 00:00:11.560 align:middle line:84%
+Welcome to the eLearning session, Getting
+{font color=blue}欢迎来到 elearning 课程
+
+00:00:11.560 --> 00:00:13.815 align:middle line:90%
+Started with Ensemble and HL7.
+{fs20}Ensemble 和 HL7 入门
+
+00:00:13.815 --> 00:00:17.260 align:middle line:84%
+Ensemble supports a wide range of integration functionality
+Ensemble 支持的集成功能和协议范围非常广
+
+00:00:17.260 --> 00:00:20.600 align:middle line:84%
+and protocols, but this session explains the basic components
+但在这个课程里，我们主要讲解一些基本的组件
+
+00:00:20.600 --> 00:00:23.080 align:middle line:84%
+of an Ensemble solution for someone using Ensemble
+以及如何使用 Ensemble 
+
+00:00:23.080 --> 00:00:25.390 align:middle line:90%
+as an HL7 interface engine.
+作为 HL7 接口引擎的一些解决方案
+
+00:00:25.390 --> 00:00:28.360 align:middle line:90%
+
+
+00:00:28.360 --> 00:00:31.340 align:middle line:84%
+An Ensemble solution is known as a Production.
+就大家所知而言，Production 为 Ensemble 的解决方案
+
+00:00:31.340 --> 00:00:34.700 align:middle line:84%
+A Production can be made up of many components that
+一个 Production 可有很多组件组成
+
+00:00:34.700 --> 00:00:37.050 align:middle line:84%
+handle inbound and outbound connections
+处理入口和出口的连接
+
+00:00:37.050 --> 00:00:40.080 align:middle line:84%
+and control the flow of information between them.
+以及控制出入口间的信息流
+
+00:00:40.080 --> 00:00:42.640 align:middle line:84%
+The Production is created once and configuration items
+一个 Production被生成，组件和配置项 
+
+00:00:42.640 --> 00:00:45.170 align:middle line:84%
+are added to complete
+the solution.
+将被加入来完成这个解决方案
+
+00:00:45.170 --> 00:00:47.500 align:middle line:84%
+A large Production may have hundreds of configuration
+一个大的 Production 也许会有数百个配置组件
+
+
+00:00:47.500 --> 00:00:49.630 align:middle line:84%
+items, but the
+examples here will have
+为了方便阐述
+
+00:00:49.630 --> 00:00:50.920 align:middle line:90%
+a small number for clarity.
+这里所给的例子比较小
+
+
+00:00:54.230 --> 00:00:57.730 align:middle line:84%
+The inbound connection points are known as Business Services
+入口的连接称之为 Business Services
+
+00:00:57.730 --> 00:01:00.240 align:middle line:84%
+These handle the technology used for a connection,
+其利用如下的技术进行连接
+
+00:01:00.240 --> 00:01:07.200 align:middle line:84%
+such as TCP/IP, flat files, SOAP, FTP, or HTTP.
+比如 TCP/IP,文本文件，SOAP, FTP,或者 HTTP
+
+00:01:07.200 --> 00:01:09.630 align:middle line:84%
+For some formats, such as HL7, these
+又如一些格式，比如 HL7,这些
+
+00:01:09.630 --> 00:01:11.310 align:middle line:84%
+are pre-built components that just
+预建的组件
+
+00:01:11.310 --> 00:01:13.790 align:middle line:84%
+have to be configured with the appropriate parameters
+只需要进行适当的参数配置
+
+00:01:13.790 --> 00:01:16.260 align:middle line:84%
+such as the port
+number for TCP/IP
+比如对于 TCP/IP 的端口
+
+00:01:16.260 --> 00:01:18.610 align:middle line:84%
+or the path and
+name for flat files.
+或者文本文件的路径和文件名
+
+00:01:18.610 --> 00:01:21.730 align:middle line:90%
+
+
+00:01:21.730 --> 00:01:24.950 align:middle line:84%
+The outbound connections are
+known as Business Operations.
+出口的连接称之为 Business Operations
+
+00:01:24.950 --> 00:01:27.960 align:middle line:84%
+Like Business Services, they're
+added using the configuration
+如同 Business Service, 他们由配置向导加入
+
+00:01:27.960 --> 00:01:29.970 align:middle line:90%
+wizards.
+
+00:01:29.970 --> 00:01:32.500 align:middle line:84%
+The Business Services
+and Business Operations
+Business Service 和 Business Operation
+
+00:01:32.500 --> 00:01:34.440 align:middle line:84%
+handle everything to
+do with the connection,
+处理所有关于连接的事项
+
+00:01:34.440 --> 00:01:38.590 align:middle line:84%
+such as initial connection,
+retries, timeouts, and framing,
+比如初始化连接，重试，超时，分帧
+
+00:01:38.590 --> 00:01:41.070 align:middle line:84%
+as well as the
+actual wire protocol.
+以及连线实际的协议
+
+
+00:01:41.070 --> 00:01:43.820 align:middle line:84%
+This is kept separate
+from any logic to route
+将这些与消息的路由以及转换逻辑
+
+
+00:01:43.820 --> 00:01:47.220 align:middle line:90%
+or transform the message.
+分离开来
+
+00:01:47.220 --> 00:01:50.160 align:middle line:84%
+With HL7, a Business Service
+typically sends a message
+在 HL7 中，一个 Business Service 通常发送消息
+
+00:01:50.160 --> 00:01:53.350 align:middle line:90%
+to a Message Router.
+到消息路由
+
+00:01:53.350 --> 00:01:55.510 align:middle line:84%
+Normally, a separate
+Message Router
+通常，一个独立的消息路由
+
+00:01:55.510 --> 00:01:57.310 align:middle line:84%
+is used for each
+Business Service,
+运用到每个 Business Service
+
+00:01:57.310 --> 00:02:00.620 align:middle line:90%
+although this is not necessary.
+虽然这不是必须的
+
+00:02:00.620 --> 00:02:04.580 align:middle line:84%
+The Message Router uses
+a set of Routing Rules
+消息路由利用一组路由规则
+
+00:02:04.580 --> 00:02:06.720 align:middle line:84%
+to determine where the
+message must be sent
+以决定消息消息要送到何处
+
+00:02:06.720 --> 00:02:10.475 align:middle line:84%
+and which Data Transformation
+to call for each destination.
+以及要进行怎样的装换
+
+00:02:10.475 --> 00:02:12.350 align:middle line:84%
+The Routing Rules
+determine where the message
+路由规则根据消息源，
+
+00:02:12.350 --> 00:02:15.190 align:middle line:84%
+is sent based on the
+source and type of message
+消息类型以及内容
+
+00:02:15.190 --> 00:02:18.400 align:middle line:84%
+and the content of fields
+within the message.
+决定消息送往何处
+
+00:02:18.400 --> 00:02:20.250 align:middle line:84%
+For example, admissions
+messages might
+比如，病人入院消息
+
+00:02:20.250 --> 00:02:22.500 align:middle line:84%
+be sent to one set
+of applications,
+可能送往某一组应用
+
+00:02:22.500 --> 00:02:27.060 align:middle line:84%
+but results might be
+sent somewhere else.
+但结果可能送往其他地方
+
+00:02:27.060 --> 00:02:29.900 align:middle line:84%
+You will normally want to modify
+a message before sending it
+通常你可能希望在发送消息到目的地前
+
+00:02:29.900 --> 00:02:32.000 align:middle line:90%
+to its destination.
+对其进行修改
+
+00:02:32.000 --> 00:02:34.340 align:middle line:84%
+This is done using a
+Data Transformation.
+这可以由数据转换 (Data Transformation) 来完成
+
+00:02:34.340 --> 00:02:37.610 align:middle line:84%
+The graphical editor allows
+you to copy segments and fields
+这是一个图形化的编辑器，你可以将片断或字段
+
+00:02:37.610 --> 00:02:39.830 align:middle line:84%
+from the old message
+to the new message
+从旧消息复制到新消息
+
+00:02:39.830 --> 00:02:41.710 align:middle line:84%
+and make changes to
+meet the requirements
+根据目标要求进行转换
+
+00:02:41.710 --> 00:02:44.800 align:middle line:90%
+of the destination.
+
+00:02:44.800 --> 00:02:47.050 align:middle line:84%
+As well as the setting
+where message is sent,
+同时根据消息要发送到何地
+
+
+00:02:47.050 --> 00:02:49.740 align:middle line:84%
+the Routing Rules decide what
+Data Transformation should
+路由规则决定在发送前
+
+00:02:49.740 --> 00:02:52.461 align:middle line:90%
+be applied before sending it.
+做什么样的数据转换。
+
+00:02:52.461 --> 00:02:56.270 align:middle line:84%
+In Ensemble, the connection
+management and configuration,
+在 Ensemble 连接管理和配置中
+
+00:02:56.270 --> 00:02:59.620 align:middle line:84%
+the logic for deciding where to
+route a message and the logic
+决定消息的路由的逻辑以及数据转换的逻辑
+
+00:02:59.620 --> 00:03:01.460 align:middle line:84%
+for transforming
+message are kept
+是保持分开的
+
+00:03:01.460 --> 00:03:03.880 align:middle line:84%
+separate to simplify
+development and testing.
+其原因是使开发和测试简单化
+
+00:03:03.880 --> 00:03:06.860 align:middle line:90%
+
+
+00:03:06.860 --> 00:03:08.990 align:middle line:84%
+Additional items may be
+added to the Production.
+还有些其它的项目也许要添加到 Production.
+
+00:03:08.990 --> 00:03:11.180 align:middle line:84%
+For example, you might
+add a bad message handler
+比如，你需要加入一个坏消息的处理机制
+
+
+00:03:11.180 --> 00:03:13.910 align:middle line:84%
+to receive any messages
+that fail validation
+接受没有通过校验的消息
+
+/************************************************************
+00:03:13.910 --> 00:03:15.594 align:middle line:84%
+or an alert handler
+to route alerts
+或者到正确接受目的的
+
+00:03:15.594 --> 00:03:16.635 align:middle line:90%
+to the right destination.
+路由警报
+
+00:03:16.635 --> 00:03:22.440 align:middle line:90%
+****************************************************************/
+
+00:03:22.440 --> 00:03:24.760 align:middle line:84%
+I'm going to demonstrate
+these components by building
+我将从头开始创建一个 Production 
+
+00:03:24.760 --> 00:03:26.610 align:middle line:90%
+a Production from scratch.
+来演示这些组件
+
+
+00:03:26.610 --> 00:03:31.115 align:middle line:84%
+In this session, I will be
+using Ensemble version 2012.1.
+在这节课程中，我会用 Ensemble 的 2012.1 版本
+
+00:03:31.115 --> 00:03:34.610 align:middle line:84%
+In this version, the appearance
+has changed considerably
+这个版本，从外观上与以前的版本 2010.2
+
+00:03:34.610 --> 00:03:36.410 align:middle line:84%
+from the previous
+version 2010.2,
+有比较大的改变
+
+00:03:36.410 --> 00:03:39.752 align:middle line:90%
+making it much easier to use.
+这些改变使这个版本更容易使用
+
+00:03:39.752 --> 00:03:41.460 align:middle line:84%
+Let's start with a
+brand new installation
+让我们从一个新的安装开始
+
+00:03:41.460 --> 00:03:44.441 align:middle line:84%
+as if we had just
+installed Ensemble.
+假设我们已经完成一个 Ensemble 的安装
+
+00:03:44.441 --> 00:03:46.440 align:middle line:84%
+Before you can configure
+your first connections,
+在你配置第一个连接前，
+
+00:03:46.440 --> 00:03:48.590 align:middle line:90%
+you have to create a Production.
+你必须先创建一个 Production
+
+00:03:48.590 --> 00:03:50.580 align:middle line:84%
+This is a collection
+of all the interfaces
+这是组成你所有 HL7 路由方案的
+
+00:03:50.580 --> 00:03:52.580 align:middle line:84%
+that make up your
+HL7 routing solution,
+接口的集合
+
+00:03:52.580 --> 00:03:55.846 align:middle line:90%
+and you only create it once.
+并且你只要创建一次。
+
+00:03:55.846 --> 00:03:57.220 align:middle line:84%
+To create a new
+Production, we're
+为了创建一个新的 Production
+
+00:03:57.220 --> 00:03:58.720 align:middle line:84%
+going to go to the
+Management Portal
+我们需要进入到管理门户
+
+00:03:58.720 --> 00:04:00.160 align:middle line:90%
+and click on the Ensemble tab.
+点击 Ensemble 标签
+
+00:04:00.160 --> 00:04:04.230 align:middle line:90%
+
+
+00:04:04.230 --> 00:04:06.690 align:middle line:84%
+We then need to choose
+our Namespace and an area
+然后我们需要选择一个 Namespace 
+
+00:04:06.690 --> 00:04:07.815 align:middle line:90%
+to work in.
+作为一个工作区
+
+00:04:07.815 --> 00:04:08.690 align:middle line:90%
+We'll choose ENSDEMO.
+我们会选 ENSDEMO
+
+00:04:08.690 --> 00:04:13.150 align:middle line:90%
+
+
+00:04:13.150 --> 00:04:15.872 align:middle line:84%
+Then we're going to go
+to List, Productions.
+然后我们到 Productions 的列表
+
+00:04:15.872 --> 00:04:18.829 align:middle line:90%
+
+
+00:04:18.829 --> 00:04:22.410 align:middle line:84%
+In this list, we see a
+list of sample Productions
+在列表中，我们可以看到一列例子 Productions
+
+00:04:22.410 --> 00:04:24.750 align:middle line:84%
+that have already
+been created for us.
+这是已经为我们创建好的
+
+00:04:24.750 --> 00:04:26.360 align:middle line:84%
+To create a new
+Production, we're
+为了创建一个新的，我们只要
+
+00:04:26.360 --> 00:04:29.340 align:middle line:84%
+simply going to click the
+New button up at the top.
+简单的点击在顶部的新建(New) 按钮
+
+
+00:04:29.340 --> 00:04:31.239 align:middle line:90%
+
+
+00:04:31.239 --> 00:04:33.780 align:middle line:84%
+I'm going to create a Production
+called MyHospital.HL7Engine.
+我将要创建 MyHospital.HL7Engine 的 Production
+
+00:04:33.780 --> 00:04:36.930 align:middle line:90%
+
+
+00:04:36.930 --> 00:04:38.920 align:middle line:84%
+By clicking on the
+HL7 radio button,
+点击 HL7 的单选按钮
+
+00:04:38.920 --> 00:04:41.630 align:middle line:84%
+I will get a few
+components pre-built for me
+我可看到一些预制的组件
+
+00:04:41.630 --> 00:04:42.875 align:middle line:90%
+that will be used for later.
+我会在以后用到
+
+00:04:42.875 --> 00:04:47.510 align:middle line:90%
+
+
+00:04:47.510 --> 00:04:52.000 align:middle line:84%
+A generic Production has
+no component to start.
+一个通用的 Production 在一开始没有任何组件
+
+00:04:52.000 --> 00:04:54.340 align:middle line:84%
+Let's first create
+a Production Name.
+首先我们给 Production 起一个名字
+
+00:04:54.340 --> 00:04:56.530 align:middle line:90%
+I'm going to enter a new name.
+我将要输入一个新的名字
+
+00:04:56.530 --> 00:05:00.300 align:middle line:84%
+And my package is going
+to be called MyHospital.
+至于我的包名，我会起为 MyHospital
+
+
+00:05:00.300 --> 00:05:04.810 align:middle line:84%
+And my Production Name
+is going to be HL7Engine.
+我给 Production 起名为 HL7Engine
+
+00:05:04.810 --> 00:05:06.390 align:middle line:84%
+I can optionally
+also give myself
+我也可以输入一些描述性的东西
+
+00:05:06.390 --> 00:05:09.000 align:middle line:84%
+a description to explain what
+this Production is going to do.
+解释这个 Production 会做什么 (可选)
+
+00:05:09.000 --> 00:05:12.520 align:middle line:90%
+
+
+00:05:12.520 --> 00:05:15.080 align:middle line:84%
+When I have all those fields
+filled out, I can click OK.
+当填完这些字段后，我点击 OK.
+
+00:05:15.080 --> 00:05:19.290 align:middle line:90%
+
+
+00:05:19.290 --> 00:05:21.630 align:middle line:84%
+You can see Business Service
+or inbound connections
+在左侧，你可以看到 Business Service 或则入口连接
+
+00:05:21.630 --> 00:05:24.560 align:middle line:84%
+on the left, Business Operations
+or outbound connections
+在右边有 Business Operation 或出口连接
+
+00:05:24.560 --> 00:05:27.590 align:middle line:84%
+on the right, and Business
+Processes or Routing Engines
+以及 Business Process 或者规则引擎 (Routine Engine)
+
+00:05:27.590 --> 00:05:30.121 align:middle line:90%
+in the middle.
+在中间
+
+00:05:30.121 --> 00:05:32.120 align:middle line:84%
+I'm going to start the
+Production even though it
+我现在启动 Production
+
+00:05:32.120 --> 00:05:33.120 align:middle line:90%
+doesn't do anything yet.
+虽然它目前什么也没有做
+
+00:05:33.120 --> 00:05:40.140 align:middle line:90%
+
+
+00:05:40.140 --> 00:05:43.660 align:middle line:84%
+I'm going to create two inbound
+and two outbound connections
+我将创建两个入口连接和一个出口连接
+
+00:05:43.660 --> 00:05:46.540 align:middle line:90%
+in no particular order.
+不需要按特定次序创建
+
+00:05:46.540 --> 00:05:49.430 align:middle line:84%
+First, I know I want to
+send messages over TCP/IP
+首先，我要通过 TCP/IP 发送消息
+
+00:05:49.430 --> 00:05:51.470 align:middle line:90%
+to the lab system.
+到检验系统
+
+00:05:51.470 --> 00:05:54.914 align:middle line:84%
+So although I have some Business
+Operations already created,
+虽然，我已经创建了一些 Business Operations
+
+00:05:54.914 --> 00:05:56.330 align:middle line:84%
+I'm going to create
+a new Business
+我还是要从头开始创建一个
+
+00:05:56.330 --> 00:05:59.300 align:middle line:90%
+Operation from scratch.
+Business Operation
+
+00:05:59.300 --> 00:06:01.915 align:middle line:84%
+First, I know I want to
+send messages over TCP/IP
+首先，我知道我需要通过 TCP/IP
+
+00:06:01.915 --> 00:06:03.840 align:middle line:90%
+to the lab system.
+发送消息到检验系统。
+
+00:06:03.840 --> 00:06:06.510 align:middle line:84%
+So even though I already
+have Business Operations
+虽然，我已经创建了一些 Business Operations
+
+00:06:06.510 --> 00:06:09.810 align:middle line:84%
+in my Production, I'm going to
+create a new Business Operation
+我还是要从头开始创建一个 Business Operation
+
+
+00:06:09.810 --> 00:06:14.445 align:middle line:84%
+from scratch by clicking on the
+plus sign next to Operations.
+点击 Operation 边上的加号
+
+00:06:14.445 --> 00:06:18.750 align:middle line:90%
+
+
+00:06:18.750 --> 00:06:22.130 align:middle line:84%
+The wizard leads me
+through the key choices.
+创建向导会指引我输入一些关键选项
+
+00:06:22.130 --> 00:06:24.770 align:middle line:84%
+First, I want to choose
+that it's an HL7 output.
+首先，我要选择这是一个 HL7 输出
+
+
+00:06:24.770 --> 00:06:28.130 align:middle line:84%
+So I'm going to
+choose the HL7 tab.
+所以，我会选择 HL7 标签
+
+00:06:28.130 --> 00:06:30.060 align:middle line:84%
+And then I'm going
+to choose TCP,
+然后，我选择 TCP
+
+00:06:30.060 --> 00:06:32.560 align:middle line:84%
+because I know I want it
+to be a TCP connection.
+因为我知道我需要的是一个 TCP 连接
+
+00:06:32.560 --> 00:06:35.560 align:middle line:90%
+
+
+00:06:35.560 --> 00:06:36.814 align:middle line:90%
+I can then choose a name.
+我可以选一个名字
+
+00:06:36.814 --> 00:06:38.480 align:middle line:84%
+I'm going to choose
+To_Lab, because it's
+我将要选 To_Lab, 因为这个名字
+
+00:06:38.480 --> 00:06:40.580 align:middle line:90%
+fairly unambiguous.
+相当明确
+
+00:06:40.580 --> 00:06:43.880 align:middle line:84%
+I can also supply an IP
+address and port number now,
+现在我也可以提供 IP 地址以及端口号
+
+00:06:43.880 --> 00:06:47.260 align:middle line:84%
+or I could leave it to
+be configured later.
+我也可以空着，以后配置。
+
+00:06:47.260 --> 00:06:48.680 align:middle line:84%
+I've already set
+up an application
+我已经配置了一个应用
+
+00:06:48.680 --> 00:06:51.680 align:middle line:84%
+that will be sending messages
+over a TCP connection.
+其会通过 TCP 连接发送消息
+
+00:06:51.680 --> 00:06:53.790 align:middle line:84%
+So we'll use the IP
+address and port number
+所以我们会用我已知的 
+
+00:06:53.790 --> 00:06:55.580 align:middle line:90%
+that I already know.
+IP 地址和端口号
+
+
+00:06:55.580 --> 00:06:58.210 align:middle line:84%
+And then I can
+select Enable Now,
+然后我选择 "Enable Now"
+
+00:06:58.210 --> 00:06:59.900 align:middle line:84%
+because I want to
+enable it right now.
+因为我要它马上启用
+
+00:06:59.900 --> 00:07:04.500 align:middle line:90%
+
+
+00:07:04.500 --> 00:07:07.790 align:middle line:84%
+I also know I want to send flat
+files to the billing system,
+我还需要发送一个文本文件到一个计费西贡/////////////////////////system
+
+00:07:07.790 --> 00:07:10.790 align:middle line:84%
+so I'll do the same thing
+again, but this time, I
+我会做为此做同样的事情，但这次
+
+00:07:10.790 --> 00:07:15.640 align:middle line:84%
+will say To_Billing and make
+it a file Business Operation.
+我会用一个文件的 Business Operation,起名为 To_Billing
+
+00:07:15.640 --> 00:07:25.050 align:middle line:90%
+
+
+00:07:25.050 --> 00:07:27.370 align:middle line:84%
+Notice we have a different
+set of questions here.
+注意到，在这里，我们会有一组不同的配置
+
+00:07:27.370 --> 00:07:29.690 align:middle line:84%
+As for a file,
+Business Operation,
+对于文件型的 Business Operation
+
+00:07:29.690 --> 00:07:31.514 align:middle line:84%
+we have different
+options on what
+我们有两个不同的选项
+
+00:07:31.514 --> 00:07:34.180 align:middle line:84%
+we're going to want to fill out,
+for example, File Path and File
+我们会要一个文件出口，比如文件的路径和
+
+00:07:34.180 --> 00:07:34.680 align:middle line:90%
+Name.
+文件名
+
+00:07:34.680 --> 00:07:36.970 align:middle line:90%
+
+
+00:07:36.970 --> 00:07:41.500 align:middle line:84%
+Notice my %F and %Q
+actually do mean something.
+注意到，我用了 %F 和 %Q，实际上是有含义的
+
+
+00:07:41.500 --> 00:07:45.430 align:middle line:84%
+%F means we're going to use
+the same name as was used
+%F 意味着我们会用和入口同样的文件名
+
+00:07:45.430 --> 00:07:50.160 align:middle line:84%
+on the inbound, and %Q
+means to add a timestamp.
+%Q 表明我们会加上时间戳
+
+00:07:50.160 --> 00:07:52.470 align:middle line:84%
+To simplify this, I'm going
+to just do billing.txt.
+为简便起见，我们只用 billing.txt 文件。
+
+00:07:52.470 --> 00:08:00.980 align:middle line:90%
+
+
+00:08:00.980 --> 00:08:02.500 align:middle line:90%
+Now for the input.
+作为输入。
+
+00:08:02.500 --> 00:08:04.730 align:middle line:84%
+I know that I will receive
+messages from a text
+我知道会我们会从一个应用 ApplicactionX
+
+00:08:04.730 --> 00:08:08.080 align:middle line:90%
+file put there by ApplicationX.
+收到一个文本文件
+
+00:08:08.080 --> 00:08:10.570 align:middle line:84%
+So using the new
+Business Service wizard,
+所以在使用 Business Service 向导的时候
+ 
+
+00:08:10.570 --> 00:08:15.410 align:middle line:84%
+I can choose File and specify
+the File Path and File Name.
+我会选择 File 并指定文件路径和文件名
+
+00:08:15.410 --> 00:08:16.800 align:middle line:84%
+To create a new
+Business Service,
+创建一个新的 Business Service,
+
+00:08:16.800 --> 00:08:19.174 align:middle line:84%
+I'm going to use the plus sign
+next to Business Services.
+我将用 Business Services 边上的加号。
+
+00:08:19.174 --> 00:08:23.856 align:middle line:90%
+
+
+00:08:23.856 --> 00:08:25.230 align:middle line:84%
+Then like the
+Business Operation,
+然后如同 Buiness Operation 那样，
+
+00:08:25.230 --> 00:08:30.115 align:middle line:84%
+I'm also going to choose
+HL7 input and choose File.
+我将选择 HL7 输入并选择 File 类型
+
+00:08:30.115 --> 00:08:34.490 align:middle line:84%
+The Name I'm going to choose
+for my HL7 Business Service
+至于我的 HL7 Business Service 命名，
+
+00:08:34.490 --> 00:08:36.265 align:middle line:84%
+is going to be
+From_ApplicationX.
+我打算起为,From_ApplicationX
+
+00:08:36.265 --> 00:08:41.340 align:middle line:90%
+
+
+00:08:41.340 --> 00:08:45.680 align:middle line:84%
+And I will specify a File
+Path and File Name also
+同时在向导中，我也会指定
+
+00:08:45.680 --> 00:08:48.610 align:middle line:90%
+in this wizard.
+文件路径和文件名
+
+00:08:48.610 --> 00:08:53.250 align:middle line:84%
+Notice the star means that I'm
+going to take anything that
+注意到，在 “*" 号意味着，我会选取所有
+
+00:08:53.250 --> 00:08:54.390 align:middle line:90%
+ends with ".txt".
+".txt" 为结尾的文件
+
+00:08:54.390 --> 00:09:00.830 align:middle line:90%
+
+
+00:09:00.830 --> 00:09:03.190 align:middle line:84%
+I will also tell Ensemble
+what version of messages
+我还会告诉 Ensemble，在这个连接上
+
+00:09:03.190 --> 00:09:05.910 align:middle line:84%
+will be received
+over this connection.
+将要收到的消息版本
+
+00:09:05.910 --> 00:09:10.120 align:middle line:84%
+You can see we support
+all the standard versions.
+你可以看到我们支持所有标准版本。
+
+00:09:10.120 --> 00:09:12.300 align:middle line:84%
+And if you have to find
+custom message schemas,
+你也会发现在下拉框中有
+
+00:09:12.300 --> 00:09:14.370 align:middle line:84%
+they will be included
+in the drop down.
+用户自定义的 schema
+
+00:09:14.370 --> 00:09:18.270 align:middle line:90%
+
+
+00:09:18.270 --> 00:09:19.840 align:middle line:84%
+The wizard also
+gives you the option
+向导也提供其它选项
+
+00:09:19.840 --> 00:09:23.630 align:middle line:84%
+to select an existing Routing
+Engine or create a new one.
+选用一个已经存在的路由引擎或是新建一个
+
+00:09:23.630 --> 00:09:26.350 align:middle line:84%
+In most cases, it will want
+a Routing Engine dedicated
+对于大多数例子，每一个 Business Service
+
+00:09:26.350 --> 00:09:27.520 align:middle line:90%
+to each Business Service.
+有个专属的路由引擎
+
+00:09:27.520 --> 00:09:30.320 align:middle line:90%
+
+
+00:09:30.320 --> 00:09:31.891 align:middle line:90%
+Make sure it's enabled.
+启用
+
+00:09:31.891 --> 00:09:33.765 align:middle line:84%
+And now we have to find
+the Business Service.
+现在我们需要查找这个 Business Service
+
+00:09:33.765 --> 00:09:37.540 align:middle line:90%
+
+
+00:09:37.540 --> 00:09:39.670 align:middle line:84%
+We can click OK,
+because this is just
+我们可以点击 OK， 因为这只是
+
+00:09:39.670 --> 00:09:41.760 align:middle line:84%
+going to create our
+new message router.
+创建我们新的消息路由。
+
+00:09:41.760 --> 00:09:47.400 align:middle line:90%
+
+
+00:09:47.400 --> 00:09:49.890 align:middle line:84%
+Notice we get a
+From_ApplicationX.
+注意到，在 From_ApplicationX 有个点，
+
+00:09:49.890 --> 00:09:53.710 align:middle line:84%
+If we click on the
+dot next to the name,
+如果我们点击这个点，
+
+
+00:09:53.710 --> 00:09:57.090 align:middle line:90%
+it will show us the connections.
+它会显示出一连接线。
+
+00:09:57.090 --> 00:09:59.590 align:middle line:84%
+And From_ApplicationX is
+going to send the message
+显示出 From_ApplicationX 将会发送消息
+
+00:09:59.590 --> 00:10:00.756 align:middle line:90%
+to From_ApplicationX_Router.
+到 From_ApplicationX_Router.
+
+00:10:00.756 --> 00:10:03.720 align:middle line:90%
+
+
+00:10:03.720 --> 00:10:06.040 align:middle line:84%
+So far, we have created
+one inbound and two
+到目前为止，我们创建了
+
+00:10:06.040 --> 00:10:08.440 align:middle line:90%
+outbound connections.
+一个入口和两个出口连接。
+
+00:10:08.440 --> 00:10:09.832 align:middle line:84%
+We have created
+a Routing Engine,
+我们还创建了一个路由引擎，
+
+00:10:09.832 --> 00:10:11.290 align:middle line:84%
+and the inbound
+connection has been
+同时入口连接配置成
+
+00:10:11.290 --> 00:10:16.470 align:middle line:84%
+configured to send all messages
+to this new Routing Engine.
+发送所有消息到路由引擎。
+
+
+00:10:16.470 --> 00:10:18.290 align:middle line:84%
+When the Routing
+Engine was created,
+当创建路由引擎时，
+
+00:10:18.290 --> 00:10:20.680 align:middle line:84%
+a Routing Rules set
+was also created.
+一组路由规则也会被创建。
+
+00:10:20.680 --> 00:10:23.090 align:middle line:84%
+But so far, the Routing
+Rules are empty,
+但是，目前为止，路由规则是空的。
+
+00:10:23.090 --> 00:10:26.090 align:middle line:84%
+so the message still
+won't go anywhere.
+所以消息不会被发送出去。
+
+00:10:26.090 --> 00:10:27.720 align:middle line:84%
+The next step is
+to add the Routing
+下一步，需要加入路由规则
+
+00:10:27.720 --> 00:10:30.990 align:middle line:84%
+Rules that determine where
+the message should be sent.
+以决定消息要送到哪里。
+
+00:10:30.990 --> 00:10:33.920 align:middle line:84%
+Let's take a look at
+the Routing Rules.
+让我们看一下路由规则。
+
+00:10:33.920 --> 00:10:37.070 align:middle line:84%
+We're going to click on
+From_ApplicationX_Router.
+我们选中 From_ApplicationX_Router.
+
+00:10:37.070 --> 00:10:40.260 align:middle line:84%
+And in the settings over
+here on the right hand side,
+在设置的右手边，
+
+00:10:40.260 --> 00:10:44.590 align:middle line:84%
+you'll notice a setting
+called Business Rule Name.
+你会注意到 Business Rule Name 的设置。
+
+00:10:44.590 --> 00:10:47.350 align:middle line:84%
+If I click on the
+magnifying glass,
+如果你点击那个放大镜，
+
+00:10:47.350 --> 00:10:50.330 align:middle line:84%
+my rule set will
+appear up top here.
+我的规则组就会在头部显示出来。
+
+00:10:50.330 --> 00:10:53.800 align:middle line:90%
+
+
+00:10:53.800 --> 00:10:58.040 align:middle line:84%
+I can see here that I have
+a rule set with one rule,
+我可以看规则组中只有一条规则，
+
+00:10:58.040 --> 00:11:01.540 align:middle line:90%
+but nothing is sent anywhere.
+但是没有发送消息去任何地方
+
+00:11:01.540 --> 00:11:03.380 align:middle line:84%
+A Routing Rule has
+some constraints
+一个路由规则有一些约束条件
+
+00:11:03.380 --> 00:11:05.440 align:middle line:84%
+on the type and
+source of the message
+在消息类型和消息源上
+
+00:11:05.440 --> 00:11:08.580 align:middle line:84%
+and then conditions on the
+content of the message.
+然后再消息内容上设置条件
+
+00:11:08.580 --> 00:11:12.990 align:middle line:84%
+If these evaluate to true,
+the actions are performed.
+如果条件评定为真，那么执行动作。
+
+00:11:12.990 --> 00:11:15.160 align:middle line:84%
+Let's first create a
+rule where we route based
+让我们先来创建一条规则，
+
+00:11:15.160 --> 00:11:20.720 align:middle line:84%
+on coming From_ApplicationX,
+being message type ADT_A01,
+从 From_AppliationX 进来的消息类型为 ADT_A01，
+
+00:11:20.720 --> 00:11:23.500 align:middle line:90%
+schema of 2.5.
+schema 为 2.5
+
+00:11:23.500 --> 00:11:28.850 align:middle line:84%
+To edit this rule, I'm going to
+double click on "constraint".
+编辑其为真，我双击 "constraint"
+
+00:11:28.850 --> 00:11:31.130 align:middle line:90%
+I can choose the Source.
+我可以选数据源。
+
+00:11:31.130 --> 00:11:33.470 align:middle line:84%
+In our case, we want
+to choose ApplicationX.
+在我们这个例子里，我选 ApplicationX
+
+00:11:33.470 --> 00:11:37.070 align:middle line:90%
+
+
+00:11:37.070 --> 00:11:39.821 align:middle line:84%
+Note the Message Type is
+referred to here as Document
+注意，消息的类型指的是文档
+
+00:11:39.821 --> 00:11:40.320 align:middle line:90%
+Name.
+名字
+
+00:11:40.320 --> 00:11:47.630 align:middle line:90%
+
+
+00:11:47.630 --> 00:11:53.240 align:middle line:84%
+Once we've added this rule,
+we then want to add a target
+当我们加入这条规则，然后我们加入目标
+
+00:11:53.240 --> 00:11:54.980 align:middle line:90%
+and send it someplace.
+发送其到某地。
+
+00:11:54.980 --> 00:11:56.222 align:middle line:90%
+So I'm going to add the plus.
+所以我添加一个加号
+
+00:11:56.222 --> 00:11:57.180 align:middle line:90%
+I'm going to do "when".
+我选中 "when"
+
+00:11:57.180 --> 00:12:03.850 align:middle line:90%
+
+
+00:12:03.850 --> 00:12:05.575 align:middle line:84%
+My condition will
+always be true.
+我的条件是永远为真
+
+00:12:05.575 --> 00:12:09.650 align:middle line:90%
+
+
+00:12:09.650 --> 00:12:11.376 align:middle line:84%
+And then I want to
+send it to a target.
+然后，我要发送其道目的地。
+
+00:12:11.376 --> 00:12:20.820 align:middle line:90%
+
+
+00:12:20.820 --> 00:12:22.570 align:middle line:84%
+And I want to send
+this to my To_Billing.
+我要将其发送到我的 To_Billing
+
+00:12:22.570 --> 00:12:27.930 align:middle line:90%
+
+
+00:12:27.930 --> 00:12:31.100 align:middle line:84%
+I can also choose multiple
+configuration items
+我也可以选则多个目的地，
+
+00:12:31.100 --> 00:12:32.790 align:middle line:90%
+to send it two at a time.
+一次发送它到两个地方。
+
+00:12:32.790 --> 00:12:35.770 align:middle line:84%
+So for example, if I want
+to send it to both of these,
+比如，如果我要发送到这两个地方，
+
+
+00:12:35.770 --> 00:12:37.966 align:middle line:84%
+I can Select both
+of those boxes.
+我可选中这两个选框。
+
+00:12:37.966 --> 00:12:39.840 align:middle line:84%
+For now, I'm just going
+to choose To_Billing.
+目前，我只选择 To_Billing.
+
+00:12:39.840 --> 00:12:44.010 align:middle line:90%
+
+
+00:12:44.010 --> 00:12:48.700 align:middle line:84%
+Now my next rule, I want
+to send it to To_Lab.
+现在，我要建下一个规则，我要发送它去 To_Lab.
+
+00:12:48.700 --> 00:12:51.010 align:middle line:84%
+So I'm going to
+add another rule.
+所以我会添加另一条规则。
+
+00:12:51.010 --> 00:12:53.480 align:middle line:90%
+Click on rule set.
+点击规则组。
+
+00:12:53.480 --> 00:12:55.630 align:middle line:90%
+Add another rule.
+加入另一条规则
+
+00:12:55.630 --> 00:13:05.480 align:middle line:84%
+And I want the second
+rule to match all items
+我想要这第二条规则如果匹配所有的项目
+
+00:13:05.480 --> 00:13:07.970 align:middle line:84%
+and then send a
+message to To_Lab.
+会发送消息到 To_Lab.
+
+00:13:07.970 --> 00:13:16.180 align:middle line:90%
+
+
+00:13:16.180 --> 00:13:18.670 align:middle line:90%
+Now we have two destinations.
+现在我们有两个目的地。
+
+00:13:18.670 --> 00:13:22.080 align:middle line:84%
+We optionally can also include
+Data Transformations in a rule
+在规则中，我们也可以加入数据转换 (可选）
+
+00:13:22.080 --> 00:13:23.600 align:middle line:90%
+as well.
+
+00:13:23.600 --> 00:13:28.530 align:middle line:84%
+You'll notice this empty
+box labeled Transform.
+你会之意到有个标签为 "Transform" 的空框。
+
+00:13:28.530 --> 00:13:31.820 align:middle line:84%
+If the rule was true
+and there's a return,
+如果规则为真，然后返回，
+
+00:13:31.820 --> 00:13:34.500 align:middle line:90%
+the rules set will exit.
+那么会退出规则组。
+
+00:13:34.500 --> 00:13:37.340 align:middle line:90%
+Notice this return right here.
+注意到，就在此返回。
+
+00:13:37.340 --> 00:13:40.510 align:middle line:84%
+And if the rule is
+false, the Rule Engine
+如果规则判定为假，那么规则引擎
+
+00:13:40.510 --> 00:13:44.160 align:middle line:84%
+moves onto the next
+rule and the rule set,
+会移到规则组的下一条规则，
+
+00:13:44.160 --> 00:13:47.580 align:middle line:84%
+and therefore, will
+evaluate rule two,
+然后检验规则二，
+
+00:13:47.580 --> 00:13:51.840 align:middle line:84%
+if we omitted our return, then
+if we matched our first rule,
+如果我们略去我们的返回，那么当第一个规则为真，
+
+00:13:51.840 --> 00:13:55.020 align:middle line:84%
+it will continue on and also
+try to match the second rule.
+会继续去匹配第二个规则。
+
+00:13:55.020 --> 00:13:58.160 align:middle line:90%
+
+
+00:13:58.160 --> 00:14:04.440 align:middle line:84%
+Let's make sure to
+save our Routing Rule
+我们确认我们保存了路由规则
+
+00:14:04.440 --> 00:14:07.390 align:middle line:84%
+and go back to our
+configuration page.
+然后回到我们的配置页面。
+
+00:14:07.390 --> 00:14:14.130 align:middle line:84%
+Now we're ready to put a file
+in and see how this works.
+现在我们已经准备好放入文件，并察看他是如何工作的。
+
+00:14:14.130 --> 00:14:17.930 align:middle line:84%
+Notice From_ApplicationX
+has a red dot next it.
+注意到，From_ApplicationX 边上有个红点。
+
+00:14:17.930 --> 00:14:20.820 align:middle line:84%
+This means that Ensemble
+recognizes that component
+这意味着，Ensemble 注意到
+
+00:14:20.820 --> 00:14:22.940 align:middle line:90%
+as having an error.
+这个组件有错误发生。
+
+00:14:22.940 --> 00:14:27.250 align:middle line:84%
+I know from setting this up that
+although I had specified a File
+我知道在设置的时候，虽然我已经指定了
+
+00:14:27.250 --> 00:14:32.150 align:middle line:84%
+Path, I did not actually create
+the File Path on my system.
+文件路径，但是我没有真正地在我的系统里创建这路径。
+
+00:14:32.150 --> 00:14:35.050 align:middle line:84%
+I need to make sure to go
+and do that before I can
+在这文件夹下放入文件前，
+
+00:14:35.050 --> 00:14:38.280 align:middle line:90%
+place a file in that folder.
+我要确认创建了路径。
+
+00:14:38.280 --> 00:14:41.690 align:middle line:84%
+I have some sample files
+that I'm already using,
+我有一些例子文件
+
+00:14:41.690 --> 00:14:46.030 align:middle line:84%
+so I can use one of
+those message sets.
+
+00:14:46.030 --> 00:14:49.902 align:middle line:84%
+I'm going to paste that file,
+that text file into my folder.
+我会将这文件粘贴到我的文件夹
+
+00:14:49.902 --> 00:14:51.360 align:middle line:84%
+And notice, without
+doing anything,
+然后注意到，不要做任何事情，
+
+00:14:51.360 --> 00:14:54.410 align:middle line:84%
+Ensemble immediately
+takes that file in.
+Ensemble 立即取走了这些文件。
+
+00:14:54.410 --> 00:14:59.120 align:middle line:84%
+I can then go back to my front
+page of my Management Portal,
+我可以回到管理门户的首页，
+
+00:14:59.120 --> 00:15:02.840 align:middle line:84%
+and I can view the messages
+directly in Ensemble.
+然后我可以在 Ensemble 中直接察看消息。
+
+00:15:02.840 --> 00:15:06.555 align:middle line:84%
+To do so, I'm going
+to do View, Messages.
+为此，我们选择 "View","Message" 
+
+00:15:06.555 --> 00:15:10.280 align:middle line:90%
+
+
+00:15:10.280 --> 00:15:12.920 align:middle line:84%
+And I can see here that
+we have one message that
+我们可以看到我们有一条消息
+
+00:15:12.920 --> 00:15:16.370 align:middle line:84%
+came through From_ApplicationX
+and went directly
+来自于 From-ApplicationX 并且直接
+
+00:15:16.370 --> 00:15:19.450 align:middle line:90%
+to From_ApplicationX_Router.
+发送到 From_ApplicationX_Router.
+
+00:15:19.450 --> 00:15:26.230 align:middle line:84%
+If I select that message,
+over on the right hand side,
+如果我选中这消息，在右手边，
+
+00:15:26.230 --> 00:15:29.630 align:middle line:90%
+I can view the contents.
+我可以看消息的内容。
+
+00:15:29.630 --> 00:15:31.925 align:middle line:84%
+And I can also see
+the Trace or the Path
+并且，我也可以看这消息
+
+00:15:31.925 --> 00:15:33.494 align:middle line:90%
+that that message took.
+经由的的跟踪和路径
+
+00:15:33.494 --> 00:15:38.240 align:middle line:90%
+
+
+00:15:38.240 --> 00:15:41.430 align:middle line:84%
+We can see here it
+went From_ApplicationX
+我们在此可以看到消息从 From_ApplicationX
+
+00:15:41.430 --> 00:15:44.870 align:middle line:84%
+to From_ApplicationX_Router
+and then was routed
+到 From_ApplicationX_Router 以及路由
+
+00:15:44.870 --> 00:15:46.945 align:middle line:90%
+to To_Lab Business Operation.
+到 To_Lab Business Operation。
+
+00:15:46.945 --> 00:15:49.650 align:middle line:90%
+
+
+00:15:49.650 --> 00:15:51.300 align:middle line:90%
+Now let's review what we did.
+现在我们回顾一下我们所做的事情。
+
+00:15:51.300 --> 00:15:53.420 align:middle line:84%
+We created two
+outbound connections
+我们创建了两个出口连接
+
+00:15:53.420 --> 00:15:55.130 align:middle line:90%
+or Business Operations.
+或者说 Business Operations.
+
+00:15:55.130 --> 00:15:58.370 align:middle line:84%
+We then created one inbound
+connection or Business Service.
+然后我们创建了一个入口连接，或者说 Business Service.
+
+00:15:58.370 --> 00:16:00.600 align:middle line:84%
+We also created a
+Message Router where
+我们也创建了一个消息路由，在此
+
+00:16:00.600 --> 00:16:02.770 align:middle line:84%
+we were able to edit
+our Routing Rules
+我们可以编辑我们的路由规则
+
+00:16:02.770 --> 00:16:04.620 align:middle line:84%
+and route to both
+Business Operations
+以及根据一组条件，
+
+00:16:04.620 --> 00:16:06.622 align:middle line:90%
+based on a set of criteria.
+路由到两个 Business Operations
+
+00:16:06.622 --> 00:16:08.080 align:middle line:84%
+We hope this helped
+in learning how
+我们希望只能帮助大家学习如何
+
+00:16:08.080 --> 00:16:09.620 align:middle line:90%
+to set up a basic Production.
+配置一个基本的 Production。
+
+00:16:09.620 --> 00:16:11.220 align:middle line:84%
+Thank you for
+watching, and we hoped
+感谢您的收看，我们也希望
+
+00:16:11.220 --> 00:16:14.390 align:middle line:84%
+this helps you learn
+the basics of Ensemble.
+这能帮助大家学习基本的 Ensemble
+
+00:16:14.390 --> 00:16:15.076 align:middle line:90%

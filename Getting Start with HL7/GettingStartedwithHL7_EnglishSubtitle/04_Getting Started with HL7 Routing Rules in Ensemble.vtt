@@ -1,0 +1,769 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:10.390 align:middle line:90%
+
+
+00:00:10.390 --> 00:00:12.420 align:middle line:84%
+Welcome to the eLearning
+session, Getting
+欢迎来到 elearning 课程
+
+00:00:12.420 --> 00:00:16.810 align:middle line:90%
+Started with HL7 Routing Rules.
+HL7 路由规则入门。
+
+00:00:16.810 --> 00:00:19.390 align:middle line:84%
+Routing engines are
+rule-based Business Processes
+路由引擎是一个基于规则的 Business Process
+
+00:00:19.390 --> 00:00:22.470 align:middle line:84%
+that route messages to a
+particular destination.
+其将消息路由到特定的目的地。
+
+00:00:22.470 --> 00:00:25.100 align:middle line:84%
+As Business Processes,
+they sit in the middle part
+Business Processes 通常居于
+
+00:00:25.100 --> 00:00:26.946 align:middle line:90%
+of the configuration page.
+配置页面的中间位置。
+
+00:00:26.946 --> 00:00:28.320 align:middle line:84%
+The purpose of
+the routing engine
+路由引擎的目的是为了
+
+00:00:28.320 --> 00:00:31.920 align:middle line:84%
+is to determine where a
+message needs to be sent.
+决定消息要发送至何方。
+
+00:00:31.920 --> 00:00:34.140 align:middle line:84%
+The message could be sent
+to many destinations,
+消息可以发送到多地，
+
+00:00:34.140 --> 00:00:36.520 align:middle line:90%
+or none at all.
+或是没有目的地。////////////////////////////////////////////////不送？？？
+
+00:00:36.520 --> 00:00:40.720 align:middle line:84%
+These are most commonly used
+for routing HL7 messages,
+路由 HL7 消息是非常常见的，
+
+00:00:40.720 --> 00:00:43.030 align:middle line:84%
+but can be used to route
+other messages, as well.
+其他消息也同样可以被路由/////////////////////////////////////路由其他消息？？
+
+00:00:43.030 --> 00:00:46.480 align:middle line:90%
+
+
+00:00:46.480 --> 00:00:49.880 align:middle line:84%
+An HL7 routing engine can
+be added to the production
+当添加一个入口连接或是 Business Service 的时候，
+
+
+00:00:49.880 --> 00:00:52.990 align:middle line:84%
+automatically when adding an
+inbound connection or Business
+一个 HL7 的路由引擎可以自动添加到 production
+
+00:00:52.990 --> 00:00:55.540 align:middle line:84%
+Service, or can be
+added separately
+也，可以利用配置向导
+
+00:00:55.540 --> 00:00:57.336 align:middle line:90%
+using the configuration wizards.
+另外添加。
+
+00:00:57.336 --> 00:01:00.500 align:middle line:90%
+
+
+00:01:00.500 --> 00:01:02.155 align:middle line:84%
+The routing engine
+uses a rule set
+路由引擎利用一组规则集
+
+00:01:02.155 --> 00:01:04.649 align:middle line:84%
+to decide where a
+message should be sent,
+来决定消息送往何处，
+
+00:01:04.649 --> 00:01:06.940 align:middle line:84%
+and whether it should be
+transformed before it is sent.
+以及发送前是否需要进行转换。
+
+00:01:06.940 --> 00:01:09.470 align:middle line:90%
+
+
+00:01:09.470 --> 00:01:11.520 align:middle line:84%
+Each rule within a
+rule set is made up
+在规则集中的每条规则由
+
+00:01:11.520 --> 00:01:15.740 align:middle line:84%
+of a constraint and a
+condition, and then actions.
+约束，条件以及动作构成。
+
+00:01:15.740 --> 00:01:19.170 align:middle line:84%
+Constraints match on attributes
+about the message coming in,
+约束主要用来匹配消息的来源，
+
+00:01:19.170 --> 00:01:22.340 align:middle line:84%
+while conditions typically look
+inside the message and route
+而条件主要是为了查看消息的内容
+
+00:01:22.340 --> 00:01:24.470 align:middle line:90%
+based on the contents.
+以及根据内容的路由。
+
+00:01:24.470 --> 00:01:26.270 align:middle line:84%
+If the conditions
+and constraints
+如果条件和约束
+
+00:01:26.270 --> 00:01:29.180 align:middle line:84%
+are evaluated as true, then
+the action is performed.
+被判定为真，那么就执行动作。
+
+00:01:29.180 --> 00:01:32.260 align:middle line:90%
+
+
+00:01:32.260 --> 00:01:35.370 align:middle line:84%
+Let's look at an
+existing rule set.
+让我们来看一组已经存在的规则集。
+
+00:01:35.370 --> 00:01:37.520 align:middle line:84%
+If a rule is evaluated
+as true and there
+如果一条规则被判定为真，
+
+00:01:37.520 --> 00:01:39.610 align:middle line:84%
+is a return at the
+end of that rule,
+并且在规则的尾端有返回，
+
+00:01:39.610 --> 00:01:41.685 align:middle line:84%
+the routing engine
+will stop processing,
+那么路由引擎会在这里停止，
+
+00:01:41.685 --> 00:01:44.930 align:middle line:84%
+and will not attempt to
+evaluate any more rules.
+而不会继续去判定其他的规则。
+
+00:01:44.930 --> 00:01:46.970 align:middle line:84%
+If there is no return,
+the routing engine
+如果没有返回，那么路由引擎
+00:01:46.970 --> 00:01:50.120 align:middle line:84%
+attempts to match the
+next rule on the list.
+会试图去匹配列表中的下一条规则。
+
+00:01:50.120 --> 00:01:53.550 align:middle line:84%
+In this first example, our
+first rule does have a return,
+在第一个例子中，我们看到第一条规则却是有个返回，
+
+00:01:53.550 --> 00:01:57.480 align:middle line:84%
+so that means if it matches
+that constraint and condition,
+这意味着，如果符合其约束和条件，
+
+00:01:57.480 --> 00:02:02.330 align:middle line:84%
+it will then stop processing
+and not go on to the next rule.
+规则引擎会停止处理，而不会去判定下一个规则。
+
+
+00:02:02.330 --> 00:02:04.380 align:middle line:84%
+Here the constraint
+includes the source,
+这里约束包括消息源，
+
+00:02:04.380 --> 00:02:06.630 align:middle line:84%
+which is the Business
+Service that sent the message
+也就是发送这消息的到
+
+00:02:06.630 --> 00:02:08.470 align:middle line:90%
+to the routing engine.
+路由引擎的 Business Service
+
+
+00:02:08.470 --> 00:02:10.497 align:middle line:84%
+In this case, we have a
+dedicated routing engine
+在这例子中，我们对每个 Business Service
+
+00:02:10.497 --> 00:02:11.580 align:middle line:90%
+for each Business Service.
+有一个专属的路由引擎。
+
+00:02:11.580 --> 00:02:14.480 align:middle line:90%
+So this is not very important.
+虽然这不是非常重要的。
+
+00:02:14.480 --> 00:02:18.320 align:middle line:84%
+We next have the doc name which
+refers to the message type.
+下面，我们有一个文档名可参照消息类型。//////////////////////////////???
+
+00:02:18.320 --> 00:02:22.550 align:middle line:84%
+Such as here, ORMO01,
+and the schema,
+如同，ORMO01 以及 schema
+
+00:02:22.550 --> 00:02:27.130 align:middle line:84%
+which is either an HL7 version
+two version number, like 2.3.1,
+其是 HL7 版本2 的版本号，比如 2.3.1,
+
+
+00:02:27.130 --> 00:02:34.080 align:middle line:84%
+or a custom variant, like
+here, where we have EMR 2.3.
+或是一个用户变形，如同这里的 EMR 2.3.
+
+00:02:34.080 --> 00:02:36.510 align:middle line:84%
+The condition matches
+on an individual field
+条件会匹配消息本身
+
+00:02:36.510 --> 00:02:38.740 align:middle line:90%
+within the message itself.
+的每个单独字段。
+
+00:02:38.740 --> 00:02:41.590 align:middle line:84%
+Some of these, like
+MSH6, are obvious,
+这里，如 MSH6, 显而易见，
+
+00:02:41.590 --> 00:02:46.520 align:middle line:84%
+in that it refers to the sixth
+field in the MSH segment.
+在这里，指的是 MSH 片断的第六个字段。
+
+00:02:46.520 --> 00:02:48.600 align:middle line:84%
+But some of the more
+complex expressions
+但是有些表达式会比较复杂
+
+00:02:48.600 --> 00:02:50.150 align:middle line:84%
+will need more
+explanation later.
+我们会在后面解释。
+
+00:02:50.150 --> 00:02:52.720 align:middle line:90%
+
+
+00:02:52.720 --> 00:02:55.510 align:middle line:84%
+The action part is nearly
+always the Send action,
+至于动作部分，基本上是发送动作
+
+00:02:55.510 --> 00:02:58.680 align:middle line:84%
+which applies any relevant
+data transformation before it
+就是在发送其到目的地前
+
+00:02:58.680 --> 00:03:01.920 align:middle line:90%
+is sent to the destination.
+进行转换。
+
+00:03:01.920 --> 00:03:05.080 align:middle line:84%
+Notice here target
+is the destination.
+注意到 target 就是目的地。
+
+00:03:05.080 --> 00:03:07.130 align:middle line:84%
+So in this case, if we
+match both the constraint
+在这个例子里，如果我们匹配上约束
+
+00:03:07.130 --> 00:03:09.713 align:middle line:84%
+and the condition, we're going
+to send it to our target called
+和条件，我们将该消息发送到我们的目标
+
+00:03:09.713 --> 00:03:12.120 align:middle line:90%
+To_ProVation.
+该目标称之为 To_ProVation.
+
+00:03:12.120 --> 00:03:14.560 align:middle line:84%
+Usually the destination
+is a Business Operation
+通常目的地为 Business Operation
+
+00:03:14.560 --> 00:03:16.350 align:middle line:84%
+or outbound connection,
+but it could also
+或者是出口连接，但是也可以
+
+00:03:16.350 --> 00:03:18.760 align:middle line:90%
+be another Business Process.
+发送到另外一个 Business Process.
+
+00:03:18.760 --> 00:03:21.010 align:middle line:84%
+Notice we can also
+implement Boolean logic
+注意到，我们也可以在条件中
+
+00:03:21.010 --> 00:03:25.099 align:middle line:84%
+into our conditions,
+like these ands,
+进行布尔逻辑运算，比如 AND,
+
+00:03:25.099 --> 00:03:27.765 align:middle line:84%
+and we can have multiple actions
+with different transformations.
+并且我们可以有多个动作分别进行不同的数据转换。
+
+00:03:27.765 --> 00:03:31.630 align:middle line:90%
+
+
+00:03:31.630 --> 00:03:33.440 align:middle line:84%
+Now let's create
+our own rule set.
+现在，让我们来创建一个我们自己的规则集。
+
+00:03:33.440 --> 00:03:36.320 align:middle line:90%
+
+
+00:03:36.320 --> 00:03:38.540 align:middle line:84%
+Let's set up this business
+rule through this wizard.
+让我们通过向导来设置规则。
+
+00:03:38.540 --> 00:03:42.840 align:middle line:90%
+
+
+00:03:42.840 --> 00:03:45.160 align:middle line:84%
+Notice here we have
+an empty routing rule.
+注意到，我们有一个空的路由规则。
+
+00:03:45.160 --> 00:03:50.080 align:middle line:84%
+The first thing that I want to
+do is go to the General tab.
+第一件事，我们先选 "General" 标签。
+
+00:03:50.080 --> 00:03:52.560 align:middle line:84%
+I then want to specify the
+Production that the rule
+然后我要指定哪个 Production
+
+00:03:52.560 --> 00:03:53.780 align:middle line:90%
+set will be used in.
+会用这个规则集。
+
+00:03:53.780 --> 00:03:56.340 align:middle line:84%
+So later Ensemble gives
+me only the valid targets
+所以后面 Ensemble 会在我应用中
+
+00:03:56.340 --> 00:03:58.910 align:middle line:90%
+within my current Production.
+只给我有效的目标。
+
+00:03:58.910 --> 00:04:00.650 align:middle line:84%
+So let's specify here
+in our Production
+所以让我们指定我们所要的 Production 
+
+00:04:00.650 --> 00:04:04.000 align:middle line:84%
+Name that we want
+MyHospital.HL7Engine.
+名字 MyHospital.HL7Engine.
+
+00:04:04.000 --> 00:04:10.600 align:middle line:90%
+
+
+00:04:10.600 --> 00:04:14.600 align:middle line:84%
+Going back to the rule set
+page, we're going to add a rule.
+返回到规则集页面，我们将要添加一条规则。
+
+00:04:14.600 --> 00:04:17.600 align:middle line:90%
+
+
+00:04:17.600 --> 00:04:20.680 align:middle line:84%
+I'm first going to
+click on rule set,
+我首先点击规则集，
+
+00:04:20.680 --> 00:04:23.100 align:middle line:84%
+and then do the plus
+to add a new rule.
+然后选中"加号" 添加一条新规则。
+
+00:04:23.100 --> 00:04:30.790 align:middle line:90%
+
+
+00:04:30.790 --> 00:04:33.660 align:middle line:84%
+Each rule has a set of
+constraints and conditions.
+每条规则都有一组约束和条件。
+
+00:04:33.660 --> 00:04:37.790 align:middle line:84%
+Constraints match on attributes
+about the message coming in,
+约束与消息来源的属性想匹配，///////////////////约束检查收到消息的属性，而CONDITION通常。。。
+
+00:04:37.790 --> 00:04:40.360 align:middle line:84%
+while conditions typically look
+inside the message and route
+而条件通常查看消息的内容以及
+
+00:04:40.360 --> 00:04:43.110 align:middle line:90%
+based on the contents.
+基于内容的路由。
+
+00:04:43.110 --> 00:04:45.270 align:middle line:84%
+By double clicking on
+the constraints box,
+双击约束的选框，
+
+00:04:45.270 --> 00:04:47.301 align:middle line:84%
+we get a wizard where we
+can specify attributes
+我们可以看到一个指定消息属性的
+
+00:04:47.301 --> 00:04:48.050 align:middle line:90%
+about the message.
+向导
+
+00:04:48.050 --> 00:04:53.050 align:middle line:90%
+
+
+00:04:53.050 --> 00:04:54.910 align:middle line:84%
+Note here that source
+is the Business
+这里注意到，源是指
+
+00:04:54.910 --> 00:05:00.230 align:middle line:84%
+Service from which the message
+router got its message.
+消息路由器所接受的消息来自于哪一个
+Business Service.
+
+00:05:00.230 --> 00:05:04.020 align:middle line:84%
+It can also specify the
+schema, and document name here
+也可以指定 schema 和文档名字，
+
+00:05:04.020 --> 00:05:06.200 align:middle line:90%
+refers to the message type.
+这里指消息类型。
+
+00:05:06.200 --> 00:05:07.270 align:middle line:90%
+So for example, ADT01.
+比如，ADT01.
+
+00:05:07.270 --> 00:05:10.270 align:middle line:90%
+
+
+00:05:10.270 --> 00:05:12.030 align:middle line:84%
+Let's specify a
+few of these here.
+让我们在这里指定一些属性。/////////////////////////////??????
+
+00:05:12.030 --> 00:05:26.210 align:middle line:90%
+
+
+00:05:26.210 --> 00:05:28.500 align:middle line:84%
+If we need to route
+based on the contents,
+如果我们需要根据内容进行路由，
+
+00:05:28.500 --> 00:05:35.140 align:middle line:84%
+we need to specify at least
+schema and message type.
+我们必须至少指定 schema 和消息类型。
+
+00:05:35.140 --> 00:05:37.360 align:middle line:84%
+A condition can then be
+added by double clicking
+然后一个条件可以在 condition 字段上
+
+00:05:37.360 --> 00:05:38.610 align:middle line:90%
+on the condition field.
+通过双击添加。
+
+00:05:38.610 --> 00:05:43.210 align:middle line:90%
+
+
+00:05:43.210 --> 00:05:45.720 align:middle line:84%
+From this wizard, we get a
+little bit more flexibility
+从这个向导，我们可以有一些自由度
+
+00:05:45.720 --> 00:05:48.670 align:middle line:84%
+in specifying what we would
+like to route based on.
+来指定基于什么内容来路由。
+
+00:05:48.670 --> 00:05:53.360 align:middle line:84%
+To match on an HL7 message
+field, start typing HL7.{.
+为了匹配一个 HL7 消息的字段，需要以 HL7.{ 开始。
+
+00:05:53.360 --> 00:06:00.470 align:middle line:90%
+
+
+00:06:00.470 --> 00:06:04.070 align:middle line:84%
+As long as you have specified
+schema and message structure
+只要你在条件中指定了 schema 和消息结构
+
+00:06:04.070 --> 00:06:05.640 align:middle line:84%
+in the conditions,
+the wizard will
+向导会
+
+00:06:05.640 --> 00:06:07.350 align:middle line:90%
+give possible paths and fields.
+给出可能的路径和字段。
+
+00:06:07.350 --> 00:06:10.320 align:middle line:90%
+
+
+00:06:10.320 --> 00:06:13.090 align:middle line:84%
+Let's look at the
+patient's identification,
+让我们来看一下病人的身份信息，
+
+00:06:13.090 --> 00:06:14.540 align:middle line:90%
+patient name, given name.
+病人姓名，名。
+
+00:06:14.540 --> 00:06:22.110 align:middle line:90%
+
+
+00:06:22.110 --> 00:06:24.970 align:middle line:84%
+Using the pre-built functions
+and operations buttons
+利用头部预制的函数和运算符按钮
+
+00:06:24.970 --> 00:06:27.775 align:middle line:84%
+at the top allows you to create
+more complicated conditions.
+允许你创建更复杂的条件。
+
+00:06:27.775 --> 00:06:30.630 align:middle line:90%
+
+
+00:06:30.630 --> 00:06:33.500 align:middle line:84%
+Lets use the f of x,
+the function button,
+让我们来使用一下 "fx" 的函数按钮，
+
+00:06:33.500 --> 00:06:36.520 align:middle line:84%
+to say that we want the
+given name to start with j.
+比如，我们要要名字的字母以 j 打头。
+
+00:06:36.520 --> 00:06:47.410 align:middle line:90%
+
+
+00:06:47.410 --> 00:06:50.320 align:middle line:84%
+Once we have our rule
+the way that we want it,
+一但我们见好了我们想要的规则，
+
+00:06:50.320 --> 00:06:51.210 align:middle line:90%
+we can click OK.
+可以点击 OK。
+
+00:06:51.210 --> 00:06:54.960 align:middle line:90%
+
+
+00:06:54.960 --> 00:06:57.160 align:middle line:84%
+The last thing
+that we need to add
+最后所要做的事是添加
+
+00:06:57.160 --> 00:07:00.550 align:middle line:84%
+is the action, which
+determines what will happen
+动作，其决定当条件为真时
+
+00:07:00.550 --> 00:07:01.710 align:middle line:90%
+if the condition is true.
+会发生什么。
+
+00:07:01.710 --> 00:07:04.500 align:middle line:90%
+
+
+00:07:04.500 --> 00:07:07.770 align:middle line:84%
+The main thing I want to do
+is send the message somewhere.
+主要我想要消息发送到某地。
+
+00:07:07.770 --> 00:07:14.460 align:middle line:84%
+So I'm going to click on
+When, plus sign, and send.
+所以我选中 "When", 点击“+”号，然后发送。
+
+00:07:14.460 --> 00:07:17.990 align:middle line:90%
+
+
+00:07:17.990 --> 00:07:21.520 align:middle line:84%
+In this case, I want to
+specify the target as To_Lab,
+在这例子中，我要制定目标为 To_Lab,
+
+00:07:21.520 --> 00:07:22.220 align:middle line:90%
+and click OK.
+并点击 OK.
+
+00:07:22.220 --> 00:07:30.810 align:middle line:90%
+
+
+00:07:30.810 --> 00:07:31.720 align:middle line:90%
+Then click OK.
+然后点击 OK.
+
+00:07:31.720 --> 00:07:35.670 align:middle line:90%
+
+
+00:07:35.670 --> 00:07:38.470 align:middle line:84%
+I can add a second
+send action, and also
+我还可以添加第二个动作，
+
+00:07:38.470 --> 00:07:40.310 align:middle line:90%
+send the message to To_Billing.
+发送消息到 To_Billing.
+
+00:07:40.310 --> 00:07:53.780 align:middle line:90%
+
+
+00:07:53.780 --> 00:07:56.080 align:middle line:84%
+Or I could have simply
+selected both of them
+或者我可以简单同时选中它们俩
+
+00:07:56.080 --> 00:08:03.160 align:middle line:84%
+here to have them
+go both places.
+同时发送消息到这两地。
+
+00:08:03.160 --> 00:08:05.210 align:middle line:84%
+Having them separate,
+however, allows
+如果将它们两个分别设置，
+
+00:08:05.210 --> 00:08:07.670 align:middle line:84%
+me to choose two
+different transforms
+可以允许我对两个动作有
+
+00:08:07.670 --> 00:08:10.950 align:middle line:90%
+for each send action.
+不同的数据转换。
+
+00:08:10.950 --> 00:08:12.940 align:middle line:84%
+I can add more rules
+to the rule set
+我还可以添加更多的规则到这个规则集。
+
+00:08:12.940 --> 00:08:16.030 align:middle line:84%
+by clicking on the Add button
+after clicking Rule Set.
+通过点击规则集后点击 "Add" 按钮。
+
+00:08:16.030 --> 00:08:20.340 align:middle line:90%
+
+
+00:08:20.340 --> 00:08:22.930 align:middle line:84%
+You most likely
+will have many rules
+你可能根据需求的复杂程度
+
+00:08:22.930 --> 00:08:26.520 align:middle line:84%
+based on the complexity
+of your requirements.
+会有许多规则。
+
+00:08:26.520 --> 00:08:28.090 align:middle line:84%
+Whenever you change
+the rule set,
+当你修改规则集的时候，
+
+00:08:28.090 --> 00:08:31.308 align:middle line:84%
+you must save the changes
+by clicking the Save button.
+你一定要通过按 “Save” 按钮保存修改的结果。
+
+00:08:31.308 --> 00:08:37.169 align:middle line:90%
+
+
+00:08:37.169 --> 00:08:40.000 align:middle line:84%
+Now when we return to
+the configuration page
+现在，当我们返回配置页面的时候，
+
+00:08:40.000 --> 00:08:42.280 align:middle line:84%
+we need to make sure that
+we change our business rule
+我们一定要保证我们也修改了
+
+00:08:42.280 --> 00:08:45.500 align:middle line:84%
+name to be this new rule
+that we just created.
+刚产生的这条新规则的名字。
+
+00:08:45.500 --> 00:08:55.480 align:middle line:90%
+
+
+00:08:55.480 --> 00:08:57.160 align:middle line:84%
+Then if we click
+on the circle next
+然后，如果我们点击了
+From_ApplicationX_Router 边上的小圈
+
+00:08:57.160 --> 00:09:00.860 align:middle line:84%
+to From_ApplicationX_Router,
+you can now
+你现在可以看到
+
+00:09:00.860 --> 00:09:03.520 align:middle line:84%
+see that
+From_ApplicationX_Router
+From_ApplicationX_Router 同时
+
+00:09:03.520 --> 00:09:07.310 align:middle line:84%
+is sending a message both
+to To_Billing and To_Lab.
+发送消息到 To_Billing 和 To_Lab.
+
+00:09:07.310 --> 00:09:09.380 align:middle line:84%
+Thank you for attending
+this eLearning session.
+感谢您收看这个 eLearning 课程。
+
+00:09:09.380 --> 00:09:11.129 align:middle line:84%
+We hope that you learned
+a little bit more
+我们希望您能从中学到一些
+
+00:09:11.129 --> 00:09:14.220 align:middle line:84%
+about getting started
+with HL7 routing rules.
+如何使用 HL7 路由规则。

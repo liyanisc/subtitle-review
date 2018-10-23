@@ -1,0 +1,856 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:09.590 align:middle line:90%
+
+
+00:00:09.590 --> 00:00:12.340 align:middle line:84%
+Welcome to the eLearning
+session Error Handling
+欢迎来到 elearning 课程, 
+
+
+00:00:12.340 --> 00:00:14.140 align:middle line:90%
+in Ensemble HL7 Productions.
+Ensemble HL7 Productions 的错误处理。
+
+00:00:14.140 --> 00:00:16.650 align:middle line:90%
+
+
+00:00:16.650 --> 00:00:20.380 align:middle line:84%
+No matter how well designed your
+production is, problems occur.
+无论你设计的 production 如何的好，总会有问题发生。
+
+00:00:20.380 --> 00:00:22.490 align:middle line:84%
+For example, messages
+come into Ensemble
+比如，在进入到 Ensemble 的消息中，
+
+00:00:22.490 --> 00:00:24.850 align:middle line:84%
+that are not in
+the right format,
+有些格式部队，///////////////////////////////////////////////???
+
+00:00:24.850 --> 00:00:27.070 align:middle line:84%
+inbound or outbound
+connections go down,
+或者入口或出口的连接断了，
+
+00:00:27.070 --> 00:00:29.970 align:middle line:84%
+or other problems occur
+that we can not foresee.
+或者有我们无法预知的错误发生。
+
+00:00:29.970 --> 00:00:32.020 align:middle line:84%
+Ensemble provides
+many different options
+Ensemble 提供了许多可以
+
+00:00:32.020 --> 00:00:34.810 align:middle line:84%
+that help us to handle
+these problems and errors.
+帮我们进行问题和错误处理的选项。
+
+00:00:34.810 --> 00:00:37.870 align:middle line:90%
+
+
+00:00:37.870 --> 00:00:40.390 align:middle line:84%
+The first thing we want
+to do is set up alerting,
+我们首先要做的是设置警报，
+
+00:00:40.390 --> 00:00:41.930 align:middle line:84%
+so that we know
+when problems occur
+因为我们能知有问题发生，
+
+00:00:41.930 --> 00:00:44.400 align:middle line:84%
+and, therefore, can
+fix them quickly.
+从而能快速解决问题。
+
+00:00:44.400 --> 00:00:46.660 align:middle line:84%
+You can choose to be alerted
+in many different ways,
+你有很多种发法作报警，
+
+00:00:46.660 --> 00:00:49.650 align:middle line:84%
+including receiving an
+email or text message,
+包括 email 或者短信，
+
+00:00:49.650 --> 00:00:53.790 align:middle line:84%
+or it can just write the
+error message to a log file.
+或者可以将错误消息记录到日志中。
+
+00:00:53.790 --> 00:00:57.200 align:middle line:84%
+Let's take a look at
+our Demo Production
+让我们来看一下我们的 Demo Production.
+
+00:00:57.200 --> 00:00:58.970 align:middle line:84%
+Looking at our
+configuration page,
+在配置页面中，我们可
+
+00:00:58.970 --> 00:01:03.090 align:middle line:84%
+notice each component has a
+setting called Alert On Error.
+注意到，每个组件都有一个 "Alert On Error" 的设置。
+
+00:01:03.090 --> 00:01:04.920 align:middle line:84%
+Our To_Billing
+Business Operation
+我们的 To_Billing Business Operation
+
+00:01:04.920 --> 00:01:08.190 align:middle line:90%
+has the setting checked.
+这个设置有选中。
+
+00:01:08.190 --> 00:01:09.900 align:middle line:84%
+When a component
+triggers an alert,
+当一个组件触发一个警报时，
+
+00:01:09.900 --> 00:01:13.130 align:middle line:84%
+it sends a message to
+Ens.Alert, a Message Router
+它会发送消息到 Ens.Alert, 这是一个
+
+00:01:13.130 --> 00:01:15.620 align:middle line:90%
+that handles these alerts.
+处理警报的消息路由。
+
+00:01:15.620 --> 00:01:17.620 align:middle line:84%
+This component is
+automatically added
+这个组建在你创建 HL7 Production//////////////////////////////????
+
+00:01:17.620 --> 00:01:19.610 align:middle line:84%
+when you create
+an HL7 production
+的时候自动加入，
+
+00:01:19.610 --> 00:01:22.370 align:middle line:84%
+and it must be
+called this to work.
+而且必须能正常工作。
+
+00:01:22.370 --> 00:01:25.020 align:middle line:84%
+Ens.Alert, because it
+is a Message Router,
+Ens.Alert 因为也是一个消息路由，
+
+00:01:25.020 --> 00:01:28.250 align:middle line:84%
+can route our message just
+like any other Message Router,
+可以象其它消息路由那样根据
+
+00:01:28.250 --> 00:01:30.870 align:middle line:84%
+based on conditions
+such as time of day,
+条件，比如每天的某个时间，
+
+
+
+00:01:30.870 --> 00:01:34.070 align:middle line:84%
+component that caused the error,
+or any other condition that you
+造成错误的组建，以及其它你设置的
+
+00:01:34.070 --> 00:01:35.754 align:middle line:90%
+set up.
+条件，路由我们的消息。
+
+00:01:35.754 --> 00:01:37.670 align:middle line:84%
+Let's look at our Business
+Rules in Ens.Alert.
+让我们看一下我们 Business 规则中的 Ens.Alert.
+
+00:01:37.670 --> 00:01:40.320 align:middle line:90%
+
+
+00:01:40.320 --> 00:01:42.970 align:middle line:84%
+In our example, we will
+send this alert message
+在我们的例子中，我们会发 email
+
+00:01:42.970 --> 00:01:46.390 align:middle line:84%
+to our email alert
+Business Operation that
+到我们的 email 报警 Business Operation,
+
+
+00:01:46.390 --> 00:01:48.500 align:middle line:84%
+will send out an email
+based on the component that
+其会根据组建触发的警报
+
+00:01:48.500 --> 00:01:50.500 align:middle line:90%
+triggered the alert.
+发送 email.
+
+00:01:50.500 --> 00:01:52.660 align:middle line:84%
+However, alerting
+can send its messages
+然而，警报也可以发送消息
+
+00:01:52.660 --> 00:01:55.700 align:middle line:84%
+to any Business Process
+or Business Operation
+到任何 Business Process 或者 Business Operation，
+
+00:01:55.700 --> 00:02:00.170 align:middle line:84%
+and, therefore, is not
+limited to only emails.
+因此，这不局限于 email.
+
+00:02:00.170 --> 00:02:02.080 align:middle line:84%
+Right now, I've set
+up this Production so
+现在，我们就来进行设置，
+
+00:02:02.080 --> 00:02:04.460 align:middle line:84%
+that my To_Billing
+File Business Operation
+这样我的 To_Billing 文件 Business Operation
+
+00:02:04.460 --> 00:02:07.970 align:middle line:84%
+is trying to write to
+an invalid file path.
+写到无效的文件路径时，会报警。
+
+00:02:07.970 --> 00:02:10.079 align:middle line:84%
+Let's put a message in
+and see what happens.
+让我们发一个消息，然后看会发生什么。
+
+00:02:10.079 --> 00:02:16.280 align:middle line:90%
+
+
+00:02:16.280 --> 00:02:19.010 align:middle line:84%
+Based on how I've configured
+my Production, when
+基于我的 Production 的配置，
+
+00:02:19.010 --> 00:02:20.820 align:middle line:84%
+I send a message
+through, Ensemble
+当我发送一条消息时，Ensemble
+
+00:02:20.820 --> 00:02:23.040 align:middle line:84%
+will put an alert
+in my event log,
+会放一条警报到事件日志中，
+
+00:02:23.040 --> 00:02:24.610 align:middle line:84%
+as well as send me
+an email letting
+这和发送一个邮件让我
+
+00:02:24.610 --> 00:02:27.180 align:middle line:84%
+me know that the file path
+of the Business Operation
+知道 Buinsess Operation 的路径////////////////////////////////????
+
+00:02:27.180 --> 00:02:30.000 align:middle line:90%
+is set to a bad location.
+有错是一个道理。
+
+00:02:30.000 --> 00:02:33.720 align:middle line:84%
+Let's take a look at our event
+log and see the alert message.
+让我们来看一下我们的事件日志，可看到警报消息。
+
+00:02:33.720 --> 00:02:36.560 align:middle line:84%
+You'll notice the top
+entry is an alert message,
+你会注意到在头部，有个警报消息，
+
+00:02:36.560 --> 00:02:39.250 align:middle line:84%
+saying that it
+cannot open the file.
+消息内容为 "不能打开文件"。
+
+00:02:39.250 --> 00:02:41.570 align:middle line:84%
+And the second one
+is an error message,
+而第二条是个错误消息，
+
+00:02:41.570 --> 00:02:43.440 align:middle line:84%
+also saying that it
+cannot open the file.
+也是说 “不能打开文件"。
+
+00:02:43.440 --> 00:02:47.010 align:middle line:90%
+
+
+00:02:47.010 --> 00:02:49.300 align:middle line:84%
+We can then view,
+in our Visual Trace,
+然后我们可以看我们的 Visual Trace,
+
+00:02:49.300 --> 00:02:52.130 align:middle line:84%
+how the messages are
+passed through Ensemble.
+看消息是如何在 Ensemble 中传递的。
+
+00:02:52.130 --> 00:02:56.880 align:middle line:84%
+Notice there is an alert request
+from To_Billing to my Ens.Alert
+注意到这个警报消息来自于 To_Billing
+
+00:02:56.880 --> 00:02:58.660 align:middle line:90%
+component.
+然后到达 Ens.Alert 组件的。
+
+00:02:58.660 --> 00:03:02.500 align:middle line:84%
+Ens.Alert then sends a
+message to EMailAlert,
+Ens.Alert 然后发送消息到 EMailAlert,
+
+00:03:02.500 --> 00:03:04.190 align:middle line:84%
+which will then
+send out my email,
+如果我已经配置了我的email 地址
+
+00:03:04.190 --> 00:03:07.870 align:middle line:84%
+if I have configured
+my email address.
+其会发送 email 我。
+
+00:03:07.870 --> 00:03:09.930 align:middle line:84%
+Sometimes, another
+error that can occur
+有的时候，错误发生在/////////////////////////////////????
+
+00:03:09.930 --> 00:03:11.910 align:middle line:84%
+is the sending system
+sends a message.
+发送消息的系统发送了
+
+00:03:11.910 --> 00:03:13.740 align:middle line:90%
+in, in the wrong format.
+格式错误的消息。
+
+00:03:13.740 --> 00:03:17.870 align:middle line:84%
+Perhaps we were
+expecting 2.3.1 ADT_A01
+也许我们要的是 2.3.1 ADT_A01
+
+00:03:17.870 --> 00:03:23.260 align:middle line:84%
+but actually receive a custom
+schema, ADT_A01 instead.
+但是我们收到的是用户自定义 schema 的 ADT_A01。
+
+00:03:23.260 --> 00:03:26.550 align:middle line:84%
+In order to trap this
+message as a bad message,
+为了捕获错误消息，
+
+00:03:26.550 --> 00:03:29.160 align:middle line:84%
+we need to take a look at our
+message router's validation
+我们需要看一下我们的消息路由的
+
+00:03:29.160 --> 00:03:30.870 align:middle line:90%
+setting.
+验证设置。
+
+00:03:30.870 --> 00:03:34.880 align:middle line:84%
+This setting, if on, based
+on the possible flags
+如果这个设置是开的，
+
+00:03:34.880 --> 00:03:39.480 align:middle line:84%
+that you can view when
+clicking on that setting name,
+你可以点击设置的名称
+
+00:03:39.480 --> 00:03:41.970 align:middle line:84%
+checks the message against
+the Business Service's Message
+察看来自于 Business Service 消息的
+
+00:03:41.970 --> 00:03:44.710 align:middle line:90%
+Schema Category.
+Schema 类型。
+
+00:03:44.710 --> 00:03:47.515 align:middle line:84%
+If it does not match the
+schema, it fails validation
+如果 schema 不匹配，那么不能通过验证，
+
+00:03:47.515 --> 00:03:49.540 align:middle line:84%
+and is then sent to
+the component noted
+并且会发送到称之为
+
+00:03:49.540 --> 00:03:52.180 align:middle line:84%
+in the BadMessageHandler
+setting.
+BadMessageHandler 的组件处。
+
+00:03:52.180 --> 00:03:55.010 align:middle line:84%
+By default, when you
+create an HL7 Production,
+缺省情况下，当你创建一个 HL7 Production,
+
+00:03:55.010 --> 00:03:56.870 align:middle line:84%
+Ensemble automatically
+creates a component
+Ensemble 会自动产生一个
+
+00:03:56.870 --> 00:03:58.980 align:middle line:90%
+called BadMessageHandler.
+BadMessageHandler 的组件。
+
+00:03:58.980 --> 00:04:02.340 align:middle line:84%
+We can type this name in our
+BadMessageHandler setting.
+我们可以在我们的 BadMessageHandler 设置中输入这个名字。
+
+00:04:02.340 --> 00:04:05.480 align:middle line:90%
+
+
+00:04:05.480 --> 00:04:07.665 align:middle line:84%
+If we would also like to
+raise an alert if there
+如果我们还要产生一个警报，
+
+00:04:07.665 --> 00:04:10.710 align:middle line:84%
+is a bad message, we can
+set the Alert On Bad Message
+如果这是一个坏消息，我们可以设置
+"Alert On Bad Message"
+
+00:04:10.710 --> 00:04:11.640 align:middle line:90%
+setting to true.
+为真。
+
+00:04:11.640 --> 00:04:17.930 align:middle line:90%
+
+
+00:04:17.930 --> 00:04:20.440 align:middle line:84%
+Often, a receiving system
+will send the message back
+常常，在接受方会发送回复
+
+00:04:20.440 --> 00:04:22.730 align:middle line:84%
+to acknowledge a
+message was sent.
+已表明消息发出。
+
+00:04:22.730 --> 00:04:24.830 align:middle line:84%
+If the message back
+acknowledges the message
+如果回复的消息表明消息收到，
+
+00:04:24.830 --> 00:04:28.250 align:middle line:84%
+but recognizes that there was
+a problem with the message,
+但是消息有问题存在，
+
+00:04:28.250 --> 00:04:29.670 align:middle line:90%
+we need to handle this error.
+我们需要对此错误进行处理。
+
+00:04:29.670 --> 00:04:35.870 align:middle line:90%
+
+
+00:04:35.870 --> 00:04:39.920 align:middle line:84%
+Reply Code Actions is a setting
+on the Business Operation
+"Reply Code Actions" 是 Business Operation 处的一个设置
+
+00:04:39.920 --> 00:04:43.070 align:middle line:84%
+that lets you specify
+responses, based
+其允许你，根据不同的
+
+00:04:43.070 --> 00:04:47.310 align:middle line:84%
+on receipt of several different
+acknowledgement or ACK codes.
+确认方式或者 ACK 代码，指定回复。
+
+00:04:47.310 --> 00:04:50.890 align:middle line:84%
+For example, if I'm
+receipt of a NACK,
+比如，如果我接受到一个 NACK,
+
+00:04:50.890 --> 00:04:53.830 align:middle line:84%
+I would like to disable
+the Business Operation.
+我会停用这个 Business Operation.
+
+00:04:53.830 --> 00:04:58.350 align:middle line:84%
+I could put in this
+text box, :?E=D,
+我在 "Reply Code Action" 中，
+
+00:04:58.350 --> 00:05:01.440 align:middle line:84%
+like you see here in
+Reply Code Actions.
+输入 ":?E=D", 如同你看到的那样。
+
+00:05:01.440 --> 00:05:03.440 align:middle line:84%
+This setting means
+that, on an error,
+这个设置表示，当有错误发生时候，
+
+00:05:03.440 --> 00:05:05.730 align:middle line:84%
+we're going to disable our
+Business Operation, the
+我们会停用我们的 Business Operation,
+
+00:05:05.730 --> 00:05:08.720 align:middle line:90%
+to To_Lab component.
+即 To_Lab 组件。
+
+00:05:08.720 --> 00:05:11.390 align:middle line:84%
+Now, let's send the message
+through and see how this works.
+现在，我们发送一个消息，看是否能起作用。
+
+00:05:11.390 --> 00:05:21.600 align:middle line:90%
+
+
+00:05:21.600 --> 00:05:23.900 align:middle line:84%
+Notice that we can see that
+the Business Operation has
+注意到，这个 Business Operation
+
+00:05:23.900 --> 00:05:26.510 align:middle line:84%
+been disabled when it
+receives the NACK back.
+当其收到 NACK 回复时即停用。
+
+00:05:26.510 --> 00:05:30.450 align:middle line:90%
+
+
+00:05:30.450 --> 00:05:34.190 align:middle line:84%
+Up until now, To_Billing
+has had a bad file path,
+到目前为止，To_Billing 有一个错误文件路径，
+
+00:05:34.190 --> 00:05:37.460 align:middle line:84%
+but I've just corrected this
+and now it has an OK file path.
+但是，我已经更正，现在其的路径是正确的。
+
+00:05:37.460 --> 00:05:40.700 align:middle line:90%
+
+
+00:05:40.700 --> 00:05:43.610 align:middle line:84%
+All the messages that were sent
+to T0_Billing while this file
+当文件路径是错误的时候，所有发送到 To_Billing 的
+
+00:05:43.610 --> 00:05:46.150 align:middle line:84%
+path was incorrect
+were automatically
+消息，会被自动地
+
+00:05:46.150 --> 00:05:48.840 align:middle line:90%
+sent to that text file.
+发送到这个文本文件。
+
+00:05:48.840 --> 00:05:51.060 align:middle line:84%
+We didn't have to
+do anything else.
+我们没有为此作任何其它的事情。
+
+00:05:51.060 --> 00:05:55.050 align:middle line:84%
+However, any messages
+that were built up To_Lab
+但是，所有被发送do To_Lab 的消息///////////////////////////???
+
+00:05:55.050 --> 00:05:57.530 align:middle line:90%
+are still waiting on the queue.
+会等候在队列中。
+
+00:05:57.530 --> 00:06:00.160 align:middle line:84%
+Let's talk next about
+how to resend messages
+现在我们来谈谈如何重发
+
+
+00:06:00.160 --> 00:06:02.820 align:middle line:84%
+that might be sitting
+on the To_Lab queue
+在 To_Lab 队列中的消息
+
+00:06:02.820 --> 00:06:04.380 align:middle line:90%
+and send them now to To_Billing.
+到 To_Billing。
+
+00:06:04.380 --> 00:06:10.590 align:middle line:90%
+
+
+00:06:10.590 --> 00:06:12.220 align:middle line:84%
+When problems occur
+with messages,
+当消息有问题发生时，
+
+00:06:12.220 --> 00:06:14.980 align:middle line:84%
+often you may need to
+resend the messages.
+我们常需要重新发送消息。
+
+00:06:14.980 --> 00:06:17.770 align:middle line:84%
+We can do this directly
+inside of Ensemble.
+我们可以直接在 Ensemble 内来实现。
+
+00:06:17.770 --> 00:06:22.310 align:middle line:84%
+To resend, we're going to
+go to the Message Viewer.
+为了重发，我们点击 "Message Viewer".
+
+00:06:22.310 --> 00:06:24.100 align:middle line:90%
+Here, we can select a message.
+在这里，我们选中一条消息。
+
+00:06:24.100 --> 00:06:26.800 align:middle line:84%
+In this case, I want to
+select my message that's
+对于这个例子，我要选一条
+
+00:06:26.800 --> 00:06:28.110 align:middle line:90%
+queued up on To_Lab.
+在 To_Lab 队列中的消息。
+
+00:06:28.110 --> 00:06:31.390 align:middle line:90%
+
+
+00:06:31.390 --> 00:06:32.615 align:middle line:90%
+I can then click Resend.
+然后我可以点击 "Resend”。
+
+00:06:32.615 --> 00:06:36.910 align:middle line:90%
+
+
+00:06:36.910 --> 00:06:39.499 align:middle line:84%
+Notice we can also
+choose a new destination
+注意到，我们也可选新的目的地，
+
+00:06:39.499 --> 00:06:41.290 align:middle line:84%
+and even edit the
+message before resending.
+甚至在重发前可以编辑这消息。
+
+00:06:41.290 --> 00:06:46.070 align:middle line:90%
+
+
+00:06:46.070 --> 00:06:48.620 align:middle line:84%
+Let's edit a message and
+resend to another component.
+让我们编辑者消息，然后重发到另一个组件。
+
+00:06:48.620 --> 00:06:57.010 align:middle line:90%
+
+
+00:06:57.010 --> 00:06:59.690 align:middle line:84%
+I can change values in
+this document and then,
+我可以修改在这文档中的值，然后
+
+00:06:59.690 --> 00:07:03.163 align:middle line:84%
+at the bottom of the
+page, I can click Resend.
+在这页的底部，点击 "Resend"。
+
+00:07:03.163 --> 00:07:06.350 align:middle line:90%
+
+
+00:07:06.350 --> 00:07:09.630 align:middle line:84%
+Notice here that a copy of our
+message was sent to To_Billing.
+注意到，这里有我们消息的复制发送到 To_Billing.
+
+00:07:09.630 --> 00:07:14.090 align:middle line:90%
+
+
+00:07:14.090 --> 00:07:16.840 align:middle line:84%
+Let's next discuss how to
+work with suspended messages.
+接下去，我们讨论一下怎么处理挂起的消息。
+
+00:07:16.840 --> 00:07:23.100 align:middle line:90%
+
+
+00:07:23.100 --> 00:07:26.800 align:middle line:84%
+Some Business Operations are
+designed to suspend messages
+有些 Business 被设计成当有
+
+00:07:26.800 --> 00:07:30.120 align:middle line:84%
+when a message fails, or
+operators can manually
+消息发送失败时，消息被挂起，或者是操作员
+
+00:07:30.120 --> 00:07:33.040 align:middle line:84%
+suspend messages with the
+intention of re-submitting them
+可以手工挂起消息，然后重发这些消息。////////////////////////////////????
+
+00:07:33.040 --> 00:07:34.970 align:middle line:90%
+later.
+
+00:07:34.970 --> 00:07:37.550 align:middle line:84%
+These suspended messages
+are put in a special queue
+这些挂起的消息可以放在一个特殊的队列上，
+
+00:07:37.550 --> 00:07:41.510 align:middle line:84%
+that we can view and use
+to manage these messages.
+从那里，我们可以察看和管理这些消息。
+
+00:07:41.510 --> 00:07:43.245 align:middle line:84%
+Let's first suspend
+the message manually.
+我们首先来手工挂起一个消息。
+
+00:07:43.245 --> 00:07:46.420 align:middle line:90%
+
+
+00:07:46.420 --> 00:07:49.910 align:middle line:84%
+My Business Operation is
+currently in a retry state,
+我的 Business Operation 目前处于重试状态，
+
+00:07:49.910 --> 00:07:53.370 align:middle line:84%
+because my file path is set
+to an incorrect file path
+因为我的文件路径不正确
+
+00:07:53.370 --> 00:07:58.380 align:middle line:84%
+and I've set failure timeout to
+-1, to keep retrying forever.
+并且我设置 "failure timeout" 为 -1, 这样会一直重试。
+
+00:07:58.380 --> 00:08:01.450 align:middle line:84%
+Setting failure timeout
+to -1 is usually
+设置 "failure timeout" 为 -1 
+
+00:08:01.450 --> 00:08:04.670 align:middle line:84%
+what you'd like
+the setting to be.
+通常就是为了这个目的。
+
+00:08:04.670 --> 00:08:07.710 align:middle line:84%
+So now, if I go to the
+Jobs tab on the right,
+现在，如果我们到右手边的 "Jobs" 标签页，
+
+00:08:07.710 --> 00:08:11.180 align:middle line:84%
+I have the option to
+suspend this message.
+我可以看到挂起消息的选项。
+
+00:08:11.180 --> 00:08:13.120 align:middle line:84%
+Let's suspend it and
+see where it goes.
+让我们挂起这消息，然后看发生什么。
+
+00:08:13.120 --> 00:08:20.970 align:middle line:90%
+
+
+00:08:20.970 --> 00:08:23.590 align:middle line:84%
+Now if I go back to
+my Management Portal,
+现在，如果回到管理门户，
+
+00:08:23.590 --> 00:08:27.909 align:middle line:84%
+I can view my suspended messages
+by going to Ensemble, View
+我可以到 Ensmeble,View，suspended Messages 菜单
+
+00:08:27.909 --> 00:08:29.075 align:middle line:90%
+and then Suspended Messages.
+察看我挂起的消息
+
+00:08:29.075 --> 00:08:34.409 align:middle line:90%
+
+
+00:08:34.409 --> 00:08:38.480 align:middle line:84%
+Notice here I have two
+messages that are suspended,
+这里注意到，我有两条挂起的消息，
+
+00:08:38.480 --> 00:08:40.640 align:middle line:84%
+and I have the option
+here to Resubmit
+并且有个选项 "Resubmit”，
+
+00:08:40.640 --> 00:08:45.590 align:middle line:84%
+my message, Edit and
+Resubmit, Discard, or Delete.
+重发消息，以及 "Edit","Discard","Delete" 其它选项。
+
+00:08:45.590 --> 00:08:48.000 align:middle line:84%
+Delete will officially
+delete that message
+"delete" 会真正从数据库中删除这条消息，
+
+00:08:48.000 --> 00:08:51.480 align:middle line:84%
+from your database, Discard
+will leave that message
+而 "Discard" 会保留这消息，
+
+00:08:51.480 --> 00:08:53.060 align:middle line:84%
+to be viewed in
+the Message Viewer
+只是在 "Message Viewer" 中查看消息时，
+
+00:08:53.060 --> 00:08:56.130 align:middle line:84%
+but will put it in
+a discarded state,
+会看到有个 "discarded" 的状态。
+
+00:08:56.130 --> 00:08:58.710 align:middle line:84%
+Resubmit just does
+a simple resubmit
+"resubmit" 只是简单的提交
+
+00:08:58.710 --> 00:09:01.000 align:middle line:84%
+and sending that
+message on again,
+并且重发，
+
+00:09:01.000 --> 00:09:03.050 align:middle line:84%
+and then we can also
+edit before resubmitting.
+我们在重发前，也可以编辑消息。
+
+00:09:03.050 --> 00:09:05.950 align:middle line:90%
+
+
+00:09:05.950 --> 00:09:08.565 align:middle line:84%
+I'm going to choose to
+simply resubmit this message.
+我现在只是简单地重发这消息。
+
+00:09:08.565 --> 00:09:13.290 align:middle line:90%
+
+
+00:09:13.290 --> 00:09:16.020 align:middle line:84%
+Thank you for watching
+this eLearning session.
+感谢您收看这 eLearning 课程。
+
+00:09:16.020 --> 00:09:17.860 align:middle line:84%
+Hopefully, you've
+learned a little bit more
+希望您能从中学习到一些
+
+00:09:17.860 --> 00:09:20.640 align:middle line:84%
+about error handling
+in Ensemble.
+Ensmeble 错误处理。
+
+00:09:20.640 --> 00:09:21.967 align:middle line:90%

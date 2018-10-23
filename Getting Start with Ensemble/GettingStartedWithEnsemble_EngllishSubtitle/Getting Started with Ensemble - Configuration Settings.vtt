@@ -1,0 +1,588 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.010 align:middle line:90%
+
+
+00:00:01.010 --> 00:00:04.600 align:middle line:84%
+Welcome to the eLearning session
+"Getting Started with Ensemble:
+
+00:00:04.600 --> 00:00:07.170 align:middle line:90%
+Configuration Settings."
+
+00:00:07.170 --> 00:00:10.180 align:middle line:84%
+Many of the items you add
+to an Ensemble Production
+
+00:00:10.180 --> 00:00:13.440 align:middle line:84%
+are standard classes
+provided by InterSystems
+
+00:00:13.440 --> 00:00:17.180 align:middle line:84%
+or make use of adapters
+provided by InterSystems.
+
+00:00:17.180 --> 00:00:20.640 align:middle line:84%
+These components make use
+of Configuration Settings
+
+00:00:20.640 --> 00:00:23.030 align:middle line:84%
+to work in your
+particular environment.
+
+00:00:23.030 --> 00:00:27.410 align:middle line:84%
+As a very simple example,
+consider a Business Service
+
+00:00:27.410 --> 00:00:30.790 align:middle line:90%
+using a file inbound adapter.
+
+00:00:30.790 --> 00:00:35.660 align:middle line:84%
+The file path and the
+file specifications
+
+00:00:35.660 --> 00:00:38.570 align:middle line:84%
+used by the adapter
+are not hard coded.
+
+00:00:38.570 --> 00:00:41.300 align:middle line:84%
+They are taken from
+Configuration Settings
+
+00:00:41.300 --> 00:00:43.660 align:middle line:90%
+in your Production.
+
+00:00:43.660 --> 00:00:45.890 align:middle line:84%
+Many business
+components can be added
+
+00:00:45.890 --> 00:00:48.830 align:middle line:84%
+to a production that are
+implemented by the same class
+
+00:00:48.830 --> 00:00:51.530 align:middle line:84%
+but perform different
+roles because they
+
+00:00:51.530 --> 00:00:53.680 align:middle line:90%
+are configured differently.
+
+00:00:53.680 --> 00:00:56.430 align:middle line:84%
+Settings can be applied
+to all configuration
+
+00:00:56.430 --> 00:00:59.720 align:middle line:84%
+items in a Production or to
+the Production as a whole.
+
+00:00:59.720 --> 00:01:02.810 align:middle line:90%
+
+
+00:01:02.810 --> 00:01:06.480 align:middle line:84%
+To configure settings, go to
+the Production Configuration
+
+00:01:06.480 --> 00:01:09.750 align:middle line:84%
+page in the Ensemble
+Management Portal.
+
+00:01:09.750 --> 00:01:14.110 align:middle line:84%
+If you select the link
+Production Settings and use
+
+00:01:14.110 --> 00:01:17.510 align:middle line:84%
+the Settings tab, you
+can modify the settings
+
+00:01:17.510 --> 00:01:19.220 align:middle line:90%
+for the overall Production.
+
+00:01:19.220 --> 00:01:22.100 align:middle line:84%
+There are a couple
+settings that are
+
+00:01:22.100 --> 00:01:26.680 align:middle line:84%
+relevant for your Production,
+such as Testing Enabled
+
+00:01:26.680 --> 00:01:30.730 align:middle line:84%
+to allow you to test
+your Production,
+
+00:01:30.730 --> 00:01:36.520 align:middle line:84%
+as well as the default
+Actor Pool Size.
+
+00:01:36.520 --> 00:01:41.490 align:middle line:84%
+If you select an individual
+item in the left hand panel,
+
+00:01:41.490 --> 00:01:46.920 align:middle line:84%
+the Settings tab will show
+the settings for that item.
+
+00:01:46.920 --> 00:01:50.720 align:middle line:84%
+The settings are grouped
+into different categories.
+
+00:01:50.720 --> 00:01:52.980 align:middle line:84%
+In the Informational
+Settings group,
+
+00:01:52.980 --> 00:01:59.050 align:middle line:84%
+you will see some fields, such
+as a Class Name and the Adapter
+
+00:01:59.050 --> 00:02:01.360 align:middle line:84%
+Class Name, that are
+not really settings
+
+00:02:01.360 --> 00:02:04.440 align:middle line:84%
+but are shown here for
+reference and convenience.
+
+00:02:04.440 --> 00:02:07.580 align:middle line:84%
+The settings you are
+most likely to change
+
+00:02:07.580 --> 00:02:13.860 align:middle line:84%
+should be in the
+Basic Settings group.
+
+00:02:13.860 --> 00:02:15.820 align:middle line:84%
+Settings in the
+other groups come
+
+00:02:15.820 --> 00:02:18.130 align:middle line:84%
+with defaults, many
+of which hopefully
+
+00:02:18.130 --> 00:02:22.052 align:middle line:84%
+match your requirements and
+do not need to be changed.
+
+00:02:22.052 --> 00:02:23.385 align:middle line:90%
+Let's look at a couple examples.
+
+00:02:23.385 --> 00:02:26.680 align:middle line:90%
+
+
+00:02:26.680 --> 00:02:31.560 align:middle line:84%
+First, we will examine
+MyBusinessService
+
+00:02:31.560 --> 00:02:34.810 align:middle line:90%
+in eLearning.DemoProduction.
+
+00:02:34.810 --> 00:02:37.490 align:middle line:84%
+In the Informational
+Settings group,
+
+00:02:37.490 --> 00:02:39.610 align:middle line:84%
+you can see that
+the Adapter Class
+
+00:02:39.610 --> 00:02:40.860 align:middle line:90%
+is EnsLib.File.InboundAdapter.
+
+00:02:40.860 --> 00:02:44.590 align:middle line:90%
+
+
+00:02:44.590 --> 00:02:46.970 align:middle line:84%
+When we look at
+the Basic Settings,
+
+00:02:46.970 --> 00:02:51.140 align:middle line:84%
+you can see settings that
+are specific to that adapter,
+
+00:02:51.140 --> 00:02:56.520 align:middle line:84%
+including the File Path, the
+File Specifications, Archive
+
+00:02:56.520 --> 00:03:00.570 align:middle line:90%
+Path, and the Work Path.
+
+00:03:00.570 --> 00:03:04.880 align:middle line:84%
+Looking at MyTCPService,
+we see that it
+
+00:03:04.880 --> 00:03:08.850 align:middle line:90%
+uses a TCP inbound adapter.
+
+00:03:08.850 --> 00:03:16.150 align:middle line:84%
+As a result, you see additional
+settings, such as port number.
+
+00:03:16.150 --> 00:03:18.670 align:middle line:90%
+
+
+00:03:18.670 --> 00:03:21.960 align:middle line:84%
+And, in the new
+Connections Settings
+
+00:03:21.960 --> 00:03:25.050 align:middle line:84%
+group added because
+of the TCP service,
+
+00:03:25.050 --> 00:03:26.550 align:middle line:90%
+we have the IP address.
+
+00:03:26.550 --> 00:03:30.860 align:middle line:90%
+
+
+00:03:30.860 --> 00:03:36.550 align:middle line:84%
+The MySQLOperation
+Business Operation
+
+00:03:36.550 --> 00:03:38.370 align:middle line:84%
+uses the
+EnsLib.SQL.OutboundAdapter.
+
+00:03:38.370 --> 00:03:42.810 align:middle line:90%
+
+
+00:03:42.810 --> 00:03:50.100 align:middle line:84%
+Here, the Basic Settings
+include the DSN and credentials.
+
+00:03:50.100 --> 00:03:54.580 align:middle line:84%
+The Connection Settings
+handle JDBC connectivity,
+
+00:03:54.580 --> 00:03:56.590 align:middle line:90%
+if they're required.
+
+00:03:56.590 --> 00:04:02.970 align:middle line:84%
+The actual SQL statement
+is handled in the class
+
+00:04:02.970 --> 00:04:07.620 align:middle line:84%
+eLearning.SQLOperation,
+providing flexibility
+
+00:04:07.620 --> 00:04:10.730 align:middle line:90%
+in creating the query.
+
+00:04:10.730 --> 00:04:14.120 align:middle line:84%
+As you continue to look
+at different adapters,
+
+00:04:14.120 --> 00:04:16.269 align:middle line:84%
+you will see that
+they all have settings
+
+00:04:16.269 --> 00:04:19.959 align:middle line:84%
+that are appropriate for
+their particular technology.
+
+00:04:19.959 --> 00:04:23.250 align:middle line:84%
+Some settings are applicable
+to all configuration items,
+
+00:04:23.250 --> 00:04:25.740 align:middle line:84%
+regardless of the
+adapter technology.
+
+00:04:25.740 --> 00:04:27.310 align:middle line:84%
+These include
+whether the item is
+
+00:04:27.310 --> 00:04:29.600 align:middle line:84%
+Enabled, the Pool
+Size for the item,
+
+00:04:29.600 --> 00:04:31.720 align:middle line:84%
+when it is scheduled
+to run, how they
+
+00:04:31.720 --> 00:04:36.530 align:middle line:84%
+behave in the event of an
+error, as well as others.
+
+00:04:36.530 --> 00:04:39.020 align:middle line:84%
+I started by saying
+that you can control
+
+00:04:39.020 --> 00:04:41.740 align:middle line:84%
+standard components
+delivered by InterSystems,
+
+00:04:41.740 --> 00:04:44.330 align:middle line:84%
+but you may want to add
+settings to components
+
+00:04:44.330 --> 00:04:45.880 align:middle line:90%
+you build yourself.
+
+00:04:45.880 --> 00:04:51.090 align:middle line:84%
+So let's take a look at how
+they appear inside of a class.
+
+00:04:51.090 --> 00:04:53.560 align:middle line:84%
+For example, you
+may have written
+
+00:04:53.560 --> 00:04:57.860 align:middle line:84%
+the eLearning.SQLOperation
+Business Operation class.
+
+00:04:57.860 --> 00:05:01.910 align:middle line:84%
+If we look in
+Studio, you can see
+
+00:05:01.910 --> 00:05:06.900 align:middle line:84%
+that it's a fairly simple
+class that updates a table.
+
+00:05:06.900 --> 00:05:12.120 align:middle line:84%
+One value comes from the
+Request, one is a timestamp,
+
+00:05:12.120 --> 00:05:17.700 align:middle line:84%
+and the other is a department
+that is hard coded to Sales.
+
+00:05:17.700 --> 00:05:20.790 align:middle line:84%
+If I want department
+to be configurable,
+
+00:05:20.790 --> 00:05:23.400 align:middle line:90%
+I can make it a setting.
+
+00:05:23.400 --> 00:05:32.426 align:middle line:84%
+First, I would add a property
+for Department to the class.
+
+00:05:32.426 --> 00:05:43.300 align:middle line:90%
+
+
+00:05:43.300 --> 00:05:47.580 align:middle line:84%
+I can use this
+value in my update
+
+00:05:47.580 --> 00:05:53.760 align:middle line:84%
+by replacing the
+hard coded literal
+
+00:05:53.760 --> 00:06:01.290 align:middle line:84%
+with a reference to the property
+now to make property a setting.
+
+00:06:01.290 --> 00:06:03.695 align:middle line:90%
+I add a SETTINGS parameter.
+
+00:06:03.695 --> 00:06:17.620 align:middle line:90%
+
+
+00:06:17.620 --> 00:06:21.130 align:middle line:84%
+Note that the word
+SETTINGS is all uppercase
+
+00:06:21.130 --> 00:06:26.270 align:middle line:84%
+and Department must match the
+case of the property name.
+
+00:06:26.270 --> 00:06:31.150 align:middle line:84%
+You can provide many property
+names, separated by commas.
+
+00:06:31.150 --> 00:06:35.270 align:middle line:84%
+This will automatically expose
+the setting in the management
+
+00:06:35.270 --> 00:06:36.620 align:middle line:90%
+portal.
+
+00:06:36.620 --> 00:06:43.590 align:middle line:84%
+As we can see, when
+we compile the class
+
+00:06:43.590 --> 00:06:46.220 align:middle line:84%
+and refresh the
+management portal.
+
+00:06:46.220 --> 00:06:58.860 align:middle line:90%
+
+
+00:06:58.860 --> 00:07:06.150 align:middle line:84%
+When we now look
+at MySQLOperation,
+
+00:07:06.150 --> 00:07:11.090 align:middle line:84%
+we will see that, in
+the Additional Settings,
+
+00:07:11.090 --> 00:07:17.480 align:middle line:84%
+we now have Department, that
+was not there previously.
+
+00:07:17.480 --> 00:07:21.500 align:middle line:84%
+The SETTINGS parameter
+has some special tricks.
+
+00:07:21.500 --> 00:07:25.240 align:middle line:84%
+If you have defined
+it in a superclass,
+
+00:07:25.240 --> 00:07:28.310 align:middle line:84%
+it does not
+overwrite that value.
+
+00:07:28.310 --> 00:07:32.950 align:middle line:84%
+It appends new values to the
+existing list of settings.
+
+00:07:32.950 --> 00:07:36.390 align:middle line:84%
+You can even suppress a setting
+declared in a superclass
+
+00:07:36.390 --> 00:07:38.290 align:middle line:90%
+by using a minus sign.
+
+00:07:38.290 --> 00:07:40.870 align:middle line:84%
+You would do this if
+you decided to hard code
+
+00:07:40.870 --> 00:07:46.060 align:middle line:84%
+a setting to a particular value
+in your application logic.
+
+00:07:46.060 --> 00:07:47.810 align:middle line:84%
+Note that the settings
+can be defined
+
+00:07:47.810 --> 00:07:50.090 align:middle line:84%
+in the business host,
+that is a Business Service
+
+00:07:50.090 --> 00:07:54.570 align:middle line:84%
+Process or Operation, or in
+the adaptor that is used.
+
+00:07:54.570 --> 00:07:57.260 align:middle line:84%
+These settings all
+appear together
+
+00:07:57.260 --> 00:08:00.280 align:middle line:90%
+in the configuration page.
+
+00:08:00.280 --> 00:08:02.580 align:middle line:84%
+Now let's talk about how
+the settings are stored
+
+00:08:02.580 --> 00:08:05.120 align:middle line:84%
+into Production and
+what happens when
+
+00:08:05.120 --> 00:08:10.650 align:middle line:84%
+you promote a Production from
+development to test to live.
+
+00:08:10.650 --> 00:08:13.790 align:middle line:84%
+Going back to
+Studio, we will look
+
+00:08:13.790 --> 00:08:18.580 align:middle line:90%
+at the XML for our Production.
+
+00:08:18.580 --> 00:08:23.600 align:middle line:84%
+The settings appear in the XML
+definition for the production.
+
+00:08:23.600 --> 00:08:27.510 align:middle line:84%
+As you can see here,
+for MyBusinessService,
+
+00:08:27.510 --> 00:08:31.070 align:middle line:84%
+we have the various settings
+coming from the adapter file
+
+00:08:31.070 --> 00:08:33.240 align:middle line:90%
+path and so forth.
+
+00:08:33.240 --> 00:08:36.110 align:middle line:84%
+If you export this class
+from your test system
+
+00:08:36.110 --> 00:08:38.710 align:middle line:84%
+and import it into
+a live system,
+
+00:08:38.710 --> 00:08:40.580 align:middle line:90%
+these settings will be copied.
+
+00:08:40.580 --> 00:08:43.059 align:middle line:84%
+If there's a previous
+version of this configuration
+
+00:08:43.059 --> 00:08:46.050 align:middle line:84%
+item in the settings,
+it will be overwritten.
+
+00:08:46.050 --> 00:08:48.560 align:middle line:84%
+In many cases, this
+is exactly what
+
+00:08:48.560 --> 00:08:51.860 align:middle line:84%
+you want but for some
+settings, such as TCP/IP
+
+00:08:51.860 --> 00:08:54.520 align:middle line:84%
+addresses or file
+paths, the values
+
+00:08:54.520 --> 00:08:57.020 align:middle line:84%
+on the test system
+and the live system
+
+00:08:57.020 --> 00:08:59.530 align:middle line:90%
+are intentionally different.
+
+00:08:59.530 --> 00:09:04.210 align:middle line:84%
+If you overwrote the TCP address
+setting of a live Business
+
+00:09:04.210 --> 00:09:07.580 align:middle line:84%
+Operation with the values
+from the test system,
+
+00:09:07.580 --> 00:09:11.660 align:middle line:84%
+live messages would be routed
+to your test environment.
+
+00:09:11.660 --> 00:09:16.560 align:middle line:84%
+To avoid this, you can set
+up system default settings
+
+00:09:16.560 --> 00:09:20.370 align:middle line:84%
+that are stored outside of
+the production definition.
+
+00:09:20.370 --> 00:09:23.390 align:middle line:84%
+If you do this, and specify
+that this setting should
+
+00:09:23.390 --> 00:09:25.380 align:middle line:84%
+look for the system
+default setting,
+
+00:09:25.380 --> 00:09:27.290 align:middle line:84%
+the value will not
+be copied across
+
+00:09:27.290 --> 00:09:30.090 align:middle line:84%
+in the production
+definition, so the value
+
+00:09:30.090 --> 00:09:33.060 align:middle line:90%
+will not be overwritten.
+
+00:09:33.060 --> 00:09:36.080 align:middle line:84%
+You have been watching
+Getting Started With Ensemble:
+
+00:09:36.080 --> 00:09:38.550 align:middle line:90%
+Configuration Settings.
+
+00:09:38.550 --> 00:09:39.222 align:middle line:90%

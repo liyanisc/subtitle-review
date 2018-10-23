@@ -1,0 +1,638 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.140 align:middle line:90%
+
+
+00:00:01.140 --> 00:00:04.800 align:middle line:84%
+Welcome to the eLearning session
+Getting Started with Ensemble:
+
+00:00:04.800 --> 00:00:07.495 align:middle line:90%
+Requests, Responses and Queues.
+
+00:00:07.495 --> 00:00:10.510 align:middle line:90%
+
+
+00:00:10.510 --> 00:00:13.380 align:middle line:84%
+Sending Requests and
+receiving Responses
+
+00:00:13.380 --> 00:00:16.690 align:middle line:84%
+is fundamental to everything
+you do an Ensemble.
+
+00:00:16.690 --> 00:00:19.770 align:middle line:84%
+This is how all communication
+between Ensemble components
+
+00:00:19.770 --> 00:00:20.770 align:middle line:90%
+is done.
+
+00:00:20.770 --> 00:00:22.730 align:middle line:84%
+And this session
+discusses the basics
+
+00:00:22.730 --> 00:00:24.780 align:middle line:84%
+of what Requests
+and Responses are
+
+00:00:24.780 --> 00:00:27.810 align:middle line:84%
+and the Queues that are used to
+pass them between components.
+
+00:00:27.810 --> 00:00:30.450 align:middle line:90%
+
+
+00:00:30.450 --> 00:00:34.650 align:middle line:84%
+Each message has a Message
+Header and a Message Body.
+
+00:00:34.650 --> 00:00:36.500 align:middle line:84%
+The Message Header
+includes information
+
+00:00:36.500 --> 00:00:38.770 align:middle line:84%
+about the type and
+status of the message.
+
+00:00:38.770 --> 00:00:41.830 align:middle line:84%
+The Message Header structure
+is the same for all messages
+
+00:00:41.830 --> 00:00:44.100 align:middle line:90%
+and is defined by Ensemble.
+
+00:00:44.100 --> 00:00:47.230 align:middle line:84%
+The Message Body is the
+message that the application
+
+00:00:47.230 --> 00:00:48.460 align:middle line:90%
+is sending.
+
+00:00:48.460 --> 00:00:52.030 align:middle line:84%
+The Message Body must
+be a Persistent Object
+
+00:00:52.030 --> 00:00:54.620 align:middle line:90%
+and are stored in the database.
+
+00:00:54.620 --> 00:00:57.130 align:middle line:84%
+It might be a straightforward
+Ensemble class.
+
+00:00:57.130 --> 00:01:03.650 align:middle line:84%
+Or it might be a more complex
+entity such as an HL7 message.
+
+00:01:03.650 --> 00:01:06.580 align:middle line:84%
+When the message is sent,
+Ensemble automatically
+
+00:01:06.580 --> 00:01:09.460 align:middle line:90%
+generates the Message Header.
+
+00:01:09.460 --> 00:01:12.750 align:middle line:84%
+The application code in the
+Business Service or Business
+
+00:01:12.750 --> 00:01:16.760 align:middle line:84%
+Process creates an
+instance of a Message Body,
+
+00:01:16.760 --> 00:01:19.010 align:middle line:90%
+just as it would any Object.
+
+00:01:19.010 --> 00:01:23.540 align:middle line:84%
+For pre-built components, such
+as Ensemble's HL7 Business
+
+00:01:23.540 --> 00:01:26.660 align:middle line:90%
+Services, this is done for you.
+
+00:01:26.660 --> 00:01:29.420 align:middle line:90%
+
+
+00:01:29.420 --> 00:01:32.050 align:middle line:84%
+Let's look at a
+running Production.
+
+00:01:32.050 --> 00:01:37.980 align:middle line:84%
+The Business Service
+CompositeOrderService
+
+00:01:37.980 --> 00:01:41.410 align:middle line:84%
+sends an order request
+to the Business Process
+
+00:01:41.410 --> 00:01:46.110 align:middle line:84%
+CompositeOrderProcess
+and waits for a response.
+
+00:01:46.110 --> 00:01:49.550 align:middle line:90%
+
+
+00:01:49.550 --> 00:01:53.250 align:middle line:84%
+CompositeOrderProcess
+will process the order
+
+00:01:53.250 --> 00:02:00.720 align:middle line:84%
+and sends the response back
+to the CompositeOrderService.
+
+00:02:00.720 --> 00:02:07.600 align:middle line:84%
+This web page sends an order
+through CompositeOrderService
+
+00:02:07.600 --> 00:02:10.169 align:middle line:90%
+to be processed.
+
+00:02:10.169 --> 00:02:16.860 align:middle line:84%
+So we can select a Product,
+define the Quantity,
+
+00:02:16.860 --> 00:02:21.690 align:middle line:84%
+place the order, and
+wait for the response.
+
+00:02:21.690 --> 00:02:24.000 align:middle line:84%
+As you can see, the
+order was placed
+
+00:02:24.000 --> 00:02:25.110 align:middle line:90%
+and we have a Total Cost.
+
+00:02:25.110 --> 00:02:27.800 align:middle line:90%
+
+
+00:02:27.800 --> 00:02:30.630 align:middle line:84%
+Now, let's take a
+look at the messages
+
+00:02:30.630 --> 00:02:35.650 align:middle line:84%
+that were sent in order
+to accomplish this.
+
+00:02:35.650 --> 00:02:37.830 align:middle line:84%
+In order to look
+at the messages,
+
+00:02:37.830 --> 00:02:44.320 align:middle line:84%
+we will use the Ensemble
+Portal and go to View, Messages
+
+00:02:44.320 --> 00:02:45.945 align:middle line:84%
+to see the display
+of all the messages.
+
+00:02:45.945 --> 00:02:50.700 align:middle line:90%
+
+
+00:02:50.700 --> 00:02:54.160 align:middle line:84%
+The very first one should
+be the order we just placed.
+
+00:02:54.160 --> 00:02:57.500 align:middle line:84%
+By clicking on
+our first message,
+
+00:02:57.500 --> 00:03:08.820 align:middle line:84%
+we see the Header, the Body, the
+full contents displayed as XML,
+
+00:03:08.820 --> 00:03:11.890 align:middle line:90%
+and more importantly, the Trace.
+
+00:03:11.890 --> 00:03:16.790 align:middle line:84%
+This shows all of the
+messages that were processed
+
+00:03:16.790 --> 00:03:20.320 align:middle line:90%
+in order to handle the order.
+
+00:03:20.320 --> 00:03:26.680 align:middle line:84%
+Let's take a look at
+the full view of this
+
+00:03:26.680 --> 00:03:28.215 align:middle line:84%
+so we can see this
+in more detail.
+
+00:03:28.215 --> 00:03:31.550 align:middle line:90%
+
+
+00:03:31.550 --> 00:03:35.740 align:middle line:84%
+The very first message is
+a CompostieOrderRequest.
+
+00:03:35.740 --> 00:03:40.380 align:middle line:84%
+And here we can see, once
+again, the header, the body,
+
+00:03:40.380 --> 00:03:43.600 align:middle line:84%
+and the contents
+expressed as XML.
+
+00:03:43.600 --> 00:03:46.150 align:middle line:84%
+By clicking on each
+message, we can
+
+00:03:46.150 --> 00:03:50.180 align:middle line:84%
+see the appropriate
+information for that message.
+
+00:03:50.180 --> 00:03:53.130 align:middle line:84%
+By clicking on each
+message, you can
+
+00:03:53.130 --> 00:03:58.290 align:middle line:84%
+see that the structure of
+the header of each message
+
+00:03:58.290 --> 00:04:03.540 align:middle line:84%
+does not change, although the
+information in the Message
+
+00:04:03.540 --> 00:04:06.590 align:middle line:90%
+Header does.
+
+00:04:06.590 --> 00:04:10.360 align:middle line:84%
+The Message Body is specific
+to that message type
+
+00:04:10.360 --> 00:04:15.010 align:middle line:84%
+as defined by your
+Ensemble Production.
+
+00:04:15.010 --> 00:04:17.940 align:middle line:84%
+So the body
+information will change
+
+00:04:17.940 --> 00:04:21.055 align:middle line:84%
+based on the message
+that is being set.
+
+00:04:21.055 --> 00:04:24.200 align:middle line:90%
+
+
+00:04:24.200 --> 00:04:28.300 align:middle line:84%
+Any errors would also
+appear in this Trace.
+
+00:04:28.300 --> 00:04:31.130 align:middle line:84%
+And you can further
+diagnose any problems
+
+00:04:31.130 --> 00:04:32.910 align:middle line:90%
+that your Production may have.
+
+00:04:32.910 --> 00:04:37.780 align:middle line:90%
+
+
+00:04:37.780 --> 00:04:40.970 align:middle line:84%
+Queues are just
+entries in the database
+
+00:04:40.970 --> 00:04:44.320 align:middle line:84%
+that hold pointers to the
+Message Headers waiting
+
+00:04:44.320 --> 00:04:45.580 align:middle line:90%
+to be set.
+
+00:04:45.580 --> 00:04:49.860 align:middle line:84%
+A queue exists for each Business
+Process and each Business
+
+00:04:49.860 --> 00:04:52.690 align:middle line:84%
+Operation in a
+running Production.
+
+00:04:52.690 --> 00:04:54.680 align:middle line:84%
+The name of the
+Queue is the same
+
+00:04:54.680 --> 00:04:57.060 align:middle line:84%
+as the name of the
+configuration item.
+
+00:04:57.060 --> 00:04:59.420 align:middle line:84%
+Because queues are
+stored in the database,
+
+00:04:59.420 --> 00:05:03.910 align:middle line:84%
+they automatically
+survive system shut down.
+
+00:05:03.910 --> 00:05:07.990 align:middle line:84%
+CompositeOrderService
+creates an order Message Body
+
+00:05:07.990 --> 00:05:12.340 align:middle line:84%
+and sends the request
+to CompositeOrderPRocess
+
+00:05:12.340 --> 00:05:17.560 align:middle line:84%
+synchronously, meaning that
+the CompositeOrderService will
+
+00:05:17.560 --> 00:05:19.910 align:middle line:90%
+wait for a response.
+
+00:05:19.910 --> 00:05:23.990 align:middle line:84%
+Once the existence of the
+Business Processes is verified,
+
+00:05:23.990 --> 00:05:26.310 align:middle line:84%
+a new Message Header
+Object is created
+
+00:05:26.310 --> 00:05:30.250 align:middle line:84%
+and is property set,
+including Message Body class
+
+00:05:30.250 --> 00:05:34.200 align:middle line:84%
+name and Message Body ID
+to reflect the message
+
+00:05:34.200 --> 00:05:36.980 align:middle line:84%
+that the CompositeOrderService
+is sending.
+
+00:05:36.980 --> 00:05:40.650 align:middle line:84%
+Both the Message Header and
+Message Body are saved to disk.
+
+00:05:40.650 --> 00:05:43.400 align:middle line:84%
+And the ID of the
+Message Header is
+
+00:05:43.400 --> 00:05:46.940 align:middle line:84%
+placed on the Queue for
+CompositeOrderProcess.
+
+00:05:46.940 --> 00:05:51.040 align:middle line:84%
+The final step is to send a
+signal to CompositeOrderProcess
+
+00:05:51.040 --> 00:05:54.420 align:middle line:84%
+so that it wakes up and
+reads what is on its Queue.
+
+00:05:54.420 --> 00:05:59.570 align:middle line:90%
+
+
+00:05:59.570 --> 00:06:03.430 align:middle line:84%
+If the Business Service sent
+the message asynchronously,
+
+00:06:03.430 --> 00:06:08.420 align:middle line:84%
+it doesn't wait for a reply
+but continues its execution.
+
+00:06:08.420 --> 00:06:11.670 align:middle line:84%
+Since CompositeOrderService
+sent the message synchronously,
+
+00:06:11.670 --> 00:06:14.970 align:middle line:84%
+it waits for response from
+CompositeOrderProcess.
+
+00:06:14.970 --> 00:06:18.570 align:middle line:84%
+This is done by creating
+a new Queue that is only
+
+00:06:18.570 --> 00:06:21.250 align:middle line:84%
+accessed by
+CompositeOrderService
+
+00:06:21.250 --> 00:06:24.340 align:middle line:84%
+and waits for a signal
+saying it has arrived.
+
+00:06:24.340 --> 00:06:28.220 align:middle line:84%
+The application code in
+CompositeOrderProcess,
+
+00:06:28.220 --> 00:06:31.840 align:middle line:84%
+processes the request, builds
+a response Message Body,
+
+00:06:31.840 --> 00:06:34.120 align:middle line:84%
+and when it returns
+as successful,
+
+00:06:34.120 --> 00:06:36.720 align:middle line:84%
+the Ensemble infrastructure
+will automatically
+
+00:06:36.720 --> 00:06:40.410 align:middle line:84%
+create a Message Header,
+put it on the private Queue,
+
+00:06:40.410 --> 00:06:44.360 align:middle line:84%
+and send a signal to wake
+up CompositeOrderService.
+
+00:06:44.360 --> 00:06:47.100 align:middle line:84%
+At this point,
+CompositeOrderService
+
+00:06:47.100 --> 00:06:51.476 align:middle line:84%
+will continue and do what it
+wants to do with the response.
+
+00:06:51.476 --> 00:06:55.190 align:middle line:90%
+
+
+00:06:55.190 --> 00:06:58.140 align:middle line:84%
+Now let's consider
+a Business Process.
+
+00:06:58.140 --> 00:07:00.420 align:middle line:84%
+Unlike a Business Service,
+a Business Process
+
+00:07:00.420 --> 00:07:03.950 align:middle line:84%
+has the ability to send
+an asynchronous call, do
+
+00:07:03.950 --> 00:07:07.180 align:middle line:84%
+some other work, and then
+sync on the response.
+
+00:07:07.180 --> 00:07:09.530 align:middle line:84%
+If the Business Process
+is written in code,
+
+00:07:09.530 --> 00:07:13.130 align:middle line:84%
+a synchronous call is very
+similar to a Business Service.
+
+00:07:13.130 --> 00:07:16.550 align:middle line:84%
+And for an asynchronous call,
+you must include in your code
+
+00:07:16.550 --> 00:07:19.920 align:middle line:84%
+a call to synchronize
+with the response.
+
+00:07:19.920 --> 00:07:22.000 align:middle line:84%
+For a Business
+Process written in BPL
+
+00:07:22.000 --> 00:07:24.170 align:middle line:90%
+it is slightly different.
+
+00:07:24.170 --> 00:07:31.340 align:middle line:84%
+The call activity has a choice--
+async equals true or false.
+
+00:07:31.340 --> 00:07:34.570 align:middle line:90%
+The default is true.
+
+00:07:34.570 --> 00:07:41.750 align:middle line:84%
+Specify async equals true to
+send an asynchronous request.
+
+00:07:41.750 --> 00:07:49.280 align:middle line:84%
+Then you must add async activity
+later in your business process
+
+00:07:49.280 --> 00:07:52.010 align:middle line:84%
+or the response
+will be discarded.
+
+00:07:52.010 --> 00:07:54.640 align:middle line:90%
+
+
+00:07:54.640 --> 00:07:58.310 align:middle line:84%
+If you specify
+async equals false,
+
+00:07:58.310 --> 00:08:01.420 align:middle line:84%
+the message is still
+sent asynchronously.
+
+00:08:01.420 --> 00:08:05.160 align:middle line:84%
+That sounds a little strange
+so I'll reemphasize that.
+
+00:08:05.160 --> 00:08:08.320 align:middle line:84%
+If you say, async
+equals false, it
+
+00:08:08.320 --> 00:08:11.330 align:middle line:84%
+is still sent as an
+asynchronous request.
+
+00:08:11.330 --> 00:08:14.070 align:middle line:84%
+The difference is
+that the synchronizing
+
+00:08:14.070 --> 00:08:18.730 align:middle line:84%
+is implicit in the call
+and you do nothing.
+
+00:08:18.730 --> 00:08:22.840 align:middle line:84%
+And from a logical point of
+view, it appears synchronous.
+
+00:08:22.840 --> 00:08:25.650 align:middle line:84%
+The reason for doing this
+is that a Business Process
+
+00:08:25.650 --> 00:08:29.990 align:middle line:84%
+should almost never make
+a truly synchronous call.
+
+00:08:29.990 --> 00:08:32.760 align:middle line:84%
+When a Business Process
+makes an asynchronous call
+
+00:08:32.760 --> 00:08:35.960 align:middle line:84%
+and then syncs either
+implicitly or explicitly,
+
+00:08:35.960 --> 00:08:38.840 align:middle line:84%
+the Business Process
+status is written to disk.
+
+00:08:38.840 --> 00:08:41.460 align:middle line:84%
+And the job that is implementing
+the Business Process
+
+00:08:41.460 --> 00:08:43.520 align:middle line:90%
+is free to do more work.
+
+00:08:43.520 --> 00:08:46.880 align:middle line:84%
+If a Business Process had to
+wait for any significant amount
+
+00:08:46.880 --> 00:08:50.840 align:middle line:84%
+of time for a response,
+using truly synchronous calls
+
+00:08:50.840 --> 00:08:53.800 align:middle line:84%
+would cause the Business
+Process to be blocked.
+
+00:08:53.800 --> 00:08:57.240 align:middle line:84%
+Increasing the Pool Size can
+help but at the cost of memory
+
+00:08:57.240 --> 00:09:01.440 align:middle line:84%
+and the loss of first
+in first out processing.
+
+00:09:01.440 --> 00:09:05.900 align:middle line:84%
+If you really need to do
+truly synchronous calls,
+
+00:09:05.900 --> 00:09:08.210 align:middle line:84%
+this could be achieved
+using a code block.
+
+00:09:08.210 --> 00:09:11.290 align:middle line:84%
+But this is an
+exceptional requirement.
+
+00:09:11.290 --> 00:09:14.900 align:middle line:84%
+For both explicit sync
+and an implicit sync,
+
+00:09:14.900 --> 00:09:19.075 align:middle line:84%
+the Business Process will resume
+when the response is returned.
+
+00:09:19.075 --> 00:09:21.620 align:middle line:90%
+
+
+00:09:21.620 --> 00:09:25.530 align:middle line:84%
+While it seems obvious
+to us that the response
+
+00:09:25.530 --> 00:09:30.490 align:middle line:84%
+for CompositeOrderService came
+from CompositeOrderProcess.
+
+00:09:30.490 --> 00:09:34.190 align:middle line:84%
+CompositeOrderService doesn't
+know nor care about that.
+
+00:09:34.190 --> 00:09:37.400 align:middle line:84%
+It just has a
+response on its Queue.
+
+00:09:37.400 --> 00:09:41.220 align:middle line:84%
+This will become
+important later.
+
+00:09:41.220 --> 00:09:43.140 align:middle line:84%
+You've been watching
+Getting Started
+
+00:09:43.140 --> 00:09:47.790 align:middle line:84%
+with Ensemble: Requests,
+Responses, and Queues.
+
+00:09:47.790 --> 00:09:48.508 align:middle line:90%
